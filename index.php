@@ -13,7 +13,6 @@
     <!--FontAwesome CSS-->
     <link rel="stylesheet" href="css/all.min.js">
 
-    </script>
 </head>
 <body>
     <!--Start Navbar-->
