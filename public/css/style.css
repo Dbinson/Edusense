@@ -1,0 +1,34 @@
+/* feedback swiper */
+#section-4 .swiper {
+  width: 100%;
+  height: 50% !important;
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+.mySwiper .swiper-wrapper .swiper-slide {
+  background-position: center;
+  width: 320px !important;
+
+  background-color: rgba(255, 255, 255, 0.568) !important;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.02);
+  filter: blur(4px);
+  /* background: rgb(255, 255, 255); */
+  border-radius: 10px;
+}
+
+.mySwiper .swiper-wrapper .swiper-slide-active{
+    filter: blur(0);
+}
+
+
+
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right
+ {
+    background-image: none;
+    
+}
+
+
+

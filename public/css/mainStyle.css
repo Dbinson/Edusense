@@ -1,0 +1,220 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+main {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+.fs-xl-7 {
+    font-size: 3.58318rem !important;
+}
+
+.mt-7{
+    margin-top: 5rem !important;
+}
+
+nav{
+    padding: 0 !important;
+}
+
+.nav-left{
+    background-color: #097770 !important;
+    border-bottom-right-radius: 86% ;
+    padding: 10px;
+    
+}
+
+.nav-left::after{
+    content: '';
+    display: block;
+    height: 100px;
+    width: 100px;
+    background-color: #097770;
+    position: absolute;
+    transform: translate(41rem,-10.4rem) skew(292deg, 15deg);
+    z-index: 10000;
+}
+
+.navbar .container-fluid .row{
+    flex-grow: 1;
+}
+.nav-right{
+    padding: 10px;
+    backdrop-filter: blur(4px);
+    width: initial !important;
+    height: 15%;
+    /* background-color: rgba(255, 255, 255); */
+}
+/* .nav-right:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 150px;
+    height: 80%;
+    background-color: rgba(255, 255, 255);
+    transform: translate(-115px,7px);
+z-index: -10000;
+} */
+
+.nav-item .nav-link:hover{
+    font-size: 1.2rem;
+    color: rgb(255, 0, 0) !important;
+}
+
+.nav-link.active{
+    font-weight: 700 ;
+}
+
+.nav-item .nav-link:hover::after{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 30px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    filter: blur(1px);
+    margin: auto;
+    
+}
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+ .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: "DM Serif Display",cursive;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+#section-1 h1{
+    background: -webkit-linear-gradient(to right, #19f578, #9932cc); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #19f578, #8b28bd); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.backdrop-b {
+    -webkit-backdrop-filter: blur(4px);
+    /* background-color: #fff; */
+    backdrop-filter:blur(4px);
+}
+
+.btn-c{
+    border-color: rgb(240 158 6);
+    color: orange;
+    /* box-shadow: 0px 1px 10px 0px rgb(240 158 6); */
+    transition: 1s ease-in-out;
+}
+
+.btn-c:hover{
+    border-color: none;
+    background-color: rgb(221, 179, 99);
+    color: #fff;
+    box-shadow: 0px 1px 10px 5px rgb(218, 158, 46);
+    transition: 1s ease-in-out;
+}
+
+.img{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 13vmin;
+    height: 13vmin;
+}
+
+.fadein {
+        opacity:0;
+}
+    
+#section-3{
+    margin-top: 25%;
+    margin-bottom: 25%;
+}
+#section-5{
+    margin-top: 15%;
+    margin-bottom: 15% ;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.single_department:hover img {
+    -webkit-filter: brightness(0) invert(1);
+    -moz-filter: brightness(0) invert(1);
+    -ms-filter: brightness(0) invert(1);
+    -o-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
+}
+
+.single_department img {
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+section#section-4 {
+    background-color: #000;
+    padding: 10vmin 0;
+}
+
+/* section#section-1{
+    background-color: #c6d7ed;
+} */
+
+.course-img img{
+    border-radius: 15px;
+    filter: invert(0);
+    background-color: none;
+    transition: filter 1s;
+}
+.course-img img:hover{
+    filter: invert(1);
+}
+.course-img .img-back:hover{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: linear-gradient(rgb(130, 172, 13),rgb(25, 145, 192));
+}
+
+.course-img{
+    padding: 0;
+    width: 33%;
+    margin: 0 2px;
+    border-radius: 15px;
+    background-color: rgb(232 237 241);
+}
+.course-img:hover{
+    box-shadow: 0 1px 15px  #000;
+}
+
+.home1{
+    height: 100%;
+    width: 100% !important;
+    background-color: #c6d7ed;
+}
+.home1 {
+    width: 100% ;
+    background-color: #c6d7ed;
+    padding: 0rem 2rem 0 5rem ;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
