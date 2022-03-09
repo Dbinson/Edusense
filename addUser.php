@@ -43,11 +43,13 @@ if(isset($_POST['stuemail']) && isset($_POST['checkemail'])){
       $userLogRole = $_POST['userLogRole'];
       $userLogPass = $_POST['userLogPass'];
       
-      $sql = "SELECT user_email,user_password,role_id FROM user WHERE user_email='".$userLogEmail."' AND user_password='".$userLogPass."' AND role_id='".$userLogRole."'";
+      $sql = "SELECT user_id,user_email,user_password,role_id FROM user WHERE user_email='".$userLogEmail."' AND user_password='".$userLogPass."' AND role_id='".$userLogRole."'";
       $result = $conn->query($sql);
       $row = $result->num_rows;
       
       if($row === 1){
+        $rs=$result->fetch_assoc();
+        $_SESSION['userId'] = $rs['user_id'];
         $_SESSION['is_login'] = true;
         $_SESSION['logRole'] = $userLogRole;
         $_SESSION['userLogEmail'] = $userLogEmail;

@@ -49,13 +49,13 @@ function checkUserLogin(){
       success: function(data) {
         // console.log(data);
         if (data == 0) {
-         
-        } else if (data == 1) {
+          console.log('failed');
+        }else if(data == 1){
          console.log("working")
           // Empty Login Fields
-          clearLoginField();
+          // clearLoginField();
           setTimeout(() => {
-            //window.location.href = "./index.php";
+            window.location.href = "./index.php";
           }, 1000);
         }
       }
@@ -63,13 +63,13 @@ function checkUserLogin(){
   }
   
 
-  // Empty Login Fields
-function clearLoginField() {
-  $("#adminLoginForm").trigger("reset");
-}
+//   // Empty Login Fields
+// function clearLoginField() {
+//   $("#adminLoginForm").trigger("reset");
+// }
 
-// Empty Login Fields and Status Msg
-function clearLoginWithStatus() {
-  $("#statusAdminLogMsg").html(" ");
-  clearAdminLoginField();
-}
+// // Empty Login Fields and Status Msg
+// function clearLoginWithStatus() {
+//   $("#statusAdminLogMsg").html(" ");
+//   clearAdminLoginField();
+// }

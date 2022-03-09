@@ -55,7 +55,7 @@
   if(!isset($_SESSION)){
     session_start();
   }
-  include_once('./dbConnection.php')
+  include_once('./dbConnection.php');
 ?>
 
 
@@ -97,7 +97,7 @@
                   <a href="#" class="btn btn-outline-warning ">My Profile</a>
                 </li>
                 <li class="nav-item px-2">
-                  <a href="./logout.php" class="btn btn-outline-info ">Signout</a>
+                  <a href="./logout.php" class="btn btn-outline-info ">Log Out</a>
                 </li>
                 ';
                 }else{
