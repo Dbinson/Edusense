@@ -1,0 +1,54 @@
+.testimonalbox{
+    padding: 50px 25px;
+    height: 70% !important;
+    z-index: 1;
+    box-shadow: none;
+    transition: box-shadow 1s , color 1s;
+  }
+
+  .testimonalbox:hover{
+    color: blueviolet;
+    box-shadow: 1px 2px 11px 0px blueviolet;
+    
+    border-radius: 10px;
+  }
+
+  .testimonalbox::before{
+    content: '';
+    background-color: rgb(255, 255, 255);
+    background:url('https://randomuser.me/api/portraits/women/40.jpg');
+    background-size: cover;
+    width: 120px !important;
+    height: 120px !important;
+    display: block;
+    z-index: 10000;
+    border-radius: 50%;
+    position: absolute;
+    transform:translate(-70px,-99px);
+    border: 2px solid #fff;
+  }
+
+  .stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+    color: #a3a29a;
+  }
+  
+  .stars-outer::before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+  }
+  
+  .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+  }
+  
+  .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b;
+  }
