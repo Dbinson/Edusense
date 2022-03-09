@@ -68,7 +68,7 @@ body {
   height: 100%;
   /* align-items: flex-start; */
 }
-.right-box form input {
+.right-box form input, select {
   width: 100%;
   height: 50px;
   margin-bottom: 15px;
@@ -104,6 +104,7 @@ body {
     rgba(0, 212, 255, 1) 100%
   );
   cursor: pointer;
+    /* transform: all 0.5s; */
 }
 .right-box form button:hover {
   background: linear-gradient(
@@ -112,5 +113,12 @@ body {
     rgb(91, 91, 255) 35%,
     rgb(21, 213, 251) 100%
   );
-  transform: all 0.5s;
+}
+
+select option{
+  padding: 10px;
+}
+
+span{
+  margin-top: 15px;
 }

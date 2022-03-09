@@ -51,6 +51,12 @@
 </head>
 <body>
 
+<?php
+  if(!isset($_SESSION)){
+    session_start();
+  }
+  include_once('./dbConnection.php')
+?>
 
 
     <!-- Navbar -->
@@ -85,12 +91,24 @@
                 <li class="nav-item px-2">
                   <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-item px-2">
-                  <a href="#" class="btn btn-outline-info ">Login</a>
+                <?php
+                if (isset($_SESSION['is_login'])){
+                  echo '<li class="nav-item px-2">
+                  <a href="#" class="btn btn-outline-warning ">My Profile</a>
                 </li>
                 <li class="nav-item px-2">
-                  <a href="#" class="btn btn-outline-warning ">SignUp</a>
+                  <a href="./logout.php" class="btn btn-outline-info ">Signout</a>
                 </li>
+                ';
+                }else{
+                echo '<li class="nav-item px-2">
+                  <a href="./login.php" class="btn btn-outline-info ">Login</a>
+                </li>
+                <li class="nav-item px-2">
+                  <a href="./signup.php" class="btn btn-outline-warning ">SignUp</a>
+                </li>';
+                }
+                ?>
               </ul>
             </div>
           <!-- </div>end col -->

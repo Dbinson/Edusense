@@ -23,13 +23,13 @@ if(isset($_POST['stuemail']) && isset($_POST['checkemail'])){
     $stupass = $_POST['stupass'];
     $role = $_POST['role'];
 
-    $sql = "INSERT INTO user(user_email, user_password,role_id) VALUES ('".$stuemail."', '".$stupass."','".$role."');";
+    $sql = "INSERT INTO user(user_name,user_email, user_password,role_id) VALUES ('".$stuname."','".$stuemail."', '".$stupass."','".$role."');";
     $q1 = $conn->query($sql);
-    $userId = $conn->insert_id;
-    $sql2 = "INSERT INTO students(student_name,user_id) VALUES ('".$stuname."','".$userId."');";
-    $q2 = $conn->query($sql2);
+    // $userId = $conn->insert_id;
+    // $sql2 = "INSERT INTO students(student_name,user_id) VALUES ('".$stuname."','".$userId."');";
+    // $q2 = $conn->query($sql2);
 
-    if($q1 && $q2){
+    if($q1){
       echo json_encode("OK");
     } else {
       echo json_encode("Failed");
