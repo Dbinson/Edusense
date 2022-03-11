@@ -61,6 +61,35 @@ function checkUserLogin(){
       }
     });
   }
+
+  $(document).ready(function (){
+    $(".courseForm").on('submit',(function(e) {
+      e.preventDefault()
+      $.ajax({
+        url:"fetch.php",
+        type:"post",
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        success: function (data){
+          console.log(data);
+          var subjectData = ''; 
+          var i=1
+          $.each(data,(index, val) => {
+            // const val = data[index];
+            subjectData += '<tr>';
+            subjectData += '<td>'+(i++)+'</td>';
+            subjectData += '<td>'+val.subject_name+'</td>';
+            subjectData += '<td><a href="fetch.php?s_id='+val.subject_id+'&q=bookDemo" role="button"class="btn btn-outline-warning demobookbtn">Book the demo</td>';
+            subjectData += '</tr>';
+        });
+        console.log(subjectData)
+        $('.table tbody').append(subjectData);
+        //   location.reload();
+        }
+      });
+    }));
+  });
   
 
 //   // Empty Login Fields

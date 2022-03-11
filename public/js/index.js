@@ -55,9 +55,3 @@ $(window).scroll(function (){
 //   }
 // }
 // function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
-
-$('#c_selection').ready(function(){
-  // if(){
-
-  // }
-});
