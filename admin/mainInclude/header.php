@@ -16,6 +16,7 @@
 
   <!--Custom CSS-->
   <link rel="stylesheet" href="../public/css/sidebar.css">
+  <link rel="stylesheet" href="./css/style.css">
 
   <script src="../js/jquery.js"></script>
 
@@ -83,7 +84,7 @@
                     <a href="addStudent.php">Add Student</a>
                 </li>
                 <li>
-                    <a href="#">View Students</a>
+                    <a href="student.php">View Students</a>
                 </li>
  	 	    </ul>
  	 	</li>
@@ -95,7 +96,7 @@
                     <a href="addFaculty.php">Add Faculty</a>
                 </li>
                 <li>
-                    <a href="#">View faculties</a>
+                    <a href="faculty.php">View faculties</a>
                 </li>
  	 	    </ul>
  	 	</li>
