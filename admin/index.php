@@ -2,7 +2,9 @@
   include_once('./mainInclude/header.php');
 ?>
     <section class="section-container">
-        <div class="text">Dashboard Sidebar</div>
+        <div class="text">
+
+        </div>
     </section>
 
     <script src="../public/js/sidebar.js"></script>
