@@ -23,13 +23,13 @@ if(isset($_POST['stuemail']) && isset($_POST['checkemail'])){
     $stupass = $_POST['stupass'];
     $role = $_POST['role'];
 
-    $sql = "INSERT INTO user(user_email, user_password,role_id) VALUES ('".$stuemail."', '".$stupass."','".$role."');";
+    $sql = "INSERT INTO user(user_name,user_email, user_password,role_id) VALUES ('".$stuname."','".$stuemail."', '".$stupass."','".$role."');";
     $q1 = $conn->query($sql);
-    $userId = $conn->insert_id;
-    $sql2 = "INSERT INTO students(student_name,user_id) VALUES ('".$stuname."','".$userId."');";
-    $q2 = $conn->query($sql2);
+    // $userId = $conn->insert_id;
+    // $sql2 = "INSERT INTO students(student_name,user_id) VALUES ('".$stuname."','".$userId."');";
+    // $q2 = $conn->query($sql2);
 
-    if($q1 && $q2){
+    if($q1){
       echo json_encode("OK");
     } else {
       echo json_encode("Failed");
@@ -43,11 +43,13 @@ if(isset($_POST['stuemail']) && isset($_POST['checkemail'])){
       $userLogRole = $_POST['userLogRole'];
       $userLogPass = $_POST['userLogPass'];
       
-      $sql = "SELECT user_email,user_password,role_id FROM user WHERE user_email='".$userLogEmail."' AND user_password='".$userLogPass."' AND role_id='".$userLogRole."'";
+      $sql = "SELECT user_id,user_email,user_password,role_id FROM user WHERE user_email='".$userLogEmail."' AND user_password='".$userLogPass."' AND role_id='".$userLogRole."'";
       $result = $conn->query($sql);
       $row = $result->num_rows;
       
       if($row === 1){
+        $rs=$result->fetch_assoc();
+        $_SESSION['userId'] = $rs['user_id'];
         $_SESSION['is_login'] = true;
         $_SESSION['logRole'] = $userLogRole;
         $_SESSION['userLogEmail'] = $userLogEmail;

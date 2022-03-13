@@ -1,4 +1,4 @@
-//Add user
+//Add user student
 function addUser(){
   var stuname = $("#stuname").val()
   var stuemail = $("#stuemail").val()
@@ -16,19 +16,15 @@ function addUser(){
       role: "103"
     },
     success: function(data) {
-      console.log(data);
+      // console.log(data);
       if (data == 'Failed') {
-        $("#successMsg").html(
-          '<small class="alert alert-danger"> Failed to Signup ! </small>'
-        );
-      } else if (data == 1) {
-        $("#successMsg").html(
-          '<small class="alert alert-success"> Success! Loading..... </small>'
-        );
+        
+      } else if (data == 'OK') {
+        console.log("completed")
         // Empty Login Fields
         // clearAdminLoginField();
         setTimeout(() => {
-          window.location.href = "index.php";
+          window.location.href = "login.php";
         }, 1000);
       }
     }
@@ -51,33 +47,58 @@ function checkUserLogin(){
         userLogRole: userLogRole
       },
       success: function(data) {
-        console.log(data);
+        // console.log(data);
         if (data == 0) {
-          $("#statusLogMsg").html(
-            '<small class="alert alert-danger"> Invalid Email ID or Password ! </small>'
-          );
-        } else if (data == 1) {
-          $("#statusLogMsg").html(
-            '<small class="alert alert-success"> Success! Loading..... </small>'
-          );
+          console.log('failed');
+        }else if(data == 1){
+         console.log("working")
           // Empty Login Fields
-          clearLoginField();
+          // clearLoginField();
           setTimeout(() => {
-            //window.location.href = "./index.php";
+            window.location.href = "./index.php";
           }, 1000);
         }
       }
     });
   }
+
+  $(document).ready(function (){
+    $(".courseForm").on('submit',(function(e) {
+      e.preventDefault()
+      $.ajax({
+        url:"fetch.php",
+        type:"post",
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        success: function (data){
+          console.log(data);
+          var subjectData = ''; 
+          var i=1
+          $.each(data,(index, val) => {
+            // const val = data[index];
+            subjectData += '<tr>';
+            subjectData += '<td>'+(i++)+'</td>';
+            subjectData += '<td>'+val.subject_name+'</td>';
+            subjectData += '<td><a href="fetch.php?s_id='+val.subject_id+'&q=bookDemo" role="button"class="btn btn-outline-warning demobookbtn">Book the demo</td>';
+            subjectData += '</tr>';
+        });
+        console.log(subjectData)
+        $('.table tbody').append(subjectData);
+        //   location.reload();
+        }
+      });
+    }));
+  });
   
 
-  // Empty Login Fields
-function clearLoginField() {
-  $("#adminLoginForm").trigger("reset");
-}
+//   // Empty Login Fields
+// function clearLoginField() {
+//   $("#adminLoginForm").trigger("reset");
+// }
 
-// Empty Login Fields and Status Msg
-function clearLoginWithStatus() {
-  $("#statusAdminLogMsg").html(" ");
-  clearAdminLoginField();
-}
+// // Empty Login Fields and Status Msg
+// function clearLoginWithStatus() {
+//   $("#statusAdminLogMsg").html(" ");
+//   clearAdminLoginField();
+// }

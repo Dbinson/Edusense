@@ -1,6 +1,7 @@
 
 <?php
   include('./mainInclude/header.php');
+  include_once('./dbConnection.php');
 ?> 
 
 <main class="" id="">
@@ -150,76 +151,219 @@
 </section>
 
 <section  id="section-5">
-  <div class="container-fluid">
+  <div class="container-fluid" id="myGroup">
     <div class="row text-center ">
       <h1 class="display-1 mb-5">Courses</h1>
     </div>
-    <div class="row pb-5 text-center">
-      <div class="col-4 course-img  " data-bs-toggle="collapse" href="#courseCollapse" role="button" aria-expanded="false" aria-controls="courseCollapse">
-        <div class="img-back">
-          <img src="public/assets/c1.png" alt="course-1 image">
-        </div>
-        <h2 class="py-4">Primary School</h2>
-      </div>
-      <div class="col-4  course-img " data-bs-toggle="collapse" href="#courseCollapse" role="button" aria-expanded="false" aria-controls="courseCollapse">
-      <div class="img-back">
-          <img src="public/assets/c2.png" alt="course-2 image">
-        </div>
-        <h2 class="py-4">High School School</h2>
-      </div>
-      <div class="col-4 course-img " data-bs-toggle="collapse" href="#courseCollapse" role="button" aria-expanded="false" aria-controls="courseCollapse">
-        <div class="img-back">
-          <img src="public/assets/c3.png" alt="course-3 image">
-        </div>
-        <h2 class="py-4">Higher Secondary School</h2>
-      </div>
-    </div>
-    <div class="row ">
-      <div class="col ">
-        <div class="collapse multi-collapse" id="courseCollapse">
-          <div class="card card-body">
-          <div class="" id="c_selection">
-            <label for="select_board" class="py-3 fs-4 text-center">Select Board</label>
-            <select class="form-select form-select-lg mb-3" aria-label="Default select board" id="select_board">
-              <option selected>Select a Board</option>
-              <option value="Goa Board">Goa Board</option>
-              <option value="CBCS">CBCS</option>
-            </select>
-            <table class="table table-striped table-secondary table-dark table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Board</th>
-                  <th scope="col">Class</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <a href="#">
-                    <th scope="row">1</th>
-                    <td>CBCS</td>
-                    <td>1</td>
-                  </a>
-                </tr>
-                <tr>
-                  <a href="#">
-                    <th scope="row">2</th>
-                    <td>Goa Board</td>
-                    <td>4</td>
-                  </a>
-                </tr>
-              </tbody>
-            </table>
+    
+      <div class="row pb-5 text-center">
+        <div class="col-4 course-img  " data-bs-toggle="collapse" href="#coursePrimaryCollapse" role="button" aria-expanded="false" aria-controls="coursePrimaryCollapse">
+          <div class="img-back">
+            <img src="public/assets/c1.png" alt="course-1 image">
           </div>
+          <h2 class="py-4">Primary School</h2>
+        </div>
+        <div class="col-4  course-img " data-bs-toggle="collapse" href="#courseHighCollapse" role="button" aria-expanded="false"  aria-controls="courseHighCollapse">
+        <div class="img-back">
+            <img src="public/assets/c2.png" alt="course-2 image">
           </div>
+          <h2 class="py-4">High School School</h2>
+        </div>
+        <div class="col-4 course-img " data-bs-toggle="collapse" href="#courseSecondaryCollapse" role="button" aria-expanded="false"  aria-controls="courseSecondaryCollapse">
+          <div class="img-back">
+            <img src="public/assets/c3.png" alt="course-3 image">
+          </div>
+          <h2 class="py-4">Higher Secondary School</h2>
         </div>
       </div>
-    </div>
+      <div class="row ">
+        <div class="col" >
+          <!-- For primary -->
+          <div class="collapse multi-collapse" data-bs-parent="#myGroup" id="coursePrimaryCollapse">
+            <div class="card card-body bg-grey ">
+              <div class="" id="c_selection ">
+                <form action="" method="POST" class="courseForm">
+                  <input type="hidden" value="1" name="course_id">
+                  <!-- selecting boards -->
+                  <p class="fs-3 mb-2">Select Board</p>
+                  <div class="d-flex flex-wrap justify-content-start">
+                    <?php
+                      $query = 'SELECT DISTINCT board.board_id,board.board_name FROM assign_course 
+                            LEFT JOIN board ON assign_course.board_id = board.board_id 
+                            WHERE assign_course.course_id = "1";';
+                      $result = $conn->query($query);
+                      while($row = $result->fetch_assoc()){
+                        echo '
+                            <div class="board-container">
+                            <span class="p-1">'.$row['board_name'].'</span> 
+                            <input type="radio" value="'.$row['board_id'].'" name="board">
+                          </div>
+                        ';
+                      }
+                    ?>
+                    </div>
+
+                  <!-- selecting Class -->
+                  <p class="fs-3 mb-2">Select Class</p>
+                  <div class="d-flex flex-wrap justify-content-start">
+                  <?php
+                      $query = 'SELECT DISTINCT class.class_id,class.class_name FROM assign_course 
+                      LEFT JOIN class ON assign_course.class_id = class.class_id 
+                      WHERE assign_course.course_id = "1";';
+                      $result = $conn->query($query);
+                      while($row = $result->fetch_assoc()){
+                        echo '
+                        <div class="board-container">
+                          <span class="p-2">'.$row['class_name'].'</span> 
+                          <input type="radio" value="'.$row['class_id'].'" name="class">
+                        </div>
+                        ';
+                      }
+                    ?>
+                    
+                    
+                  </div>
+                  <button class="btn btn-outline-primary m-3" type="submit" >Search</button>
+                </form>
+                 <!-- displaying the subjects  -->
+                <table class="table table-striped table-dark table-bordered table-hover text-center">
+                  <thead>
+                    <th>#</th>
+                    <th>Subject Name</th>
+                    <th>Enrol</th>
+                  </thead>
+                  <tbody>
+                    
+                  </tbody>
+                </table>
+              </div>
+              </div>
+            </div>
+
+          <!-- For High School -->
+          <div class="collapse multi-collapse" data-bs-parent="#myGroup" id="courseHighCollapse">
+            <div class="card card-body bg-grey ">
+              <div class="" id="c_selection ">
+              <form action="" method="POST" class="courseForm">
+              <input type="hidden" value="2" name="course_id">
+                <!-- selecting boards -->
+                <p class="fs-3 mb-2">Select Board</p>
+                <div class="d-flex flex-wrap justify-content-start">
+                <?php
+                    $query = 'SELECT DISTINCT board.board_id,board.board_name FROM assign_course 
+                          LEFT JOIN board ON assign_course.board_id = board.board_id 
+                          WHERE assign_course.course_id = "2";';
+                    $result = $conn->query($query);
+                    while($row = $result->fetch_assoc()){
+                      echo '
+                          <div class="board-container">
+                          <span class="p-1">'.$row['board_name'].'</span> 
+                          <input type="radio" value="'.$row['board_id'].'" name="board">
+                        </div>
+                      ';
+                    }
+                  ?>
+                </div>
+
+                <!-- selecting Class -->
+                <p class="fs-3 mb-2">Select Class</p>
+                <div class="d-flex flex-wrap justify-content-start">
+                  <?php
+                      $query = 'SELECT DISTINCT class.class_id,class.class_name FROM assign_course 
+                      LEFT JOIN class ON assign_course.class_id = class.class_id 
+                      WHERE assign_course.course_id = "2";';
+                      $result = $conn->query($query);
+                      while($row = $result->fetch_assoc()){
+                        echo '
+                        <div class="board-container">
+                          <span class="p-2">'.$row['class_name'].'</span> 
+                          <input type="radio" value="'.$row['class_id'].'" name="class">
+                        </div>
+                        ';
+                      }
+                    ?>
+                </div>
+                <button class="btn btn-outline-primary m-3" type="submit"  >Search</button>
+              </form>
+              <!-- displaying the subjects  -->
+              <table class="table table-striped table-dark table-bordered table-hover text-center">
+                <thead>
+                  <th>#</th>
+                  <th>Subject Name</th>
+                  <th>Enrol</th>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- For Secondary -->
+          <div class="collapse multi-collapse" data-bs-parent="#myGroup" id="courseSecondaryCollapse">
+            <div class="card card-body bg-grey ">
+              <div class="" id="c_selection ">
+                <form action="" method="POST" class="courseForm">
+                  <input type="hidden" value="3" name="course_id">
+                  <!-- selecting boards -->
+                  <p class="fs-3 mb-2">Select Board</p>
+                  <div class="d-flex flex-wrap justify-content-start">
+                  <?php
+                      $query = 'SELECT DISTINCT board.board_id,board.board_name FROM assign_course 
+                            LEFT JOIN board ON assign_course.board_id = board.board_id 
+                            WHERE assign_course.course_id = "3";';
+                      $result = $conn->query($query);
+                      while($row = $result->fetch_assoc()){
+                        echo '
+                            <div class="board-container">
+                            <span class="p-1">'.$row['board_name'].'</span> 
+                            <input type="radio" value="'.$row['board_id'].'" name="board">
+                          </div>
+                        ';
+                      }
+                    ?>
+                  </div>
+
+                  <!-- selecting Class -->
+                  <p class="fs-3 mb-2">Select Class</p>
+                  <div class="d-flex flex-wrap justify-content-start">
+                  <?php
+                      $query = 'SELECT DISTINCT class.class_id,class.class_name FROM assign_course 
+                      LEFT JOIN class ON assign_course.class_id = class.class_id 
+                      WHERE assign_course.course_id = "3";';
+                      $result = $conn->query($query);
+                      while($row = $result->fetch_assoc()){
+                        echo '
+                        <div class="board-container">
+                          <span class="p-2">'.$row['class_name'].'</span> 
+                          <input type="radio" value="'.$row['class_id'].'" name="class">
+                        </div>
+                        ';
+                      }
+                    ?>
+                  </div>
+                  <button class="btn btn-outline-primary m-3" type="submit"  >Search</button>
+                </form>
+                <!-- displaying the subjects  -->
+                <table class="table table-striped table-dark table-bordered table-hover text-center">
+                  <thead>
+                    <th>#</th>
+                    <th>Subject Name</th>
+                    <th>Enrol</th>
+                  </thead>
+                  <tbody>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div><!--Col End -->
+      </div><!--row End -->
+      
+    </form>
   </div>
-
-
-  
-
 </section>
 <?php    
               // if(!isset($_SESSION['is_login'])){
