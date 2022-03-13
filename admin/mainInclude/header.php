@@ -66,13 +66,13 @@
  	 	    <a href="#demoSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Demo</a>
  	 	    <ul class="collapse list-unstyled" id="demoSubmenu">
                 <li>
-                    <a href="#">Demo Requests</a>
+                    <a href="requestDemo.php">Demo Requests</a>
                 </li>
                 <li>
-                    <a href="#">Assigned Demos</a>
+                    <a href="">Assigned Demo</a>
                 </li>
                 <li>
-                    <a href="#">Completed Demos</a>
+                    <a href="Demo.php">View Demo</a>
                 </li>
  	 	    </ul>
  	 	</li>
@@ -105,11 +105,12 @@
  	 	    <a href="#assignmentSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignments</a>
  	 	    <ul class="collapse list-unstyled" id="assignmentSubmenu">
                 <li>
-                    <a href="#">Home 1</a>
+                    <a href="addAssignment.php">Add Assignment</a>
                 </li>
                 <li>
-                    <a href="#">Home 2</a>
+                    <a href="viewAssignment.php">View Assignment</a>
                 </li>
+              
  	 	    </ul>
  	 	</li>
 
@@ -150,12 +151,17 @@
           <li>
  	 	    <a href="#attandanceSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attandance</a>
  	 	    <ul class="collapse list-unstyled" id="attandanceSubmenu">
-                <li>
-                    <a href="#">Home 1</a>
+              <li>
+                    <a href="addAttendance.php">Add attendance</a>
                 </li>
                 <li>
-                    <a href="#">Home 2</a>
+                    <a href="facultyAttendance.php">Faculty attendance</a>
                 </li>
+                <li>
+                    <a href="studentAttendance.php">Student attendance</a>
+                </li>
+               
+               
  	 	    </ul>
  	 	</li>
 
@@ -164,27 +170,28 @@
  	 	    
  	 	</li>
 
+ 	 	
  	 	<li>
- 	 		<a href="#">About</a>
- 	 	</li>
- 	 	<li>
- 	 		<a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
- 	 		<ul class="collapse list-unstyled" id="pageSubmenu">
+ 	 		<a href="#courseSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">course</a>
+ 	 		<ul class="collapse list-unstyled" id="courseSubmenu">
  	 			<li>
- 	 				<a href="#">Page 1</a>
+ 	 				<a href="Chapter.php">Add Chapter</a>
  	 			</li>
  	 			<li>
- 	 				<a href="#">Page 2</a>
+ 	 				<a href="Course.php">Add Course</a>
  	 			</li>
+                  <li>
+ 	 				<a href="Subject.php">Add Subject</a>
+ 	 			</li>
+
+ 	 			
+                  
  	 			
 
  	 		</ul>
  	 	</li>
 
- 	 	 	 	<li>
- 	 				<a href="#">Policy</a>
- 	 			</li>
-
+ 	 	 	 	
          <li>
  	 				<a href="#">Contact Us</a>
  	 			</li>
