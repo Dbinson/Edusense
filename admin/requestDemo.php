@@ -15,6 +15,26 @@
     if(isset($_REQUEST['submitBtn'])){
 
         
+        $request_id = json_decode( $_POST['requestID']);
+
+        $sql=mysqli_query($conn,"SELECT * FROM demo_request
+        LEFT JOIN demo ON demo_request.demo_id = demo.demo_id;");
+  
+        $qCheckRequest = mysqli_query($conn,"SELECT request_id
+                FROM demo_request
+                WHERE demo_id = ".$demo_id."
+                AND chapter_id = ".$chapter_id."
+                ;");
+        if(!mysqli_num_rows($qCheckRequest)>0){
+            $Qrequest = mysqli_query($conn,"INSERT INTO student_book_request
+            (student_book_req_id,student_id, request_status, chapter_id)
+                VALUES ('','".$student_id."','pending','".$chapter_id."');");
+                 if($Qrequest == true){
+                    echo 'Request Pending';
+                }
+            }
+
+
     }
 
     
@@ -57,12 +77,12 @@
                                         <td>';
                                         ?>
                                         
-                                            <button class="btn btn-outline-primary btn-sm acbtn" id="<?php echo $result['demo_reg_id']; ?>" type="submit"><i class="fas fa-check"></i></button>
+                                            <button name="acceptbtn" class="btn btn-outline-primary btn-sm acbtn" id="<?php echo $result['demo_reg_id']; ?>" type="submit"><i class="fas fa-check"></i></button>
                                             <?php 
                                         echo '</td>
                                         <td>';
                                         ?>
-                                            <button class="btn btn-outline-danger btn-sm"  type="submit"><i class="fas fa-trash-alt"></i></button>
+                                            <button name="deletebtn" class="btn btn-outline-danger btn-sm"  type="submit"><i class="fas fa-trash-alt"></i></button>
                                             <?php echo '
                                         </td>
                                     </tr>

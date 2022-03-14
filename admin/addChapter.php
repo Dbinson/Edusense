@@ -1,60 +1,32 @@
+
 <?php 
 
-    if(!isset($_SESSION)){
-        session_start();
-    }
-    define('PAGE', 'viewAssignment');
-    include('./mainInclude/header.php');
-    include('../dbConnection.php');
+if(!isset($_SESSION)){
+    session_start();
+}
+define('PAGE', 'viewAssignment');
+include('./mainInclude/header.php');
+include('../dbConnection.php');
 
-    // if(!isset($_SESSION['is_admin_login'])){
-    //     echo "<script> location.href='./index.php'; </script>";
-    //    }
-    
+// if(!isset($_SESSION['is_admin_login'])){
+//     echo "<script> location.href='./index.php'; </script>";
+//    }
 
-    if(isset($_REQUEST['submitBtn'])){
 
-        
-
-	$book_id=json_decode($_POST['book_id']);
-	$chapterName =  $_POST['chapterName'];
-	$chapterNo = json_decode ($_POST['chapterNo']);
-	$chapterFile = json_decode( $_POST['chapterFile']);
-
-    $check=mysqli_query($conn,"SELECT book_id,chapter_name from chapter where book_id='".$book_id."'  AND chapter_name='".$chapterName."';");
+if(isset($_REQUEST['submitBtn'])){
 
     
-	if(!mysqli_num_rows($check)>0){
-	
-$sql=mysqli_query($conn, "INSERT INTO chapter ( chapter_name, chapter_number, chapter_file, book_id) VALUES ('".$chapterName."','".$chapterNo."','".$chapterFile."' ,'".$book_id."');");
-	
+}
 
-	if($sql){
-		echo' 1';
-	}else{
-		echo "0 " ;
-	}
-	}else{
 
-		echo" already exists";
-	}
-    }
-
-    
 ?>
 <section id="content">
-    <div class="container p-4">
-       
-        <div class="card" style="width: 35rem;margin:auto;">
-            <div class="card-body">
-            <?php
-// include("../dbConnection.php");
-            $sql=mysqli_query($conn,"SELECT * from chapter where book_id = '".$book_id."';");
-            $count=0;
-         
-          ?>
+<div class="container p-4">
+   
+    <div class="card" style="width: 35rem;margin:auto;">
+        <div class="card-body">
 
-          <table class="table">
+        <table class="table">
           <thead>
             <tr>
             <th scope="col">#</th>
@@ -106,9 +78,10 @@ $sql=mysqli_query($conn, "INSERT INTO chapter ( chapter_name, chapter_number, ch
                     
                   </tbody>
                 </table>
-            </div>
+            
         </div>
     </div>
-       
+</div>
+   
 </section>
 </div>

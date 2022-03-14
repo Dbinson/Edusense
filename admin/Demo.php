@@ -62,7 +62,7 @@
 
                             echo '
                                 <td>
-                                    <button class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i></button>
+                                    <button name="deletebtn" class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                             

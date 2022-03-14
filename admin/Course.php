@@ -95,7 +95,7 @@
                                 </td>
                                 
                                 <td>
-                                <button class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i></button>
+                                <button name="deletebtn" class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                                
                                    <input type="hidden" id="id" value="'.$result['course_id'].'">
@@ -107,9 +107,7 @@
             
    
                         </td>
-                        <!-- <td>
-                            <button class="btn btn-danger btn-sm" type="submit">Remove</button>
-                        </td> -->
+                       
                     <td>
                         <input type="hidden" id="id">
                     </td>
