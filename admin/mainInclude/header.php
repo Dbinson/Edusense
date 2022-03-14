@@ -20,6 +20,10 @@
 
     <script src="../js/jquery.js"></script>
 
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="../public/css/sidebar.css">
+  <link rel="stylesheet" href="./css/style.css">
+
 
 
     <!--BootStrap Javascript-->
@@ -77,6 +81,12 @@
                 </li>
 
                 <li>
+                    <a href="student.php">View Students</a>
+                </li>
+
+
+
+                <li>
                     <a href="#studentSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Student</a>
                     <ul class="collapse list-unstyled" id="studentSubmenu">
                         <li>
@@ -98,6 +108,8 @@
                             <a href="#">View faculties</a>
                         </li>
                     </ul>
+
+                    <a href="faculty.php">View faculties</a>
                 </li>
 
                 <li>
