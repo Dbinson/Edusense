@@ -1,0 +1,9 @@
+#content .container{
+    margin-left: 15rem !important;
+}
+
+
+#content table tr td{
+    white-space: normal !important; 
+  word-wrap: break-word;
+}
