@@ -14,17 +14,22 @@
 
     if(isset($_REQUEST['submitBtn'])){
      
-        $subject_id =  json_decode($_POST['subject_id']);
-        $student_id = json_decode($_POST['student_id']);
-        $class_id = json_decode( $_POST['class_id']);
-        $attend_date_time =  $_POST['attend_date_time'];
-        $attendance = json_decode( $_POST['attendance']);
+        $subject_id =  $_REQUEST['subject_id'];
+        $student_id = $_REQUEST['student_id'];
+        $class_id =  $_REQUEST['class_id'];
+        $attend_date_time =  $_REQUEST['attend_date_time'];
+        $attendance =  $_REQUEST['attendance'];
         
-        $q1 = "INSERT INTO student_attendance(attend_date_time,attendee_id,attended,subject_id,class_id) VALUES ('".$attend_date_time."','".$student_id."','".$attendance."','".$subject_id."','".$class_id."');";
+        $sql = "INSERT INTO student_attendance(attend_date_time,attendee_id,attended,subject_id,class_id)
+             VALUES ('".$attend_date_time."','".$student_id."','".$attendance."','".$subject_id."','".$class_id."');";
     
-        $sql=mysqli_query($conn,$q1);
+        $query = $conn->query($sql);
     
-        
+        if($query){
+            $msg = '<span class="bg-success p-3">Faculty Added</span> ';
+        }else{
+            $msg = '<span class="bg-dander p-3">Failed to Add faculty </span> ';
+        }
     }
 
     
@@ -37,12 +42,14 @@
 
             <h5 class="modal-title Edit-book-title" id="fac_modalCenterTitle">add Attendance</h5>
 
-            <form id="fac_modalForm" class="facultyattendance-form" name="facultyattendance" role="form">
+            <form class="facultyattendance-form" name="attendance" role="form">
             <div class="modal-body">
 
             <div class="mb-3">  
                     <label for="faculty_name" class="form-label">Faculty</label>
-                            <select class="form-select" id="faculty_name"
+                            <select class="form-select" 
+                                id="name"
+                                name="name"
                                 aria-label="Default select example">
                             <option selected>Choose faculty</option>
                     <?php

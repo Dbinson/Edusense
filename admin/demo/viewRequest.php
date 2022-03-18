@@ -3,38 +3,18 @@
     if(!isset($_SESSION)){
         session_start();
     }
-    define('PAGE', 'viewAssignment');
-    include('./mainInclude/header.php');
-    include('../dbConnection.php');
+    define('TITLE','Assignment');
+    define('PAGE', 'Assignment');
+    include('../mainInclude/header.php');
+    include('../modals/assigndemoModal.php');
+    include('../../dbConnection.php');
 
     // if(!isset($_SESSION['is_admin_login'])){
     //     echo "<script> location.href='./index.php'; </script>";
     //    }
-    
 
-    if(isset($_REQUEST['submitBtn'])){
-
-        
-        $request_id = json_decode( $_POST['requestID']);
-
-        $sql=mysqli_query($conn,"SELECT * FROM demo_request
-        LEFT JOIN demo ON demo_request.demo_id = demo.demo_id;");
-  
-        $qCheckRequest = mysqli_query($conn,"SELECT request_id
-                FROM demo_request
-                WHERE demo_id = ".$demo_id."
-                AND chapter_id = ".$chapter_id."
-                ;");
-        if(!mysqli_num_rows($qCheckRequest)>0){
-            $Qrequest = mysqli_query($conn,"INSERT INTO student_book_request
-            (student_book_req_id,student_id, request_status, chapter_id)
-                VALUES ('','".$student_id."','pending','".$chapter_id."');");
-                 if($Qrequest == true){
-                    echo 'Request Pending';
-                }
-            }
-
-
+    function delRec($id){
+        echo 'Deleted';
     }
 
     
@@ -62,12 +42,13 @@
                     <?php
 
                     //Check for student requests
-                        $sql=mysqli_query($conn,"SELECT * FROM demo_registration
-                            LEFT JOIN user ON demo_registration.user_id = user.user_id
-                            WHERE demo_status = 'pending'
-                            ;");
+                        $sql = "SELECT * FROM demo_registration
+                        LEFT JOIN user ON demo_registration.user_id = user.user_id
+                        WHERE demo_status = 'pending'
+                        ;";
+                        $query = $conn->query($sql);
                         $count=1;
-                        while($result=mysqli_fetch_assoc($sql)){
+                        while($result = $query->fetch_assoc()){
                                 echo '
                                     <tr>
                                         <th scope="row">'.$count++.'</th>
@@ -82,7 +63,7 @@
                                         echo '</td>
                                         <td>';
                                         ?>
-                                            <button name="deletebtn" class="btn btn-outline-danger btn-sm"  type="submit"><i class="fas fa-trash-alt"></i></button>
+                                            <button name="deletebtn" class="btn btn-outline-danger btn-sm" onclick="<?php echo delRec($result['demo_reg_id']); ?>" type="submit"><i class="fas fa-trash-alt"></i></button>
                                             <?php echo '
                                         </td>
                                     </tr>
@@ -97,3 +78,5 @@
        
 </section>
 </div>
+
+<?php include('../mainInclude/footer.php'); ?>

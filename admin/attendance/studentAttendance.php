@@ -47,7 +47,7 @@
                  class.class_id,class.class_name,attend_date_time from student_attendance
                   left join subject on student_attendance.subject_id=subject.subject_id 
                 left join class on student_attendance.class_id=class.class_id 
-                where attendee_id=102;");
+                ;");
 
                  
                  $pre=0;

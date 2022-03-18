@@ -3,8 +3,8 @@
     if(!isset($_SESSION)){
         session_start();
     }
-    define('TITLE','Student');
-    define('PAGE', 'student');
+    define('TITLE','Faculty');
+    define('PAGE', 'faculty');
     include('./mainInclude/header.php');
     include('../dbConnection.php');
 

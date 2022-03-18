@@ -9,28 +9,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>
+        <?php echo TITLE; ?> 
+    </title>
 
     <!--BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
     <!-- <link rel="stylesheet" href="css/all.min.css"> -->
 
     <!--Custom CSS-->
-    <link rel="stylesheet" href="../public/css/sidebar.css">
+    <link rel="stylesheet" href="../../public/css/sidebar.css">
 
-    <script src="../js/jquery.js"></script>
+    <script src="../../js/jquery.js"></script>
 
   <!--Custom CSS-->
-  <link rel="stylesheet" href="../public/css/sidebar.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../../public/css/sidebar.css">
+  <link rel="stylesheet" href="../css/style.css">
 
 
 
     <!--BootStrap Javascript-->
-    <script src="../js/bootstrap.js"></script>
+    <script src="../../js/bootstrap.js"></script>
 
     <!--Ajax Requests-->
-    <script src="../public/js/ajaxrequest.js"></script>
+    <script src="../../public/js/ajaxrequest.js"></script>
 
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -71,20 +73,14 @@
                     <a href="#demoSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Demo</a>
                     <ul class="collapse list-unstyled" id="demoSubmenu">
                         <li>
-                            <a href="requestDemo.php">Demo Requests</a>
+                            <a href="./viewRequest.php">Demo Requests</a>
                         </li>
 
                         <li>
-                            <a href="Demo.php">View Demo</a>
+                            <a href="../demo/demo.php">View Demo</a>
                         </li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="student.php">View Students</a>
-                </li>
-
-
 
                 <li>
                     <a href="#studentSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Student</a>
@@ -93,7 +89,7 @@
                             <a href="addStudent.php">Add Student</a>
                         </li>
                         <li>
-                            <a href="#">View Students</a>
+                            <a href ="student.php">View Students</a>
                         </li>
                     </ul>
                 </li>
@@ -105,42 +101,25 @@
                             <a href="addFaculty.php">Add Faculty</a>
                         </li>
                         <li>
-                            <a href="#">View faculties</a>
+                        <a href="faculty.php">View faculties</a>
                         </li>
-                    </ul>
-
-                    <a href="faculty.php">View faculties</a>
-                </li>
-
-                <li>
-                    <a href="#assignmentSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignments</a>
-                    <ul class="collapse list-unstyled" id="assignmentSubmenu">
-                        <li>
-                            <a href="addAssignment.php">Add Assignment</a>
-                        </li>
-                        <li>
-                            <a href="viewAssignment.php">View Assignment</a>
-                        </li>
-
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#examinationSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Examination</a>
-                    <ul class="collapse list-unstyled" id="examinationSubmenu">
+                    <a href="#examSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Examination</a>
+                    <ul class="collapse list-unstyled" id="examSubmenu">
                         <li>
-                            <a href="#">Create Exam</a>
+                            <a href="../examination/exam.php">View Exams</a>
                         </li>
                         <li>
-                            <a href="#">View Exam</a>
-                        </li>
-                        <li>
-                            <a href="#">Create Paper</a>
-                        </li>
-                        <li>
-                            <a href="#">View Paper</a>
+                        <a href="../examination/">View Papers</a>
                         </li>
                     </ul>
+                </li>
+
+                <li>
+                    <a href="../assignment/viewAssignment.php">Assignments</a>
                 </li>
 
                 <li>
@@ -213,11 +192,6 @@
                 </li>
                 <li>
                     <a href="schedule.php">Schedule</a>
-                </li>
-
-
-                <li>
-                    <a href="#">Contact Us</a>
                 </li>
 
             </ul>

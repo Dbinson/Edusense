@@ -3,9 +3,10 @@
     if(!isset($_SESSION)){
         session_start();
     }
+    define('TITLE','Demo');
     define('PAGE', 'viewAssignment');
-    include('./mainInclude/header.php');
-    include('../dbConnection.php');
+    include('../mainInclude/header.php');
+    include('../../dbConnection.php');
 
     // if(!isset($_SESSION['is_admin_login'])){
     //     echo "<script> location.href='./index.php'; </script>";
@@ -40,16 +41,18 @@
                 </thead>
                 <tbody>
                     <?php
-                    $sql=mysqli_query($conn,"SELECT * FROM demo
-                                            LEFT JOIN demo_registration ON demo.demo_reg_id = demo_registration.demo_reg_id
-                                            LEFT JOIN schedule ON demo.sched_id = schedule.sched_id
-                                            LEFT JOIN faculty ON demo.faculty_id = faculty.faculty_id
-                                            LEFT JOIN subject ON demo_registration.subject_id = subject.subject_id
-                                            LEFT JOIN class ON subject.class_id = class.class_id
-                                            WHERE sched_status = '50'
-                                            ;");
+                    $sql = "SELECT * FROM demo
+                                LEFT JOIN demo_registration ON demo.demo_reg_id = demo_registration.demo_reg_id
+                                LEFT JOIN schedule ON demo.sched_id = schedule.sched_id
+                                LEFT JOIN faculty ON demo.faculty_id = faculty.faculty_id
+                                LEFT JOIN subject ON demo_registration.subject_id = subject.subject_id
+                                LEFT JOIN assign_course ON subject.assign_course_id = assign_course.assign_course_id
+                                LEFT JOIN class ON assign_course.class_id = class.class_id
+                                WHERE sched_status = '50'
+                            ;";
+                        $query = $conn->query($sql);
                         $count=0;
-                        while($result=mysqli_fetch_assoc($sql)){
+                        while($result = $query->fetch_assoc()){
                             // print_r($result);
                           $count++;
                             echo"<th scope='row'>".$count."</th>";

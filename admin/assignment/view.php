@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
+
+
+    <?php 
+    define('TITLE', 'Assignment');
+    define('PAGE', 'view');
+    include('../mainInclude/header.php') 
+    ?>
+    <link rel="stylesheet" href="../css/assignment.css">
+
+    
+
+    
+    <section id="content">
+    <div class="container-fluid">
+       
+        <div class="card" style="width: 55rem;margin:auto;">
+            <div class="card-body">
 
     <button onclick="history.back()" class="rows back-btn">
       <i class="fa-solid fa-angle-left"></i>
@@ -36,22 +37,25 @@
         <tbody>
 
         <?php
-        include_once("../dbConnection.php");
-          $sql = mysqli_query($conn,"SELECT  assign_assignment.assign_a_id,students.student_id,students.student_name,class.class_name,subject.subject_name,assignment_submission.file,assignment_submission.filename,assignment.rfilename,assignment.enddate,schedule.sched_status FROM assign_assignment
+        include_once("../../dbConnection.php");
+          $sql = "SELECT  assign_assignment.assign_a_id,students.student_id,user.user_name,class.class_name,subject.subject_name,assignment_submission.file,assignment_submission.filename,assignment.rfilename,assignment.enddate,schedule.sched_status FROM assign_assignment
           LEFT JOIN assignment ON assign_assignment.aid=assignment.aid
           LEFT JOIN subject ON assign_assignment.subject_id=subject.subject_id
-          LEFT JOIN class ON subject.class_id=class.class_id
-           LEFT JOIN assignment_submission ON assign_assignment.assig_submition_id=assignment_submission.assi_submit_id
-            LEFT JOIN students ON assign_assignment.student_id=students.student_id
-             LEFT JOIN schedule ON assign_assignment.sched_id=schedule.sched_id
-           WHERE faculty_id='".$_GET['faculty_id']."'");
-
-           while($r = mysqli_fetch_assoc($sql)){
+          LEFT JOIN assign_course ON subject.assign_course_id = assign_course.assign_course_id
+          LEFT JOIN class ON assign_course.class_id=class.class_id
+          LEFT JOIN assignment_submission ON assign_assignment.assig_submission_id=assignment_submission.assi_submit_id
+          LEFT JOIN students ON assign_assignment.student_id=students.student_id
+          LEFT JOIN user ON students.user_id = user.user_id
+          LEFT JOIN schedule ON assign_assignment.sched_id=schedule.sched_id
+          WHERE faculty_id='".$_GET['faculty_id']."'";
+          
+          $query = $conn->query($sql);
+           while($r = $query->fetch_assoc()){
             echo '
             
             <tr>
             <td>'.$r['student_id'].'</td>
-            <td>'.$r['student_name'].'</td>
+            <td>'.$r['user_name'].'</td>
             <td>'.$r['class_name'].'</td>
             <td>'.$r['subject_name'].'</td>
             <td>';
@@ -84,16 +88,14 @@
         </tbody>
       </table>
     </section>
+            </div>
+        </div>
+      </div>
+    </section>
 
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script>
     <script
       src="https://kit.fontawesome.com/915fb40dfa.js"
       crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+    ></script> -->
+    <?php include('../mainInclude/footer.php') ?>

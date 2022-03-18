@@ -1,6 +1,10 @@
+html{
+	overflow-x: hidden;
+}
 body{
 	font-family: 'Poppins', sans-serif;
 	background: #fafafa;
+	/* overflow-x: hidden; */
 }
 p{
 	font-family: 'Poppins', sans-serif;
@@ -29,16 +33,19 @@ a:focus{
 	text-decoration: none;
 	transition: all 0.3s;
     height: 100%;
+	
 }
 
 #sidebar{
 	position: fixed;
-	overflow-y: scroll;
+	overflow-y:scroll;
+	scrollbar-width: thin;
 	min-width: 250px;
 	max-width: 250px;
     height: 100%;
 	color: #fff;
 	transition: all 0.3s;
+	padding-bottom: 8rem;
 }
 
 
