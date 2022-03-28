@@ -3,13 +3,14 @@
     if(!isset($_SESSION)){
         session_start();
     }
-    define('PAGE', 'viewAssignment');
-    include('./mainInclude/header.php');
-    include('../dbConnection.php');
+    define('TITLE','Lecture');
+    define('PAGE', 'lecture');
+    include('../mainInclude/header.php');
+    include('../../dbConnection.php');
 
-    // if(!isset($_SESSION['is_admin_login'])){
-    //     echo "<script> location.href='./index.php'; </script>";
-    //    }
+    if(!isset($_SESSION['is_admin_login'])){
+        echo "<script> location.href='../index.php'; </script>";
+       }
     
 
     if(isset($_REQUEST['submitBtn'])){
@@ -114,3 +115,5 @@
         </div>
       </div>
     </div>
+
+    <?php include('../mainInclude/footer.php'); ?>

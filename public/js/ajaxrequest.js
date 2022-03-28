@@ -47,7 +47,7 @@ function checkUserLogin(){
         userLogRole: userLogRole
       },
       success: function(data) {
-        // console.log(data);
+        console.log(data);
         if (data == 0) {
           console.log('failed');
         }else if(data == 1){
@@ -55,7 +55,7 @@ function checkUserLogin(){
           // Empty Login Fields
           // clearLoginField();
           setTimeout(() => {
-            window.location.href = "./index.php";
+              window.location.href = "./index.php";
           }, 1000);
         }
       }

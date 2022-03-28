@@ -18,181 +18,183 @@
     <!-- <link rel="stylesheet" href="css/all.min.css"> -->
 
     <!--Custom CSS-->
-    <link rel="stylesheet" href="../../public/css/sidebar.css">
+    <!-- <link rel="stylesheet" href="../../public/css/sidebar.css"> -->
 
     <script src="../../js/jquery.js"></script>
 
   <!--Custom CSS-->
-  <link rel="stylesheet" href="../../public/css/sidebar.css">
+  <!-- <link rel="stylesheet" href="../../public/css/sidebar.css"> -->
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../public/css/admin.css">
+  <link rel="stylesheet" href="../../public/css/global.css">
 
 
 
     <!--BootStrap Javascript-->
-    <script src="../../js/bootstrap.js"></script>
+    <!-- <script src="../../js/bootstrap.js"></script> -->
 
     <!--Ajax Requests-->
     <script src="../../public/js/ajaxrequest.js"></script>
 
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/08917cd252.js" crossorigin="anonymous"></script>
+
+    <!----===== Boxicons CSS ===== -->
+    <!-- <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> -->
+
+    <!-- <script src="https://kit.fontawesome.com/08917cd252.js" crossorigin="anonymous"></script> -->
 
 </head>
 
 <body>
 
+<div id="mySidebar" class="sidebar">
 
-    <nav class="navbar navbar-expand-sm px-4 pt-3 navbar-light sticky-top bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Edusession</a>
-            <button class="navbar-toggler" type="button" id="sidebarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="text-right">
-                <button type="button" class="btn btn-primary position-relative">
-                    Inbox
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        99+
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
-                </button>
+      <div class="sidebar-header text-center">
+        <img class="" src="../../public/assets/logo3.png" alt="logo">
+      </div>
+      <!-- <a href="javascript:void(0)" class=" closebtn">x</a> -->
+      <ul class="text-center s">
+        <li class="slidebar-Item <?php if(PAGE == 'dashboard'){echo 'active';} ?>">
+          <i class="material-icons ic">home</i>
+          <a href="#" >Dashboard</a>
+        </li>
+
+        <li class="slidebar-Item <?php if(PAGE == 'users'){echo 'active';} ?>">
+          <i class="material-icons ic">person</i>
+          <a href="#userSubmenu" data-bs-toggle="collapse" aria-expanded="false">Users</a>
+        </li>
+        <!-- sublist USER-->
+        <ul class="collapse list-unstyled list-group sublist" id="userSubmenu">
+          <li>
+              <a href="#" role="button" data-bs-toggle="popoverS">Students</a>
+          </li>
+          <li>
+              <a href="#" role="button" data-bs-toggle="popoverF">Faculty</a>
+          </li>
+        </ul>
+
+
+        <!-- Popover for student -->
+        <ul id="popover-contentS" class="list-group text-center" style="display: none">
+          <a href="../student/addStudent.php" class="list-group-item">Add</a>
+          <a href="../student/student.php" class="list-group-item">View</a>
+        </ul>
+
+        <!-- Popover for faculty -->
+        <ul id="popover-contentF" class="list-group text-center" style="display: none">
+          <a href="../faculty/addFaculty.php" class="list-group-item">Add</a>
+          <a href="../faculty/faculty.php" class="list-group-item">View</a>
+        </ul>
+
+
+
+        <li class="slidebar-Item <?php if(PAGE == 'courses'){echo 'active';} ?>">
+          <i class="material-icons ic">local_library</i>
+          <a href="#courseSubmenu" data-bs-toggle="collapse" aria-expanded="false">Courses</a>
+        </li>
+        <!-- sublist COURSES-->
+        <ul class="collapse list-unstyled list-group sublist" id="courseSubmenu">
+          <li>
+              <a href="../courses/Course.php">View Courses</a>
+          </li>
+          <li>
+              <a href="../courses/Subject.php">View Subjects</a>
+          </li>
+        </ul>
+
+
+
+        <li class="slidebar-Item <?php if(PAGE == 'demo'){echo 'active';} ?>">
+          <i class="material-icons ic">airplay</i>
+          <a href="#demoSubmenu" data-bs-toggle="collapse" aria-expanded="false">Demo</a>
+        </li>
+        <!-- sublist Demo-->
+        <ul class="collapse list-unstyled list-group sublist" id="demoSubmenu">
+          <li>
+              <a href="../courses/Course.php">Demo Requests</a>
+          </li>
+          <li>
+              <a href="../demo/demo.php">Assigned Demo</a>
+          </li>
+        </ul>
+
+        <li class="slidebar-Item <?php if(PAGE == 'lecture'){echo 'active';} ?>">
+          <i class="material-icons ic">contacts</i>
+          <a href="#lectureSubmenu" data-bs-toggle="collapse" aria-expanded="false">Lecture</a>
+        </li>
+        <!-- sublist Lecture-->
+        <ul class="collapse list-unstyled list-group sublist" id="lectureSubmenu">
+          <li>
+              <a href="../lecture/addlecture.php">Create Lecture</a>
+          </li>
+          <li>
+              <a href="../lecture/lecturevid.php">Recordings</a>
+          </li>
+        </ul>
+
+        <li class="slidebar-Item <?php if(PAGE == 'attendance'){echo 'active';} ?>">
+          <i class="material-icons ic">event</i>
+          <a href="#">Attendance</a>
+        </li>
+
+        <li class="slidebar-Item <?php if(PAGE == 'assignment'){echo 'active';} ?>">
+          <i class="material-icons ic">assignment_ind</i>
+          <a href="#">Assignment</a>
+        </li>
+
+        <li class="slidebar-Item <?php if(PAGE == 'examination'){echo 'active';} ?>">
+          <i class="material-icons ic">assignment</i>
+          <a href="#">Examination</a>
+        </li>
+
+        <li class="slidebar-Item <?php if(PAGE == 'books'){echo 'active';} ?>">
+          <i class="material-icons ic">import_contacts</i>
+          <a href="#">Books</a>
+        </li>
+
+        <li class="slidebar-Item <?php if(PAGE == 'feedback'){echo 'active';} ?>">
+          <i class="material-icons ic">important_devices</i>
+          <a href="#">feedback</a>
+        </li>
+
+        <li class="slidebar-Item <?php if(PAGE == 'schedule'){echo 'active';} ?>">
+          <i class="material-icons ic">date_range</i>
+          <a href="#">Schedule</a>
+        </li>
+
+        <li class="slidebar-Item pt-5">
+          <i class="material-icons ic">exit_to_app</i>
+          <a href="../../logout.php">LogOut</a>
+        </li>
+
+      </ul>
+    </div>
+    
+    
+    <div id="main">
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+        <nav class="navbar nav sticky-top">
+            <button class="openbtn">☰</button>
+            <div class=" nav justify-content-end pe-4">
+              <!-- notification bell -->
+              <button type="button" class="btn position-relative pe-5" data-bs-toggle="popover-notify">
+                <i class="material-icons">notifications</i>
+                <span class="position-absolute top-1 start-90 translate-middle p-2 bg-danger border border-light rounded-circle">
+                  <span class="visually-hidden">New alerts</span>
+                </span>
+              </button>
+              <!-- Popover for Notification -->
+              <ul id="popover-content-notify" class="list-group text-center" style="display: none">
+                <li class="list-group-item">This is notification1</li>
+                <a href="#" class="list-group-item">View</a>
+              </ul>
+
+              <!-- for Account -->
+              <a href="">
+                <img src="../../public/assets/defaultpic.png" class="profile-pic">
+              </a>
+              
             </div>
-        </div>
-    </nav>
-    <div class="wrapper ">
-
-        <nav id="sidebar" class="bg-primary">
-
-            <ul class="lisst-unstyled components">
-                <li class="active">
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#demoSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Demo</a>
-                    <ul class="collapse list-unstyled" id="demoSubmenu">
-                        <li>
-                            <a href="./viewRequest.php">Demo Requests</a>
-                        </li>
-
-                        <li>
-                            <a href="../demo/demo.php">View Demo</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#studentSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Student</a>
-                    <ul class="collapse list-unstyled" id="studentSubmenu">
-                        <li>
-                            <a href="addStudent.php">Add Student</a>
-                        </li>
-                        <li>
-                            <a href ="student.php">View Students</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#facultySubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Faculty</a>
-                    <ul class="collapse list-unstyled" id="facultySubmenu">
-                        <li>
-                            <a href="addFaculty.php">Add Faculty</a>
-                        </li>
-                        <li>
-                        <a href="faculty.php">View faculties</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#examSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Examination</a>
-                    <ul class="collapse list-unstyled" id="examSubmenu">
-                        <li>
-                            <a href="../examination/exam.php">View Exams</a>
-                        </li>
-                        <li>
-                        <a href="../examination/">View Papers</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="../assignment/viewAssignment.php">Assignments</a>
-                </li>
-
-                <li>
-                    <a href="#">Notification</a>
-                </li>
-
-                <li>
-                    <a href="#bookSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Books</a>
-                    <ul class="collapse list-unstyled" id="bookSubmenu">
-                        <li>
-                            <a href="chapter.php">Add Chapter</a>
-                        </li>
-                        <li>
-                            <a href="book.php">Add Book</a>
-                        </li>
-                        <li>
-                            <a href="requestBook.php">Request Book</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#attandanceSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attandance</a>
-                    <ul class="collapse list-unstyled" id="attandanceSubmenu">
-                        <li>
-                            <a href="addAttendance.php">Add attendance</a>
-                        </li>
-                        <li>
-                            <a href="facultyAttendance.php">Faculty attendance</a>
-                        </li>
-                        <li>
-                            <a href="studentAttendance.php">Student attendance</a>
-                        </li>
-
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="feedbackReview.php">Feedback</a>
-
-                </li>
-
-
-                <li>
-                    <a href="#courseSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">course</a>
-                    <ul class="collapse list-unstyled" id="courseSubmenu">
-                        <li>
-                            <a href="Chapter.php">Add Chapter</a>
-                        </li>
-                        <li>
-                            <a href="Course.php">Add Course</a>
-                        </li>
-                        <li>
-                            <a href="Subject.php">Add Subject</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#lectureSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">lecture</a>
-                    <ul class="collapse list-unstyled" id="lectureSubmenu">
-
-                        <li>
-                            <a href="addlecture.php">Add Lecture</a>
-                        </li>
-                        <li>
-                            <a href="lecturevid.php">Lecture Videos</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="schedule.php">Schedule</a>
-                </li>
-
-            </ul>
-        </nav>
+          </nav>

@@ -3,13 +3,15 @@
     if(!isset($_SESSION)){
         session_start();
     }
-    define('PAGE', 'viewAssignment');
-    include('./mainInclude/header.php');
-    include('../dbConnection.php');
+    define('TITLE','Course');
+    define('PAGE', 'courses');
+    include('../mainInclude/header.php');
+    include('../../dbConnection.php');
+    include('../modals/addCoursemodal.php');
 
-    // if(!isset($_SESSION['is_admin_login'])){
-    //     echo "<script> location.href='./index.php'; </script>";
-    //    }
+    if(!isset($_SESSION['is_admin_login'])){
+        echo "<script> location.href='../index.php'; </script>";
+       }
     
 
     if(isset($_REQUEST['submitBtn'])){
@@ -46,77 +48,83 @@
 
     
 ?>
-<section id="content">
+<!-- <section id="content">
     <div class="container p-4">
-       
-        <div class="card" style="width: 35rem;margin:auto;">
-            <div class="card-body">
+        -->
+        <!-- <div class="card" style="width: 35rem;margin:auto;">
+            <div class="card-body"> -->
            
             <section class="column admin">
-        <div class="column admin-card shadow-sm p-3 mb-5 bg-body rounded">
-            <div class="row admin-mybooks-header">
-                <h2>Courses</h2>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addcourseModalCenter">
-                Add course
-                </button>
-            </div>
-            
-            <table class="table table-hover table-striped table-bordered mt-3">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Course Name</th>
-                        <th scope="col">Board Name</th>
-                        <th scope="col">Course Description</th>
-                        <th scope="col">Course Image</th>
-                        <th scope="col">Update</th>
-                        <th scope="col">Remove</th>
-                      
-                    </tr>
-                </thead>
-                <tbody>
-                <tbody>
-                <?php
-                    $sql=mysqli_query($conn,"SELECT * FROM courses
-                                            LEFT JOIN board ON courses.board_id = board.board_id;");
-                        $count=0;
-                        while($result=mysqli_fetch_assoc($sql)){
-                            // print_r($result);
-                          $count++;
-                            echo"<th scope='row'>".$count."</th>";
-                            echo "<td>".$result['course_name']."</td>";
-                            echo "<td>".$result['board_name']."</td>";
-                            echo "<td>".$result['course_desc']."</td>";
-                            echo "<td>".$result['course_image']."</td>";
-                            echo '
-                                <td>
-                                <button class="btn btn-outline-success btn-sm" type="submit"><i class="fas fa-pen"></i></button>
-                                </button> 
-                                </td>
-                                
-                                <td>
-                                <button name="deletebtn" class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i></button>
-                                </td>
-                               
-                                   <input type="hidden" id="id" value="'.$result['course_id'].'">
-                            </tr>
-                            
-                            ';
-                        }
-                        ?></tbody>
-            
-   
-                        </td>
-                       
-                    <td>
-                        <input type="hidden" id="id">
-                    </td>
+                <div class="column admin-card shadow-sm p-3 mb-5 bg-body rounded">
+                <div class="row admin-mybooks-header">
+                    <h2>Courses</h2>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addcourseModalCenter">
+                    Add course
+                    </button>
+                </div>
                 
-                </tbody>
-            </table>
-            </div>
-        </div>
-    </div>
-       
+                <table class="table table-hover table-striped table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Board Name</th>
+                            <th scope="col">Course Description</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Remove</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+
+                    <?php
+                        $sql = "SELECT courses.course_id,board.board_name,courses.course_name,courses.course_desc FROM assign_course
+                                    LEFT JOIN board ON assign_course.board_id = board.board_id
+                                    LEFT JOIN courses ON assign_course.course_id = courses.course_id
+                                    GROUP BY(assign_course.board_id) 
+                                    ";
+                                $query = $conn->query($sql);
+                            $count=0;
+                            while($result = $query->fetch_assoc()){
+                                // print_r($result);
+                            $count++;
+                                echo"<th scope='row'>".$count."</th>";
+                                echo "<td>".$result['course_name']."</td>";
+                                echo "<td>".$result['board_name']."</td>";
+                                echo "<td>".$result['course_desc']."</td>";
+                                echo '
+                                    <td>
+                                    <button class="btn btn-outline-success btn-sm" type="submit"><i class="fas fa-pen"></i></button>
+                                    </button> 
+                                    </td>
+                                    
+                                    <td>
+                                    <button name="deletebtn" class="btn btn-outline-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                
+                                    <input type="hidden" id="id" value="'.$result['course_id'].'">
+                                </tr>
+                                
+                                ';
+                            }
+                            ?></tbody>
+                
+    
+                            </td>
+                        
+                        <td>
+                            <input type="hidden" id="id">
+                        </td>
+                    
+                    </tbody>
+                </table>
+                </div>
+            </section>
+        <!-- </div>
+    </div> -->
+<!--        
 </section>
-</div>
+</div> -->
+
+<?php include('../mainInclude/footer.php'); ?>

@@ -26,7 +26,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
   <!--BootStrap Javascript-->
-  <script src="js/bootstrap.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
 
 
 <!--Ajax Requests-->
@@ -93,8 +93,14 @@
                 </li>
                 <?php
                 if (isset($_SESSION['is_login'])){
-                  echo '<li class="nav-item px-2">
-                  <a href="#" class="btn btn-outline-warning ">My Profile</a>
+                  echo '<li class="nav-item px-2">';
+                  if($_SESSION['logRole'] == 102){
+                    echo '<a href="./faculty/dashboard" class="btn btn-outline-warning ">My Profile</a>';
+                  }else if($_SESSION['logRole'] == 103){
+                    echo '<a href="./student/dashboard" class="btn btn-outline-warning ">My Profile</a>';
+                  }
+                  
+                  echo '
                 </li>
                 <li class="nav-item px-2">
                   <a href="./logout.php" class="btn btn-outline-info ">Log Out</a>

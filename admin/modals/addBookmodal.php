@@ -1,10 +1,12 @@
+<!-- Add book -->
+
 <div class="modal fade" id="addBookModalCenter" tabindex="-1" role="dialog" aria-labelledby="addBookModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title add-book-title" id="addBookModalCenterTitle">Add Book</h5>
-            <button type="button" class="add-book-close-btn" data-bs-dismiss="modal" aria-label="Close" >
-              <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >
+              <span aria-hidden="true"></span>
             </button>
           </div>
           <form id="addBookForm" class="add-book-form" name="addBook" role="form">

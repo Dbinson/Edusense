@@ -1,0 +1,23 @@
+.archive-header {
+  border: 1px solid #eeeeee;
+  margin-bottom: 0px;
+}
+.archive-title {
+  padding: 0 15px;
+  padding-top: 10px;
+
+  justify-content: flex-start;
+}
+.books-section {
+  padding-top: 0;
+}
+
+/* ARCHIVE PAGE DESKTOP CSS */
+@media (min-width: 1025px) {
+  .archive-title {
+    padding: 0 200px;
+  }
+  .archive-header {
+    margin-bottom: 15px;
+  }
+}

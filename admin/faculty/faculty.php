@@ -4,9 +4,9 @@
         session_start();
     }
     define('TITLE','Faculty');
-    define('PAGE', 'faculty');
-    include('./mainInclude/header.php');
-    include('../dbConnection.php');
+    define('PAGE', 'users');
+    include('../mainInclude/header.php');
+    include('../../dbConnection.php');
 
     // if(!isset($_SESSION['is_admin_login'])){
     //     echo "<script> location.href='./index.php'; </script>";
@@ -59,3 +59,5 @@
        
 </section>
 </div>
+
+<?php include('../mainInclude/footer.php'); ?>

@@ -4,13 +4,13 @@
         session_start();
     }
     define('TITLE','Student');
-    define('PAGE', 'student');
-    include('./mainInclude/header.php');
-    include('../dbConnection.php');
+    define('PAGE', 'users');
+    include('../mainInclude/header.php');
+    include('../../dbConnection.php');
 
-    // if(!isset($_SESSION['is_admin_login'])){
-    //     echo "<script> location.href='./index.php'; </script>";
-    //    }
+    if(!isset($_SESSION['is_admin_login'])){
+        echo "<script> location.href='../index.php'; </script>";
+       }
 
 ?>
 <section id="content">
@@ -63,3 +63,4 @@
        
 </section>
 </div>
+<?php include('../mainInclude/footer.php'); ?>

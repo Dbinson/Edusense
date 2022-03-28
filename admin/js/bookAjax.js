@@ -1,7 +1,6 @@
 
 // addbook
-
-console.log('Working');
+console.log('dsvsdklvsdn')
 function addBooks() {
 	console.log('sdgdsg')
 	var selectSub = $("#select_subject").val();
@@ -180,7 +179,6 @@ function editChapters() {
 		
 		// add chapter
 
-		console.log('Working');
 function aChapters() {
 	console.log('sdgdsg')
 	 var book_id=$("#bid").val();
