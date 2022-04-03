@@ -9,9 +9,9 @@ include('../mainInclude/header.php');
 include('../../dbConnection.php');
 include('../modals/addBookmodal.php');
 
-// if(!isset($_SESSION['is_admin_login'])){
-//     echo "<script> location.href='./index.php'; </script>";
-//    }
+if(!isset($_SESSION['is_admin_login'])){
+    // echo "<script> location.href='./index.php'; </script>";
+   }
 
 
 if (isset($_REQUEST['submitBtn'])) {

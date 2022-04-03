@@ -34,33 +34,26 @@
     </div>
 </footer>
 
-  <script>
-    
 
+  <!-- modal to play the demo video -->
+    <div class="modal fade" id="DemoModalPlayer" tabindex="-1" aria-labelledby="DemoModalPlayerModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-fullscreen-xxl-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="DemoModalPlayerModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    //Initialize feedback Swiper
-  var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    autoplay:{
-      delay:3000,
-      disableOnInteraction:false
-    },
-    slidesPerView: "auto",
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 0,
-      slideShadows: true,
-    },
-    pagination: {
-    el: ".swiper-pagination",
-  },
-    loop: true,
-  });
-    
-  </script>
+<script src="./public\js\testimonial.js"></script>
 </body>
 </html>

@@ -97,59 +97,6 @@
   </div>
 </section>
 
-<section class="" id="section-4">
-  <!-- Swiper -->
-  <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-           <div class="testimonalbox d-flex flex-column text-center">
-             <div class="info">
-                <h4 class="fs-2">Dally Serrao</h4>
-                <p class="fs-6">Student </p>
-             </div>
-             <div class="content">
-               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum possimus incidunt non. Repellendus impedit rerum unde incidunt eveniet dolorem cupiditate debitis fugiat facilis. Dolore, vel distinctio error dolorum culpa deleniti?</p>
-             </div>
-             <div class="stars-outer fs-1">
-               <div class="stars-inner"></div>
-             </div>
-           </div>
-          </div>
-
-          <div class="swiper-slide">
-           <div class="testimonalbox d-flex flex-column text-center">
-             <div class="info">
-                <h4 class="fs-2">Binson Dsouza</h4>
-                <p class="fs-6">Student </p>
-             </div>
-             <div class="content">
-               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum possimus incidunt non. Repellendus impedit rerum unde incidunt eveniet dolorem cupiditate debitis fugiat facilis. Dolore, vel distinctio error dolorum culpa deleniti?</p>
-             </div>
-             <div class="stars-outer fs-1">
-               <div class="stars-inner"></div>
-             </div>
-           </div>
-          </div>
-
-          <div class="swiper-slide">
-           <div class="testimonalbox d-flex flex-column text-center">
-             <div class="info">
-                <h4 class="fs-2">Unknown</h4>
-                <p class="fs-6">Faculty </p>
-             </div>
-             <div class="content">
-               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum possimus incidunt non. Repellendus impedit rerum unde incidunt eveniet dolorem cupiditate debitis fugiat facilis. Dolore, vel distinctio error dolorum culpa deleniti?</p>
-             </div>
-             <div class="stars-outer fs-1">
-               <div class="stars-inner"></div>
-             </div>
-           </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-</section>
-
 <section  id="section-5">
   <div class="container-fluid" id="myGroup">
     <div class="row text-center ">
@@ -157,214 +104,152 @@
     </div>
     
       <div class="row pb-5 text-center">
-        <div class="col-4 course-img  " data-bs-toggle="collapse" href="#coursePrimaryCollapse" role="button" aria-expanded="false" aria-controls="coursePrimaryCollapse">
-          <div class="img-back">
-            <img src="public/assets/c1.png" alt="course-1 image">
-          </div>
-          <h2 class="py-4">Primary School</h2>
+        <div class="col-4 course-img">
+          <a href="./subject.php?s=1">
+            <div class="img-back">
+              <img src="public/assets/c1.png" alt="course-1 image">
+            </div>
+            <h2 class="py-4">Primary School</h2>
+          </a>
         </div>
-        <div class="col-4  course-img " data-bs-toggle="collapse" href="#courseHighCollapse" role="button" aria-expanded="false"  aria-controls="courseHighCollapse">
-        <div class="img-back">
-            <img src="public/assets/c2.png" alt="course-2 image">
-          </div>
-          <h2 class="py-4">High School School</h2>
-        </div>
-        <div class="col-4 course-img " data-bs-toggle="collapse" href="#courseSecondaryCollapse" role="button" aria-expanded="false"  aria-controls="courseSecondaryCollapse">
+        <div class="col-4  course-img">
+          <a href="./subject.php?s=2">
           <div class="img-back">
-            <img src="public/assets/c3.png" alt="course-3 image">
-          </div>
-          <h2 class="py-4">Higher Secondary School</h2>
+              <img src="public/assets/c2.png" alt="course-2 image">
+            </div>
+            <h2 class="py-4">High School School</h2>
+          </a>
+        </div>
+        <div class="col-4 course-img" >
+          <a href="./subject.php?s=3">
+            <div class="img-back">
+              <img src="public/assets/c3.png" alt="course-3 image">
+            </div>
+            <h2 class="py-4">Higher Secondary School</h2>
+          </a>
         </div>
       </div>
-      <div class="row ">
-        <div class="col" >
-          <!-- For primary -->
-          <div class="collapse multi-collapse" data-bs-parent="#myGroup" id="coursePrimaryCollapse">
-            <div class="card card-body bg-grey ">
-              <div class="" id="c_selection ">
-                <form action="" method="POST" class="courseForm">
-                  <input type="hidden" value="1" name="course_id">
-                  <!-- selecting boards -->
-                  <p class="fs-3 mb-2">Select Board</p>
-                  <div class="d-flex flex-wrap justify-content-start">
-                    <?php
-                      $query = 'SELECT DISTINCT board.board_id,board.board_name FROM assign_course 
-                            LEFT JOIN board ON assign_course.board_id = board.board_id 
-                            WHERE assign_course.course_id = "1";';
-                      $result = $conn->query($query);
-                      while($row = $result->fetch_assoc()){
-                        echo '
-                            <div class="board-container">
-                            <span class="p-1">'.$row['board_name'].'</span> 
-                            <input type="radio" value="'.$row['board_id'].'" name="board">
-                          </div>
-                        ';
-                      }
-                    ?>
-                    </div>
-
-                  <!-- selecting Class -->
-                  <p class="fs-3 mb-2">Select Class</p>
-                  <div class="d-flex flex-wrap justify-content-start">
-                  <?php
-                      $query = 'SELECT DISTINCT class.class_id,class.class_name FROM assign_course 
-                      LEFT JOIN class ON assign_course.class_id = class.class_id 
-                      WHERE assign_course.course_id = "1";';
-                      $result = $conn->query($query);
-                      while($row = $result->fetch_assoc()){
-                        echo '
-                        <div class="board-container">
-                          <span class="p-2">'.$row['class_name'].'</span> 
-                          <input type="radio" value="'.$row['class_id'].'" name="class">
-                        </div>
-                        ';
-                      }
-                    ?>
-                    
-                    
-                  </div>
-                  <button class="btn btn-outline-primary m-3" type="submit" >Search</button>
-                </form>
-                 <!-- displaying the subjects  -->
-                <table class="table table-striped table-dark table-bordered table-hover text-center">
-                  <thead>
-                    <th>#</th>
-                    <th>Subject Name</th>
-                    <th>Enrol</th>
-                  </thead>
-                  <tbody>
-                    
-                  </tbody>
-                </table>
-              </div>
-              </div>
-            </div>
-
-          <!-- For High School -->
-          <div class="collapse multi-collapse" data-bs-parent="#myGroup" id="courseHighCollapse">
-            <div class="card card-body bg-grey ">
-              <div class="" id="c_selection ">
-              <form action="" method="POST" class="courseForm">
-              <input type="hidden" value="2" name="course_id">
-                <!-- selecting boards -->
-                <p class="fs-3 mb-2">Select Board</p>
-                <div class="d-flex flex-wrap justify-content-start">
-                <?php
-                    $query = 'SELECT DISTINCT board.board_id,board.board_name FROM assign_course 
-                          LEFT JOIN board ON assign_course.board_id = board.board_id 
-                          WHERE assign_course.course_id = "2";';
-                    $result = $conn->query($query);
-                    while($row = $result->fetch_assoc()){
-                      echo '
-                          <div class="board-container">
-                          <span class="p-1">'.$row['board_name'].'</span> 
-                          <input type="radio" value="'.$row['board_id'].'" name="board">
-                        </div>
-                      ';
-                    }
-                  ?>
-                </div>
-
-                <!-- selecting Class -->
-                <p class="fs-3 mb-2">Select Class</p>
-                <div class="d-flex flex-wrap justify-content-start">
-                  <?php
-                      $query = 'SELECT DISTINCT class.class_id,class.class_name FROM assign_course 
-                      LEFT JOIN class ON assign_course.class_id = class.class_id 
-                      WHERE assign_course.course_id = "2";';
-                      $result = $conn->query($query);
-                      while($row = $result->fetch_assoc()){
-                        echo '
-                        <div class="board-container">
-                          <span class="p-2">'.$row['class_name'].'</span> 
-                          <input type="radio" value="'.$row['class_id'].'" name="class">
-                        </div>
-                        ';
-                      }
-                    ?>
-                </div>
-                <button class="btn btn-outline-primary m-3" type="submit"  >Search</button>
-              </form>
-              <!-- displaying the subjects  -->
-              <table class="table table-striped table-dark table-bordered table-hover text-center">
-                <thead>
-                  <th>#</th>
-                  <th>Subject Name</th>
-                  <th>Enrol</th>
-                </thead>
-                <tbody>
-                  
-                </tbody>
-              </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- For Secondary -->
-          <div class="collapse multi-collapse" data-bs-parent="#myGroup" id="courseSecondaryCollapse">
-            <div class="card card-body bg-grey ">
-              <div class="" id="c_selection ">
-                <form action="" method="POST" class="courseForm">
-                  <input type="hidden" value="3" name="course_id">
-                  <!-- selecting boards -->
-                  <p class="fs-3 mb-2">Select Board</p>
-                  <div class="d-flex flex-wrap justify-content-start">
-                  <?php
-                      $query = 'SELECT DISTINCT board.board_id,board.board_name FROM assign_course 
-                            LEFT JOIN board ON assign_course.board_id = board.board_id 
-                            WHERE assign_course.course_id = "3";';
-                      $result = $conn->query($query);
-                      while($row = $result->fetch_assoc()){
-                        echo '
-                            <div class="board-container">
-                            <span class="p-1">'.$row['board_name'].'</span> 
-                            <input type="radio" value="'.$row['board_id'].'" name="board">
-                          </div>
-                        ';
-                      }
-                    ?>
-                  </div>
-
-                  <!-- selecting Class -->
-                  <p class="fs-3 mb-2">Select Class</p>
-                  <div class="d-flex flex-wrap justify-content-start">
-                  <?php
-                      $query = 'SELECT DISTINCT class.class_id,class.class_name FROM assign_course 
-                      LEFT JOIN class ON assign_course.class_id = class.class_id 
-                      WHERE assign_course.course_id = "3";';
-                      $result = $conn->query($query);
-                      while($row = $result->fetch_assoc()){
-                        echo '
-                        <div class="board-container">
-                          <span class="p-2">'.$row['class_name'].'</span> 
-                          <input type="radio" value="'.$row['class_id'].'" name="class">
-                        </div>
-                        ';
-                      }
-                    ?>
-                  </div>
-                  <button class="btn btn-outline-primary m-3" type="submit"  >Search</button>
-                </form>
-                <!-- displaying the subjects  -->
-                <table class="table table-striped table-dark table-bordered table-hover text-center">
-                  <thead>
-                    <th>#</th>
-                    <th>Subject Name</th>
-                    <th>Enrol</th>
-                  </thead>
-                  <tbody>
-                    
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div><!--Col End -->
-      </div><!--row End -->
-      
-    </form>
   </div>
 </section>
+
+<section id="section-4">
+    <div class="container text-center">
+        <div class="section-title">
+            <h2>Testimonials</h2>
+            <span class="section-separator"></span>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+    </div>
+    <div class="testimonials-carousel-wrap text-center">
+        <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
+        <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>
+        <div class="testimonials-carousel">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testi-item">
+                            <div class="testi-avatar"><img src="./public/assets/t21.jpg"></div>
+                            <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                            <div class="testimonials-text">
+                                <div class="listing-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <a href="#" class="text-link"></a>
+                                <div class="testimonials-avatar">
+                                    <h3>John Doe</h3>
+                                    <h4>Owner</h4>
+                                </div>
+                            </div>
+                            <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                        </div>
+                    </div>
+
+                    <!--second--->
+                    <div class="swiper-slide">
+                        <div class="testi-item">
+                            <div class="testi-avatar"><img src="./public/assets/t3.jpg"></div>
+                            <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                            <div class="testimonials-text">
+                                <div class="listing-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <a href="#" class="text-link"></a>
+                                <div class="testimonials-avatar">
+                                    <h3>Doe Boe</h3>
+                                    <h4>Director</h4>
+                                </div>
+                            </div>
+                            <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                        </div>
+                    </div>
+                    <!--third-->
+
+                    <div class="swiper-slide">
+                        <div class="testi-item">
+                            <div class="testi-avatar"><img src="./public/assets/t4.jpg"></div>
+                            <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                            <div class="testimonials-text">
+                                <div class="listing-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <a href="#" class="text-link"></a>
+                                <div class="testimonials-avatar">
+                                    <h3>Boe Doe</h3>
+                                    <h4>Developer</h4>
+                                </div>
+                            </div>
+                            <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                        </div>
+                    </div>
+
+                    <!--fourth-->
+                    <div class="swiper-slide">
+                        <div class="testi-item">
+                            <div class="testi-avatar"><img src="./public/assets/t6.jpg"></div>
+                            <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+                            <div class="testimonials-text">
+                                <div class="listing-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <a href="#" class="text-link"></a>
+                                <div class="testimonials-avatar">
+                                    <h3>Doe John</h3>
+                                    <h4>Designer</h4>
+                                </div>
+                            </div>
+                            <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+                        </div>
+                    </div>
+                    <!--testi end-->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="tc-pagination text-right"></div> -->
+    </div>
+</section>
+
 <?php    
               // if(!isset($_SESSION['is_login'])){
               //   echo '<a class="btn btn-danger mt-3" href="#" data-bs-toggle="modal" data-bs-target="#userRegModalCenter">Get Started</a>';
@@ -382,7 +267,7 @@
               //   }
                 
               // }
-          ?> 
+?> 
   </main>
 
   <?php include('./mainInclude/footer.php'); ?>
