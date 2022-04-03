@@ -7,17 +7,38 @@
 <main class="" id="">
 <section class=" mb-6" id="section-1">
 
-  <div class="container-fluid py-5 home1">
-    <div class="row align-items-center">
-      <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end">
-        <img class="w-100" src="public/assets/aa.png"   alt="hero-header" />
-      </div>
-      <div class="col-md-7 col-lg-6 text-md-start text-center cc py-6">
-        <h1 class="fs-6 fs-xl-7 mb-5 ml3">Broaden your knowledge with Edusession</h1>
-        <a class="btn btn-c" href="#!" role="button"> Get Started</a>
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+    <div class="container-fluid carousel-item active py-5 home1" data-bs-interval="3000">
+      <div class="row align-items-center">
+        <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end">
+          <img class="w-100" src="public/assets/aa.png"   alt="hero-header" />
+        </div>
+        <div class="col-md-7 col-lg-6 text-md-start text-center cc py-6">
+          <h1 class="fs-6 fs-xl-7 mb-5 ml3">Broaden your knowledge with Edusession</h1>
+          <a class="btn btn-c" href="#!" role="button"> Get Started</a>
+        </div>
       </div>
     </div>
+      <div class="carousel-item " data-bs-interval="5000">
+        <img src="./public/assets/top-slider/1.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="./public/assets/top-slider/3.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+
+  
   
 </section>
 

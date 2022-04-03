@@ -52,21 +52,13 @@ nav{
 
 .nav-left{
     background-color: #097770 !important;
-    border-bottom-right-radius: 86% ;
+    background: url('nav-back.jpg');
+    border-bottom-right-radius: 100rem ;
     padding: 10px;
     
 }
 
-.nav-left::after{
-    content: '';
-    display: block;
-    height: 100px;
-    width: 100px;
-    background-color: #097770;
-    position: absolute;
-    transform: translate(41rem,-10.4rem) skew(292deg, 15deg);
-    z-index: 10000;
-}
+
 
 .navbar .container-fluid .row{
     flex-grow: 1;
@@ -78,20 +70,15 @@ nav{
     height: 15%;
     /* background-color: rgba(255, 255, 255); */
 }
-/* .nav-right:before{
-    content: '';
-    position: absolute;
-    display: block;
-    width: 150px;
-    height: 80%;
-    background-color: rgba(255, 255, 255);
-    transform: translate(-115px,7px);
-z-index: -10000;
-} */
+
+.nav-item .nav-link{
+    color: #000;
+}
 
 .nav-item .nav-link:hover{
     font-size: 1.2rem;
-    color: rgb(255, 0, 0) !important;
+    font-weight: bolder;
+    color: rgb(14, 122, 108) !important;
 }
 
 .nav-link.active{
@@ -254,4 +241,8 @@ a{
 .f-item{
     width: 32.5%;
     margin: 5px;
+}
+
+.carousel-item img{
+    height: 50% !important;
 }
