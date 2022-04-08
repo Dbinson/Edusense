@@ -8,8 +8,8 @@ $db_name = "edusense(main)";
 $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
 
 // Check Connection
-if($conn->connect_error) {
- die("connection failed");
+if(!$conn) {
+ die("connection failed" . mysqli_connect_error());
 } 
 // else {
 //  echo"connected";

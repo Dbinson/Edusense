@@ -64,7 +64,7 @@
       <!-- Container wrapper -->
       <div class="container-fluid">
         <div class="row pb-2">
-          <div class="col-lg-6 nav-left">
+          <div class="col-lg-6 nav-left ">
             <a class="navbar-brand" href="#">
               <img src="./public/assets/MainLogo.png" height="90" alt="logo" />
             </a>

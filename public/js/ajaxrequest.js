@@ -13,7 +13,6 @@ function addUser(){
       stuname: stuname,
       stupass: stupass,
       stuemail: stuemail,
-      role: "103"
     },
     success: function(data) {
       // console.log(data);

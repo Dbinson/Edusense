@@ -42,76 +42,87 @@
   
 </section>
 
-<section class="container text-center mb-4" id="section-2">
-  <div class="row ">
-    <div class="col fadein">
-      <h2 class="fs-1 pt-5 h-auto">Why you should choose us?</h2>
+<section class="container-fluid text-center py-4" id="section-2">
+  <div class="container">
+    <div class="row ">
+      <div class="col fadein">
+        <h2 class="fs-1 pt-5 h-auto">Why you should choose us?</h2>
+      </div>
+    </div>
+    <div class="row pt-5">
+      <div class="col-4 fadein">
+        <img src="./public/assets/goal.svg" alt="goal image" class="img">
+        <h5 class="my-3">Our mission</h5>
+        <p  >our mission is to encourage our students towards knowledge and to give them a solid foundation to build on. our learning platform aims to bring out the best in every student.</p>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-4 fadein">
+        <img src="./public/assets/value.svg" alt="goal image" class="img">
+        <h5 class="my-3">Values</h5>
+        <p >we are committed to providing a positive, stimulating and interactive environment for the students where all are valued .</p>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col">
+        <img src="./public/assets/a-illustration/ai-1.gif" alt="a-illustration">
+      </div>
+    </div>
+    <div class="row pt-5">
+      <div class="col-4 fadein">
+        <img src="./public/assets/target.svg" alt="goal image" class="img">
+        <h5 class="my-3">Aim</h5>
+        <p >our learning center exists to provide developmental, safe and valued education environment for preschool, primary, secondary, higher secondary students as well as special training courses for competitive examinations including NEET, IIT-JEE, GATE, CAT and MHCET.</p>
+      </div>
+    <div class="col-4"></div>
+      <div class="col-4 fadein">
+        <img src="./public/assets/value.svg" alt="goal image" class="img">
+        <h5 class="my-3">Values</h5>
+        <p >we are committed to providing a positive, stimulating and interactive environment for the students where all are valued .</p>
+      </div>
     </div>
   </div>
-  <div class="row pt-5">
-    <div class="col-6 fadein">
-      <img src="./public/assets/goal.svg" alt="goal image" class="img">
-      <h5 class="my-3">Our mission</h5>
-      <p  >our mission is to encourage our students towards knowledge and to give them a solid foundation to build on. our learning platform aims to bring out the best in every student.</p>
-    </div>
-      <div class="col-6 fadein">
-      <img src="./public/assets/value.svg" alt="goal image" class="img">
-      <h5 class="my-3">Values</h5>
-      <p >we are committed to providing a positive, stimulating and interactive environment for the students where all are valued .</p>
-    </div>
-  
-    <div class="col-6 fadein">
-      <img src="./public/assets/target.svg" alt="goal image" class="img">
-      <h5 class="my-3">Aim</h5>
-      <p >our learning center exists to provide developmental, safe and valued education environment for preschool, primary, secondary, higher secondary students as well as special training courses for competitive examinations including NEET, IIT-JEE, GATE, CAT and MHCET.</p>
-    </div>
-    <div class="col-6 fadein">
-      <img src="./public/assets/suspect.svg" alt="goal image" class="img">
-      <h5 class="my-3">Values</h5>
-      <p >we are committed to providing a positive, stimulating and interactive environment for the students where all are valued .</p>
-    </div>
-  </div>
-  
 </section>
 
-<section class="container " id="section-3">
-  <div class="row">
-    <div class="col">
-        <h2 class="text-center fs-1">How it works?</h2>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-4 text-center">
-      <img src="./public/assets/tutor-how-icon4.png" alt="tutorial icon">
-      <div class="row mt-5">
-        <div class="col-5 text-end">
-          <span class="pe-4 fs-1">1</span>
-        </div>
-        <div class="col-7">
-          <p class="text-start fs-5 text-wrap">Select your course from various courses.</p>
-        </div>
+<section class="container-fluid " id="section-3">
+  <div class="container ">
+    <div class="row">
+      <div class="col">
+          <h2 class="text-center fs-1">How it works?</h2>
       </div>
     </div>
-    <div class="col-4  text-center">
-      <img src="./public/assets/tutor-how-icon5.png" alt="tutorial icon">
-      <div class="row mt-5">
-        <div class="col-5 text-end">
-          <span class="pe-4 fs-1">2</span>
-        </div>
-        <div class="col-7">
-          <p class="text-start fs-5 text-wrap">Our team will get in touch with you.</p>
+    <div class="row mt-5">
+      <div class="col-4 text-center">
+        <img src="./public/assets/tutor-how-icon4.png" alt="tutorial icon">
+        <div class="row mt-5">
+          <div class="col-5 text-end">
+            <span class="pe-4 fs-1">1</span>
+          </div>
+          <div class="col-7">
+            <p class="text-start fs-5 text-wrap">Select your course from various courses.</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-4  text-center">
-      <img src="./public/assets/tutor-how-icon6.png" alt="tutorial icon">
-      <div class="row mt-5
-      ">
-        <div class="col-5 text-end">
-          <span class="pe-4 fs-1">3</span>
+      <div class="col-4  text-center">
+        <img src="./public/assets/tutor-how-icon5.png" alt="tutorial icon">
+        <div class="row mt-5">
+          <div class="col-5 text-end">
+            <span class="pe-4 fs-1">2</span>
+          </div>
+          <div class="col-7">
+            <p class="text-start fs-5 text-wrap">Our team will get in touch with you.</p>
+          </div>
         </div>
-        <div class="col-7">
-          <p class="text-start fs-5 text-wrap">Start learning with Edusession.</p>
+      </div>
+      <div class="col-4  text-center">
+        <img src="./public/assets/tutor-how-icon6.png" alt="tutorial icon">
+        <div class="row mt-5
+        ">
+          <div class="col-5 text-end">
+            <span class="pe-4 fs-1">3</span>
+          </div>
+          <div class="col-7">
+            <p class="text-start fs-5 text-wrap">Start learning with Edusession.</p>
+          </div>
         </div>
       </div>
     </div>

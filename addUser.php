@@ -11,25 +11,21 @@ header('Content-type: application/json');
 if(isset($_POST['stuemail']) && isset($_POST['checkemail'])){
   $stuemail = $_POST['stuemail'];
   $sql = "SELECT stu_email FROM student WHERE stu_email='".$stuemail."'";
-  $result = $conn->query($sql);
-  $row = $result->num_rows;
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_row($result);
   echo json_encode($row);
   }
 
   // Inserting or Adding New Student
-  if(isset($_POST['studsignup']) && isset($_POST['stuname']) && isset($_POST['stuemail']) && isset($_POST['stupass']) && isset($_POST['role'])){
+  if(isset($_POST['studsignup']) && isset($_POST['stuname']) && isset($_POST['stuemail']) && isset($_POST['stupass'])){
     $stuname = $_POST['stuname'];
     $stuemail = $_POST['stuemail'];
-    $stupass = $_POST['stupass'];
-    $role = $_POST['role'];
+    $stupass = password_hash($_POST['stupass'],PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO user(user_name,user_email, user_password,role_id) VALUES ('".$stuname."','".$stuemail."', '".$stupass."','".$role."');";
-    $q1 = $conn->query($sql);
-    // $userId = $conn->insert_id;
-    // $sql2 = "INSERT INTO students(student_name,user_id) VALUES ('".$stuname."','".$userId."');";
-    // $q2 = $conn->query($sql2);
+    $sql2 = "INSERT INTO student(stud_name,stud_email,password) VALUES ('".$stuname."','".$stuemail."', '".$stupass."');";
+    $result2 = mysqli_query($conn, $sql2);
 
-    if($q1){
+    if($result2){
       echo json_encode("OK");
     } else {
       echo json_encode("Failed");
