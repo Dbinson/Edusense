@@ -22,6 +22,7 @@ function addUser(){
         console.log("completed")
         // Empty Login Fields
         // clearAdminLoginField();
+        $('.msg').append('span').addClass('bg-success p-3').text('Registered')
         setTimeout(() => {
           window.location.href = "login.php";
         }, 1000);

@@ -12,7 +12,8 @@
     </div>
     <div class="columns box right-box">
       <form class="columns">
-        <img src="./public/assets/MainLogo.png" alt="" />
+        <img src="./public/assets/MainLogo.png" alt="" /> 
+        <div class="msg"></div>
         <h2>Welcome back, Signup</h2>
         <input type="text" required placeholder="Name" name="stuname" id="stuname">
         <input type="email" required placeholder="Email" name="stuemail" id="stuemail"/>

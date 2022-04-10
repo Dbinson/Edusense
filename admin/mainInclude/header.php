@@ -151,7 +151,7 @@
 
         <li class="slidebar-Item <?php if(PAGE == 'books'){echo 'active';} ?>">
           <i class="material-icons ic">import_contacts</i>
-          <a href="#">Books</a>
+          <a href="../notes/notes.php">Notes</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'feedback'){echo 'active';} ?>">
