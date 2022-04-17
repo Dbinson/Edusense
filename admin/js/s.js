@@ -1,97 +1,16 @@
-function addc() {
-        var course_name = $("#course_name").val();
-        var board_name = $("#board_name").val();
-        var course_desc = $("#course_desc").val();
-        var course_image = $("#course_image").val();
-
-        $.ajax({url:"addcourse.php",
-                    type:"POST",
-                    data:{
-                        course_name: course_name,
-                        board_name : board_name,
-                        course_desc : course_desc,
-                        course_image : course_image
-                    },
-                    dataType: "text",
-                    success: function(data) {
-                        if (data == 0) {
-                            $("#successMsg").html(
-                              '<small class="alert alert-danger">insert falied ! </small>'
-                            );
-                          } else if (data == 1) {
-                            $("#successMsg").html(
-                              '<small class="alert alert-success"> Success! Loading..... </small>'
-                            );
-                            // Empty Login Fields
-                            clearField();
-                            setTimeout(() => {
-                              window.location.href = "./index.php";
-                            }, 1000);
-                          }
-                      }
-                });
-}
-var d=0
-$(document).ready(function () {
-
-    $('.editcoursebtn').on('click', function () {
-
-        $('#updatecourseModalCenter').modal('show');
-
-          d=$("#id").val();
-         
-          console.log(d)
-    });
-
-});
-function updatec() {
-    var course_id = d
-    var course_name = $("#select_name").val();
-    var board_name = $("#select_board").val();
-    var course_desc = $("#c_desc").val();
-    var course_image = $("#c_img").val();
-    $.ajax({url:"updatecourse.php",
-                type:"POST",
-                data:{
-                    course_id: course_id,
-                    course_name: course_name,
-                    board_name : board_name,
-                    course_desc : course_desc,
-                    course_image : course_image
-                },
-                dataType: "text",
-                success: function(data) {
-                    if (data == 0) {
-                        $("#successMsg").html(
-                          '<small class="alert alert-danger">insert falied ! </small>'
-                        );
-                      } else if (data == 1) {
-                        $("#successMsg").html(
-                          '<small class="alert alert-success"> Success! Loading..... </small>'
-                        );
-                        // Empty Login Fields
-                        clearField();
-                        setTimeout(() => {
-                          window.location.href = "./index.php";
-                        }, 1000);
-                      }
-                  }
-            });
-}
 function addsub() {
     var subject_name = $("#subject_name").val();
-    var course_name = $("#course_select").val();
     var class_name = $("#class_name").val();
 
     $.ajax({url:"addsubject.php",
                 type:"POST",
                 data:{
                     subject_name: subject_name,
-                    course_name : course_name,
                     class_name : class_name
                 },
                 dataType: "text",
                 success: function(data) {
+                  console.log(data);
                     if (data == 0) {
                         $("#successMsg").html(
                           '<small class="alert alert-danger">insert falied ! </small>'
@@ -100,61 +19,106 @@ function addsub() {
                         $("#successMsg").html(
                           '<small class="alert alert-success"> Success! Loading..... </small>'
                         );
-                        // Empty Login Fields
-                        clearField();
+                        // Empty Fields
+                        clearFieldSubject("#addsubjectForm");
+
                         setTimeout(() => {
-                          window.location.href = "./index.php";
+                          $('#addsubjectModalCenter').modal('hide');
+                          location.reload();
                         }, 1000);
                       }
                   }
             });
 }
-var d=0
+function clearFieldSubject(id){
+  $(id).trigger('reset');
+}
+
+// delete the subject
+$(document).ready(function () {
+  $('.deletebtn').on('click', function () {
+    var id = $(this).attr('id')
+    $.ajax({
+      type: "post",
+      url: "../delete.php",
+      data: {
+        requestType: 'subject',
+        id:id
+      },
+      success: function (data) {
+        // console.log(data)
+        if(data == '1'){
+          location.reload()
+        }
+      }
+    });
+  })
+});
+
+
 $(document).ready(function () {
 
     $('.editsubjectbtn').on('click', function () {
 
-        $('#updatesubjectModalCenter').modal('show');
+      var id = $(this).attr('id');
+      // console.log(id)
 
-          d=$("#sub").val();
-         
-          console.log(d)
+        $.ajax({
+          type: "post",
+          url: "../fetch.php",
+          data: {
+            request: 'subUpdate',
+            id: id
+          },
+          dataType: "json",
+          success: function (data) {
+            // console.log(data);
+            $.each(data,(index, val)=>{
+              // console.log(val)
+              $('#subId').val(val.subject_id)
+              $('#selectSubject').val(val.name)
+              $('#className').val(val.class)
+            })
+            // console.log($('#subId').val())
+            $('#updatesubjectModalCenter').modal('show')
+          }
+        });
     });
 
 });
 function updatesub() {
 
-    var subject_id = d
-    var subject_name = $("#select_subject").val();
-    var course_name = $("#c_name").val();
-    var class_name = $("#class_select").val();
+    var subject_id = $('#subId').val()
+    var subject_name = $("#selectSubject").val();
+    var class_name = $("#className").val();
 
     $.ajax({url:"updatesubject.php",
-                type:"POST",
-                data:{
-                    subject_id  : subject_id,
-                    subject_name: subject_name,
-                    course_name : course_name,
-                    class_name : class_name
-                },
-                dataType: "text",
-                success: function(data) {
-                    if (data == 0) {
-                        $("#successMsg").html(
-                          '<small class="alert alert-danger">insert falied ! </small>'
-                        );
-                      } else if (data == 1) {
-                        $("#successMsg").html(
-                          '<small class="alert alert-success"> Success! Loading..... </small>'
-                        );
-                        // Empty Login Fields
-                        clearField();
-                        setTimeout(() => {
-                          window.location.href = "./index.php";
-                        }, 1000);
-                      }
-                  }
-            });
+      type:"POST",
+      data:{
+          subject_id: subject_id,
+          subject_name: subject_name,
+          class_name : class_name
+      },
+      dataType: "text",
+      success: function(data) {
+        console.log(data)
+          if (data == 0) {
+              $("#successMsg").html(
+                '<small class="alert alert-danger">falied ! </small>'
+              );
+            } else if (data == 1) {
+              $("#successMsg").html(
+                '<small class="alert alert-success"> Success!</small>'
+              );
+              // Empty Login Fields
+              // clearField();
+              setTimeout(() => {
+                $('#updatesubjectModalCenter').modal('hide')
+                location.reload()
+              }, 1000);
+            }
+        }
+    });
 }
 
 
