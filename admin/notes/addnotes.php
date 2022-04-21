@@ -6,7 +6,7 @@
 	$isNoteAdded = false;
 
 	print_r($_POST);
-	print_r($_FILES);
+	echo $_FILES;
 
 	// $id = $_POST['subjectId'].$_POST['chapterNo'].rand(1,100);
 

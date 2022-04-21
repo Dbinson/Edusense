@@ -10,7 +10,7 @@ function addsub() {
                 },
                 dataType: "text",
                 success: function(data) {
-                  console.log(data);
+                  // console.log(data);
                     if (data == 0) {
                         $("#successMsg").html(
                           '<small class="alert alert-danger">insert falied ! </small>'
@@ -20,7 +20,7 @@ function addsub() {
                           '<small class="alert alert-success"> Success! Loading..... </small>'
                         );
                         // Empty Fields
-                        clearFieldSubject("#addsubjectForm");
+                        clearField("#addsubjectForm");
 
                         setTimeout(() => {
                           $('#addsubjectModalCenter').modal('hide');
@@ -30,7 +30,7 @@ function addsub() {
                   }
             });
 }
-function clearFieldSubject(id){
+function clearField(id){
   $(id).trigger('reset');
 }
 
@@ -120,40 +120,3 @@ function updatesub() {
         }
     });
 }
-
-
-//assign demo ajax
-console.log('Working')
-var d
-$(document).on('click', '.acbtn', function(){ 
-    console.log('dca')
-
-      $('#assignDemoModalCenter').modal('show');
-
-        data=$(this).attr("id")
-       
-        $('#reg_id').val(data)
-  });
-
-
-function assD(){
-  var demo_reg_id =$('#reg_id').val()
-  var faculty_id=$('#faculty_id').val()
-  var datetime=$('#dt').val()
-  var meet_link =$('#ml').val()
-
-  $.ajax({url:"assignDemo.php",
-    type:"POST",
-    data:{
-        demo_reg_id:demo_reg_id,
-        faculty_id:faculty_id,
-        datetime:datetime,
-        meet_link:meet_link
-    },
-    dataType: "json",
-    success: function(data) {
-
-    }
-  });
-}
-

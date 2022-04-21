@@ -95,5 +95,5 @@
        
 </section>
 </div>
-
+<script src="../js/s.js"></script>
 <?php include('../mainInclude/footer.php'); ?>

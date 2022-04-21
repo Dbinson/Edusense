@@ -51,32 +51,13 @@ function editChapters() {
 		}
 	  });
   }
-		 
-  $( 'form' ).submit(function ( e ) {
-    var data;
-
-    data = new FormData();
-    data.append( 'file', $( '#file' )[0].files[0] );
-
-    $.ajax({
-        url: 'http://hacheck.tel.fer.hr/xml.pl',
-        data: data,
-        processData: false,
-        type: 'POST',
-        success: function ( data ) {
-            alert( data );
-        }
-    });
-
-    e.preventDefault();
-});
 				
 		
 // add notes
 
 $(document).ready(function (e) {
-    $(".addNotesForm").on('submit',(function (e) {
-		e.preventDefault();
+    $("#addNotesForms").on('submit',(function (e) {
+		
 		$.ajax({
 			url:"addnotes.php",
 			type:"post",
@@ -84,10 +65,11 @@ $(document).ready(function (e) {
 			processData: false,
 			contentType: false,
 			success: function (data){
+				console.log(data)
 			//   location.reload();
 			}
 		});
-	  
+		e.preventDefault();
     }));
 });
 

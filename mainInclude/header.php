@@ -22,7 +22,7 @@
   <!-- <link rel="stylesheet" href="./public/css/testimonial.css"> -->
 
   <script src="js/jquery.js"></script>
-  <script src="./public/js/index.js"></script>
+  <!-- <script src="./public/js/index.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
   <!--BootStrap Javascript-->

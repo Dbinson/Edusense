@@ -7,7 +7,7 @@
                 <span aria-hidden="true"></span>
                 </button>
             </div>
-            <form id="addNotesForm" class="Edit-Notes-form" name="addNotes" enctype="multipart/form-data" role="form">
+            <form id="addNotesForms" class="Edit-Notes-form" name="addNotes" enctype="multipart/form-data" role="form">
                 <div class="modal-body">
 
                 <div class="mb-3">  

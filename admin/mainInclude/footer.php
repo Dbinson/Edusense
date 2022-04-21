@@ -1,5 +1,4 @@
     
-    <script src="../js/s.js"></script>
     <script src="https://kit.fontawesome.com/151114dda0.js" crossorigin="anonymous"></script>
     <!--BootStrap Javascript-->
     <script src="../../js/bootstrap.bundle.min.js"></script>
