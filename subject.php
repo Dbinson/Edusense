@@ -86,7 +86,20 @@ include('./dbConnection.php');
 <?php 
     if(!$isSearched){
         // when user didnt serched somthing
-        $sql = "SELECT * FROM subject";
+        if($_GET['s'] == 1){
+            $sql = "SELECT * FROM subject 
+                WHERE class <= 4 AND class >= 1 
+            ";
+        }elseif($_GET['s'] == 2){
+            $sql = "SELECT * FROM subject 
+                WHERE class <= 10 AND class >= 5
+            ";
+        }elseif($_GET['s'] == 3){
+            $sql = "SELECT * FROM subject 
+                WHERE class <= 12 AND class >= 11
+            ";
+        }
+        
         $query = mysqli_query($conn,$sql);
         while($result = mysqli_fetch_assoc($query)){
             echo '

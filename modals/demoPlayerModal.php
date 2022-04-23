@@ -11,7 +11,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary " data-id="" id="enrollBtn" onclick="enrollSub()" disabled>Enroll</button>
+        <button type="button" class="btn btn-primary enrollBtn" data-id="" id="enrollBtn" onclick="enrollSub()" disabled>Enroll</button>
       </div>
     </div>
   </div>

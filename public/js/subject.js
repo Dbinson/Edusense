@@ -10,10 +10,11 @@ $(document).on("click", ".openVideoModal", function () {
         },
         dataType:'json',
         success: function (data) {
-            // console.log(data)
+            //  console.log(data)
             $('#videoPlayerModal').modal('show');
             $.each(data, function (i, val) { 
-                $('#enrollBtn').data('id',val.id)
+                // console.log(val.subject_id)
+                $('#enrollBtn').data('id',val.subject_id)
                  $('#vid').attr('src',val.video_file.substr(7))
             });
         }
@@ -31,7 +32,17 @@ $('#videoPlayerModal').on('hide.bs.modal', function (e) {
 
 function enrollSub(){
     console.log('Working')
-    console.log($('#enrollBtn').data('id'))
+    var id = $('#enrollBtn').data('id')
+    // console.log(id)
+    $.ajax({
+        type: "post",
+        url: "anrollProccess.php",
+        data: id,
+        dataType: "json",
+        success: function (data) {
+            console.log(data)
+        }
+    });
 }
 
 // $('document').on('click','.enrollBtn', function () {

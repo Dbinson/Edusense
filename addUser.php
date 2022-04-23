@@ -38,47 +38,76 @@ if(isset($_POST['stuemail']) && isset($_POST['checkemail'])){
       $userLogEmail = $_POST['userLogEmail'];
       $userLogRole = $_POST['userLogRole'];
       $userLogPass = $_POST['userLogPass'];
-      
-      $sql = "SELECT user_id,user_email,user_password,role_id FROM user WHERE user_email='".$userLogEmail."' AND user_password='".$userLogPass."' AND role_id='".$userLogRole."'";
-      $query = $conn->query($sql);
-      $row = $query->num_rows;
-      
-      if($row === 1){
-        $rs=$query->fetch_assoc();
-        $_SESSION['userId'] = $rs['user_id'];
-        $_SESSION['logRole'] = $userLogRole;
-        $_SESSION['userLogEmail'] = $userLogEmail;
-        if($userLogRole = '103'){
-          $_SESSION['is_stud_login'] = true;
-          //getting student id
-          $sql3 = 'SELECT student_id FROM students WHERE user_id = "'.$rs['user_id'].'"';
-          $query3 = $conn->query($sql3);
-          $result3 = $query3->fetch_assoc();
 
-          //assigning student_id to variable 
-          $stud_id = $result3['student_id']; 
-
-          //assigning student_id to variable 
-          $_SESSION['student_id'] = $stud_id;
-
-        }else{
-          $_SESSION['is_fac_login'] = true;
-
-           //getting faculty id
-           $sql4 = 'SELECT faculty_id FROM faculty WHERE user_id ='.$re['user_id'];
-           $query4 = $conn->query($sql4);
-           $result4 = $query4->fetch_assoc();
-
-           //assigning faculty_id to variable 
-          $fac_id = $result4['faculty_id'];
-          
-          //assigning faculty_id to variable 
-           $_SESSION['faculty_id'] = $fac_id;
+      if($userLogRole == 103){
+        $sql = "SELECT student_id,stud_email,password FROM student 
+            WHERE user_email='".$userLogEmail."' AND password='".$userLogPass."'";
+        $query = $conn->query($sql);
+        if($query){
+          if($row = mysqli_num_rows($query) == 1){
+            while($result = mysqli_fetch_assoc($query)){
+  
+              //validate the password
+              if(password_verify($pass,$result["password"])){
+                $_SESSION['user_email'] = $result['email'];
+                $_SESSION['is_login'] = true;
+                $_SESSION['student_id'] = $result['student_id'];
+                // echo "
+                //   <script>
+                //   $('#msg').append(\"<span class='bg-success p-4'>Login Success ......</span>\")
+                //   setTimeout(()=>{
+                //     window.location = \"./dashboard\";
+                //   },1000)
+                //   </script>     
+                //   ";
+              }else{
+                // $msg = '<div class="p-3  bg-danger "> Login Faild. Try Again </div>';
+              }
+            }
+          }
         }
-        echo json_encode($row);
-      } else if($row === 0) {
-        echo json_encode($row);
       }
+      
+      // $sql = "SELECT user_id,user_email,user_password,role_id FROM user WHERE user_email='".$userLogEmail."' AND user_password='".$userLogPass."' AND role_id='".$userLogRole."'";
+      // $query = $conn->query($sql);
+      // $row = $query->num_rows;
+      
+      // if($row === 1){
+      //   $rs=$query->fetch_assoc();
+      //   $_SESSION['userId'] = $rs['user_id'];
+      //   $_SESSION['logRole'] = $userLogRole;
+      //   $_SESSION['userLogEmail'] = $userLogEmail;
+      //   if($userLogRole = '103'){
+      //     $_SESSION['isLoggedIn'] = true;
+      //     //getting student id
+      //     $sql3 = 'SELECT student_id FROM student WHERE user_id = "'.$rs['user_id'].'"';
+      //     $query3 = $conn->query($sql3);
+      //     $result3 = $query3->fetch_assoc();
+
+      //     //assigning student_id to variable 
+      //     $stud_id = $result3['student_id']; 
+
+      //     //assigning student_id to variable 
+      //     $_SESSION['student_id'] = $stud_id;
+
+      //   }else{
+      //     $_SESSION['is_fac_login'] = true;
+
+      //      //getting faculty id
+      //      $sql4 = 'SELECT faculty_id FROM faculty WHERE user_id ='.$re['user_id'];
+      //      $query4 = $conn->query($sql4);
+      //      $result4 = $query4->fetch_assoc();
+
+      //      //assigning faculty_id to variable 
+      //     $fac_id = $result4['faculty_id'];
+          
+      //     //assigning faculty_id to variable 
+      //      $_SESSION['faculty_id'] = $fac_id;
+      //   }
+      //   echo json_encode($row);
+      // } else if($row === 0) {
+      //   echo json_encode($row);
+      // }
     }
   }
 
