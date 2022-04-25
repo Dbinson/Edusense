@@ -37,11 +37,7 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
-  
-  
 </section>
-
 <section class="container-fluid text-center py-4" id="section-2">
   <div class="container">
     <div class="row ">
@@ -64,7 +60,7 @@
     </div>
     <div class="row ">
       <div class="col">
-        <img src="./public/assets/a-illustration/ai-1.gif" alt="a-illustration">
+        <img src="./public/assets/a-illustration/ai-1.gif" alt="a-illustration" style="width: 25em;">
       </div>
     </div>
     <div class="row pt-5">
