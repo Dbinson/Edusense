@@ -1,9 +1,9 @@
 
 
 
-<footer class="bg-dark text-light">
-    <div class="container py-5 ">
-      <div class="row">
+<footer id="footer" class="bg-dark text-light ">
+    <div class="container  ">
+      <div class="row py-3">
         <div class="col-4">
           <h3>Our address</h3>
           <p>Abhilasha Kumari, <br>
@@ -27,6 +27,7 @@
             <span><i class="fa-brands fa-facebook"></i></span>
             <span><i class="fa-brands fa-linkedin"></i></span>
           </div>
+
           <h1><a href="tel:+918237815800" class="text-secondary">+91 8237 81 5800</a></h1>
           <p>If you have any question, feel free to call us</p>
         </div>
