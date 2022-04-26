@@ -92,7 +92,7 @@
                   <a class="nav-link" href="#">Contact</a>
                 </li>
                 <?php
-                if (isset($_SESSION['is_stud_login']) || isset($_SESSION['is_fac_login'])){
+                if (isset($_SESSION['is_login'])){
                   echo '<li class="nav-item px-2">';
                   if($_SESSION['logRole'] == 102){
                     echo '<a href="./faculty/dashboard" class="btn btn-outline-warning ">My Profile</a>';
