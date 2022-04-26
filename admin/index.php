@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <script src="../js//bootstrap.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/jquery.js"></script>
 
     
@@ -19,32 +19,33 @@
     if(isset($_REQUEST['logbtn'])){
       $email = $_REQUEST['login_mail'];
       $pass = $_REQUEST['login_pass'];
-      $user_id;
 
-      $sql = 'SELECT user_id,user_email,user_password FROM user WHERE user_email = "'.$email.'"AND role_id="101" AND user_password = "'.$pass.'"';
+      $sql = 'SELECT id,email,password FROM mst_admin WHERE email = "'.$email.'"';
       $query = $conn->query($sql);
       if($query){
-        if($row = $query->num_rows == 1){
-          while($result = $query->fetch_assoc()){
-            $user_id = $result['user_id'];
-          }
-          $_SESSION['user_id='] = $user_id;
-          $_SESSION['is_admin_login'] = true;
-          
-          echo "
+        if($row = mysqli_num_rows($query) == 1){
+          while($result = mysqli_fetch_assoc($query)){
 
-          <script>
-            $('#formFooter').append(\"<span class='bg-success p-4'>Login Success ......</span>\")
-            setTimeout(()=>{
-              window.location = \"./dashboard\";
-            },1000)
-          </script>     
-          ";
-          
+            //validate the password
+            if(password_verify($pass,$result["password"])){
+              $_SESSION['user_email'] = $result['email'];
+              $_SESSION['is_admin_login'] = true;
+              echo "
+                <script>
+                $('#msg').append(\"<span class='bg-success p-4'>Login Success ......</span>\")
+                setTimeout(()=>{
+                  window.location = \"./dashboard\";
+                },1000)
+                </script>     
+                ";
+            }else{
+              $msg = '<div class="p-3  bg-danger "> Login Faild. Try Again </div>';
+            }
+          }
         }else{
           echo "
           <script>
-          $('#formFooter').append(\"<span class='bg-success p-4'>Login Success ......</span>\")
+          $('#formFooter').append(\"<span class='bg-success p-4'>Admin not registered</span>\")
         </script>     
           ";
         }
@@ -58,6 +59,7 @@
   <div id="formContent">
     <!-- Tabs Titles -->
   
+    
 
     <!-- Icon -->
     <div class="fadeIn first">
@@ -69,12 +71,14 @@
       <input type="email" id="login" class="fadeIn second" name="login_mail" required placeholder="Email">
       <input type="password" id="password" class="fadeIn third" name="login_pass" required placeholder="Password">
       <input type="submit" name="logbtn" class="fadeIn fourth" >
+      <div id="msg">
+      </div>  
     </form>
-
+    
     <!-- Remind Passowrd -->
-    <!-- <div id="formFooter">
+    <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
-    </div> -->
+    </div>
 
   </div>
 </div>

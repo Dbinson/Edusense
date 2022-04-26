@@ -27,8 +27,16 @@ html {
     color: #cccccc;
   }
   
+  .bg-green{
+    background-color: rgb(57, 196, 57);
+    
+  }
   
-  
+  #msg div{
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+  }
   /* STRUCTURE */
   
   .wrapper {
