@@ -194,7 +194,7 @@ img {
 .course-img .img-back:hover{
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    background: linear-gradient(rgb(240, 190, 98),#c429b7);
+    background: linear-gradient(rgb(235, 240, 243),#9ba0a2);
 }
 
 .course-img{
