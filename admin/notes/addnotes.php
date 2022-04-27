@@ -1,38 +1,43 @@
 <?php
-include("../../dbConnection.php");
+	include("../../dbConnection.php");
 
-header('Content-type: application/json');
+	// header('Content-type: application/json');
 
-	$subject_id = json_decode ($_POST['subject_id']);
-	$image =  $_POST['bookImage'];
-	$class_id = json_decode ($_POST['class_id']);
-	$chapterName =  $_POST['chapterName'];
-	$chapterNo = json_decode ($_POST['chapterNum']);
-	$chapterFile = json_decode( $_POST['chapterFile']);
+	$isNoteAdded = false;
 
+	print_r($_POST);
+	echo $_FILES;
+
+	// $id = $_POST['subjectId'].$_POST['chapterNo'].rand(1,100);
+
+	// //checking if there is reference to the assignment
+	// $valid_extensions = array( 'pdf'); // valid extensions
+	// $path = '../../mst_notes/'; // upload directory
+	// if($_FILES['filename']['name']){
+	// 	$fname = $_FILES['filename']['name'];
+	// 	$tmp = $_FILES['filename']['tmp_name'];
+	// 	// get uploaded file's extension
+	// 	$ext = strtolower(pathinfo($fname, PATHINFO_EXTENSION));
+	// 	// can upload same image using rand function
+	// 	$final_file = rand(1000,1000000).$fname;
+	// 	// check's valid format
+	// 	if(in_array($ext, $valid_extensions)) 
+	// 	{ 
+	// 		$path = $path.strtolower($final_file); 
+	// 		move_uploaded_file($tmp,$path);
+	// 	}else{
+	// 		echo 'invalid';
+	// 	}
+	// }
+
+	// $sql = "INSERT INTO mst_notes(mst_notes_id,subject_id,chapter_no,filename) 
+	// 	VALUES ('".$id."','".$_POST['subjectId']."','".$_POST['chapterNo']."','".$path."')";
+	// $query = mysqli_query($conn, $sql);
+
+	// if($query){
+	// 	$isNoteAdded = true;
+	// }
 	
-	$check = "SELECT class_id,subject_id from books where class_id=".$class_id."  AND subject_id=".$subject_id.";";
-	$cquery = $conn->query($check);
-	if($cquery->num_rows==0){
-
-	$sql = "INSERT INTO books(subject_id,book_image,class_id) VALUES ('".$subject_id."','".$image."','".$class_id."');";
-	$query = $conn->query($sql);
-	$book_id = $conn->insert_id; 
-			   
-		
-	$sql2 = "INSERT INTO chapter ( chapter_name, chapter_number, chapter_file, book_id) VALUES ('".$chapterName."','".$chapterNo."','".$chapterFile."' ,'".$book_id."');";
-	$query2 = $conn->query($sql2);
-	
-
-	if($sql && $sql2){
-		echo' 1';
-	}else{
-		echo "0 " ;
-	}
-	}else{
-
-		echo" already exists";
-	}
-
+	// echo $isNoteAdded;
 ?>
  

@@ -90,21 +90,10 @@
 
 
 
-        <li class="slidebar-Item <?php if(PAGE == 'courses'){echo 'active';} ?>">
+        <li class="slidebar-Item <?php if(PAGE == 'subject'){echo 'active';} ?>">
           <i class="material-icons ic">local_library</i>
-          <a href="#courseSubmenu" data-bs-toggle="collapse" aria-expanded="false">Courses</a>
+          <a href="../subject/Subject.php">Subject</a>
         </li>
-        <!-- sublist COURSES-->
-        <ul class="collapse list-unstyled list-group sublist" id="courseSubmenu">
-          <li>
-              <a href="../courses/Course.php">View Courses</a>
-          </li>
-          <li>
-              <a href="../courses/Subject.php">View Subjects</a>
-          </li>
-        </ul>
-
-
 
         <li class="slidebar-Item <?php if(PAGE == 'demo'){echo 'active';} ?>">
           <i class="material-icons ic">airplay</i>
@@ -149,7 +138,7 @@
           <a href="#">Examination</a>
         </li>
 
-        <li class="slidebar-Item <?php if(PAGE == 'books'){echo 'active';} ?>">
+        <li class="slidebar-Item <?php if(PAGE == 'notes'){echo 'active';} ?>">
           <i class="material-icons ic">import_contacts</i>
           <a href="../notes/notes.php">Notes</a>
         </li>

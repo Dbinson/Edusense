@@ -31,7 +31,7 @@
   width: 100%;
   justify-content: space-between;
 }
-.admin-mybooks-header button {
+.admin-mybooks-header .abutton {
   width: 15%;
   font-weight: 600;
 }

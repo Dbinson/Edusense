@@ -22,7 +22,7 @@
   <!-- <link rel="stylesheet" href="./public/css/testimonial.css"> -->
 
   <script src="js/jquery.js"></script>
-  <script src="./public/js/index.js"></script>
+  <!-- <script src="./public/js/index.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
   <!--BootStrap Javascript-->
@@ -81,7 +81,7 @@
                   <a class="nav-link" href="#footer">Contact</a>
                 </li>
                 <?php
-                if (isset($_SESSION['is_stud_login']) || isset($_SESSION['is_fac_login'])){
+                if (isset($_SESSION['is_login'])){
                   echo '<li class="nav-item px-2">';
                   if($_SESSION['logRole'] == 102){
                     echo '<a href="./faculty/dashboard" class="btn btn-outline-warning ">My Profile</a>';
