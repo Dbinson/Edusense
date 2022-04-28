@@ -7,14 +7,16 @@
     define('PAGE', 'users');
     include('../mainInclude/header.php');
     include('../../dbConnection.php');
+    include('../modals/updateFacultyModal.php');
 
-    // if(!isset($_SESSION['is_admin_login'])){
-    //     echo "<script> location.href='./index.php'; </script>";
-    //    }
+    if(!isset($_SESSION['is_admin_login'])){
+        echo "<script> location.href='../index.php'; </script>";
+       }
 
 ?>
 <section id="content">
     <div class="container p-4">
+        <h3>Faculty</h3>
        <table class="table table-striped table-bordered table-hover ">
            <thead>
                <tr>
@@ -46,10 +48,10 @@
                             <td>'.$row['join_date'].'</td>
                             <td>'.$row['address'].'</td>
                             <td>
-                                <button name="updatebtn" class="btn btn-outline-success updatebtn btn-sm" type="submit" id="'.$row['faculty_id'].'"><span class="material-symbols-outlined">update</span>
+                                <button name="updatebtn" class="btn btn-outline-success updatebtn btn-sm" type="submit" id="'.$row['faculty_id'].'"><span class="material-icons">update</span>
                             </td>
                             <td>
-                                <button name="deletebtn" class="btn btn-outline-danger deletebtn btn-sm" type="submit" id="'.$row['faculty_id'].'"><span class="material-symbols-outlined">delete</span>
+                                <button name="deletebtn" class="btn btn-outline-danger deletebtn btn-sm" type="submit" id="'.$row['faculty_id'].'"><span class="material-icons">delete</span>
                                 </button>
                             </td>
 
@@ -65,5 +67,78 @@
        
 </section>
 </div>
+<script>
+    //update 
+    $(document).ready(function () {
+        $('.updatebtn').on('click', function () {
+            var id = $(this).attr('id');
+            // console.log(id)
+            $.ajax({
+                type: "post",
+                url: "../fetch.php",
+                data: {
+                    request: 'facUpdate',
+                    id: id
+                },
+                dataType: "json",
+                success: function (data) {
+                    // console.log(data);
+                    $.each(data,(index, val)=>{
+                    // console.log(val)
+                    $('#fac_id').val(val.faculty_id)
+                    $('#facultyName').val(val.faculty_name)
+                    $('#facultyMobile').val(val.faculty_mobile)
+                    $('#facultyEmail').val(val.faculty_email)
+                    $('#address').val(val.address)
+                    $('#joinDate').val(val.join_date)
+                    })
+                    $('#updateFacultyModal').modal('show')
+                }
+            });
+    });
+
+    });
+
+    $(document).ready(function (e) {
+    $("#updateFacultyForm").on('submit',(function (e) {
+		
+		$.ajax({
+			url:"updateStudent.php",
+			type:"post",
+			data: new FormData(this),
+			processData: false,
+			contentType: false,
+			success: function (data){
+				console.log(data)
+                $('#updateFacultyModal').modal('hide')
+			    location.reload();
+			}
+		});
+		e.preventDefault();
+    }));
+});
+
+    //delete
+    $(document).ready(function () {
+        $('.deletebtn').on('click', function () {
+            var id = $(this).attr('id')
+            $.ajax({
+            type: "post",
+            url: "../delete.php",
+            data: {
+                requestType: 'faculty',
+                id:id
+            },
+            success: function (data) {
+                // console.log(data)
+                if(data == '1'){
+                    location.reload()
+                }
+            }
+            });
+        })
+    });
+
+</script>
 
 <?php include('../mainInclude/footer.php'); ?>

@@ -5,6 +5,7 @@
     
     $isDeleted = false;
 
+    //delete subject
     if($_POST['requestType'] == 'subject' && isset($_POST['id'])){
 
         $sql = "DELETE FROM subject WHERE subject_id = '".$_POST['id']."'";
@@ -14,6 +15,7 @@
         }
     }
 
+    //delete demo
     if($_POST['requestType'] == 'demo' && isset($_POST['id'])){
         $path;
         $sql3 = 'SELECT video_file FROM demo WHERE demo_id ="'.$_POST['id'].'"';
@@ -36,6 +38,24 @@
         }
     }
 
+    //delete student
+    if($_POST['requestType'] == 'student' && isset($_POST['id'])){
+        $path;
+        $sql4 = 'DELETE FROM student WHERE student_id ="'.$_POST['id'].'"';
+        $query4 = mysqli_query($conn, $sql4);
+        if($query){
+            $isDeleted = true;
+        }
+    }
     echo $isDeleted;
 
+    //delete faculty
+    if($_POST['requestType'] == 'faculty' && isset($_POST['id'])){
+        $path;
+        $sql4 = 'DELETE FROM faculty WHERE faculty_id ="'.$_POST['id'].'"';
+        $query4 = mysqli_query($conn, $sql4);
+        if($query){
+            $isDeleted = true;
+        }
+    }
 ?>

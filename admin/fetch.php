@@ -12,5 +12,19 @@
         }
     }
 
+    if(isset($_POST['id']) && $_POST['request']=="studUpdate"){
+        $sql = 'SELECT * FROM student WHERE student_id="' .$_POST['id'].'"';
+        $query = mysqli_query($conn , $sql);
+        while($row = mysqli_fetch_array($query)){
+            $array[] = $row;
+        }
+    }
+    if(isset($_POST['id']) && $_POST['request']=="facUpdate"){
+        $sql = 'SELECT * FROM faculty WHERE faculty_id="' .$_POST['id'].'"';
+        $query = mysqli_query($conn , $sql);
+        while($row = mysqli_fetch_array($query)){
+            $array[] = $row;
+        }
+    }
     echo json_encode($array);
 ?>
