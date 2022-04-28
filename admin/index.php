@@ -34,7 +34,7 @@
                 <script>
                 $('#msg').append(\"<span class='bg-success p-4'>Login Success ......</span>\")
                 setTimeout(()=>{
-                  window.location = \"./dashboard\";
+                  window.location = \"./enrolled-student\";
                 },1000)
                 </script>     
                 ";

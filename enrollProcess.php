@@ -15,8 +15,8 @@
             $query2 = mysqli_query($conn, $sql);
             if(mysqli_num_rows($query2)==0){
                 //enroll
-                $sql = "INSERT INTO enroll(subject_id,student_id) 
-                VALUES ('".$_POST['id']."','".$_SESSION['student_id']."') ";
+                $sql = "INSERT INTO enroll(subject_id,student_id,status) 
+                VALUES ('".$_POST['id']."','".$_SESSION['student_id']."','Request Pending') ";
                 $query = mysqli_query($conn, $sql);
                 if($query){
                     $isEnrolled = 1;

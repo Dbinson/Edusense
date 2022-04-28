@@ -56,9 +56,9 @@
       </div>
       <!-- <a href="javascript:void(0)" class=" closebtn">x</a> -->
       <ul class="text-center s">
-        <li class="slidebar-Item <?php if(PAGE == 'dashboard'){echo 'active';} ?>">
+        <li class="slidebar-Item <?php if(PAGE == 'enrolledStudent'){echo 'active';} ?>">
           <i class="material-icons ic">home</i>
-          <a href="#" >Dashboard</a>
+          <a href="../enrolled-student/" >Enrolled</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'users'){echo 'active';} ?>">

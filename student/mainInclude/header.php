@@ -40,7 +40,8 @@
     <script src="../../public/js/ajaxrequest.js"></script>
 
     <!-- icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 
     <!----===== Boxicons CSS ===== -->
@@ -59,15 +60,15 @@
       </div>
       <!-- <a href="javascript:void(0)" class=" closebtn">x</a> -->
       <ul class="text-center s">
-        <li class="slidebar-Item <?php if(PAGE == 'dashboard'){echo 'active';} ?>">
+        <!-- <li class="slidebar-Item <?php //if(PAGE == 'dashboard'){echo 'active';} ?>">
           <i class="material-icons ic">home</i>
           <a href="#" >Dashboard</a>
-        </li>
+        </li> -->
 
         <!-- For Subject -->
         <li class="slidebar-Item <?php if(PAGE == 'courses'){echo 'active';} ?>">
           <i class="material-icons ic">local_library</i>
-          <a href="#">Subjects</a>
+          <a href="../subjects">Subjects</a>
           <!-- <a href="#courseSubmenu" data-bs-toggle="collapse" aria-expanded="false">Subjects</a> -->
         </li>
         <!-- sublist COURSES-->
@@ -82,19 +83,19 @@
 
 
 
-        <li class="slidebar-Item <?php if(PAGE == 'demo'){echo 'active';} ?>">
+        <!-- <li class="slidebar-Item <?php if(PAGE == 'demo'){echo 'active';} ?>">
           <i class="material-icons ic">airplay</i>
           <a href="#demoSubmenu" data-bs-toggle="collapse" aria-expanded="false">Demo</a>
-        </li>
+        </li> -->
         <!-- sublist Demo-->
-        <ul class="collapse list-unstyled list-group sublist" id="demoSubmenu">
+        <!-- <ul class="collapse list-unstyled list-group sublist" id="demoSubmenu">
           <li>
               <a href="../courses/Course.php">Demo Requests</a>
           </li>
           <li>
               <a href="../demo/demo.php">Assigned Demo</a>
           </li>
-        </ul>
+        </ul> -->
 
         <li class="slidebar-Item <?php if(PAGE == 'lecture'){echo 'active';} ?>">
           <i class="material-icons ic">contacts</i>
