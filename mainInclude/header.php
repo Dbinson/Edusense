@@ -84,9 +84,9 @@
                 if (isset($_SESSION['is_login'])){
                   echo '<li class="nav-item px-2">';
                   if($_SESSION['logRole'] == 102){
-                    echo '<a href="./faculty/dashboard" class="btn btn-outline-warning ">My Profile</a>';
+                    echo '<a href="./faculty/subject" class="btn btn-outline-warning ">My Profile</a>';
                   }else if($_SESSION['logRole'] == 103){
-                    echo '<a href="./student/dashboard" class="btn btn-outline-warning ">My Profile</a>';
+                    echo '<a href="./student/subject" class="btn btn-outline-warning ">My Profile</a>';
                   }
                   
                   echo '

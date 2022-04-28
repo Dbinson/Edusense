@@ -16,14 +16,13 @@
 
 <section id="content">
     <div class="container p-4">
-        <h3>Enroll Subject</h3>
+        <h3>Teaching Subjects</h3>
        <table class="table table-striped table-bordered table-hover ">
            <thead>
                <tr>
                     <th>#</th>
                     <th>Subject ID</th>
                     <th>Subject Name</th>
-                    <th>Faculty Name</th>
                     <th>Status</th>
                     <!-- <th>Update</th>
                     <th>Remove</th> -->
@@ -32,10 +31,9 @@
            <tbody>
                 <?php
                     $count=1;
-                    $sql = " SELECT enroll.subject_id, subject.name,faculty.faculty_name FROM enroll
-                        LEFT JOIN faculty ON enroll.faculty_id = faculty.faculty_id
+                    $sql = " SELECT enroll.subject_id, subject.name FROM enroll
                         LEFT JOIN subject ON enroll.subject_id = subject.subject_id
-                        WHERE student_id = '".$_SESSION['student_id']."'
+                        WHERE faculty_id = '".$_SESSION['faculty_id']."'
                         ";
                     $query = mysqli_query($conn,$sql);
                     while($row = mysqli_fetch_assoc($query)){

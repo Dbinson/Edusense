@@ -3,6 +3,7 @@
     if(!isset($_SESSION)){
         session_start();
     }
+
     define('TITLE','Faculty');
     define('PAGE', 'users');
     include('../mainInclude/header.php');
@@ -17,54 +18,47 @@
 
         // assigning user values to variable
         $defaultPass = strtolower(strtok($_REQUEST['faculty_name'], ' '))."@fac123";
+        $pass = password_hash($defaultPass,PASSWORD_DEFAULT);
         $faculty_name = $_REQUEST['faculty_name'];
         $faculty_email = $_REQUEST['faculty_email'];
         $faculty_mobile = $_REQUEST['faculty_mobile'];
         $faculty_join_date = $_REQUEST['faculty_join_date'];
-        $city =  $_REQUEST['city'];
-        $state = $_REQUEST['state'];
-        $country = $_REQUEST['country'];
-        $pincode = $_REQUEST['pincode'];
-        $user_id = '';
+        $address =  $_REQUEST['address'];
         $faculty_photo = $_FILES['faculty_photo']['name']; 
         $faculty_photo_temp = $_FILES['faculty_photo']['tmp_name'];
-        $img_folder = '../images/fac/'. $faculty_photo;
+        $img_folder = '../images/'. $faculty_photo;
         move_uploaded_file($faculty_photo_temp, $img_folder);
+
+        $sql3 = "SELECT SUBSTRING(faculty_id, 1, 4) as Year FROM faculty
+            WHERE SUBSTRING(faculty_id, 1, 4) = YEAR(CURDATE())
+            GROUP BY SUBSTRING(faculty_id, 1, 4) ";
+        $query3 = mysqli_query($conn, $sql3);
+        $count = mysqli_num_rows($query3) + 1;
+
+        $faculty_id = 'fac'.date('Y').$count;
 
         // checking if the faculty already exist
         if(isset($faculty_email) and isset($faculty_mobile)){
-            $sql = 'SELECT * FROM user WHERE user_email = "'.$faculty_email.'"';
-            $query = $conn->query($sql);
+            $sql = 'SELECT * FROM faculty WHERE faculty_email = "'.$faculty_email.'"';
+            $query = mysqli_query($conn,$sql);
             if($query){
-                if(!$query->num_rows >= 1){
-                    $sql2 = 'INSERT INTO user(user_name,user_email,user_mobile,role_id,user_password) VALUES(
-                        "'.$faculty_name.'","'.$faculty_email.'","'.$faculty_mobile.'","102","'.$defaultPass.'"
+                if(!mysqli_num_rows($query) >= 1){
+                    // if faculty dosn't exist
+                    $sql2 = 'INSERT INTO faculty(faculty_id,faculty_name,faculty_email,faculty_mobile,password,address,join_date) VALUES(
+                        "'.$faculty_id.'","'.$faculty_name.'","'.$faculty_email.'","'.$faculty_mobile.'","'.$pass.'","'.$address.'","'.$faculty_join_date.'"
                     )';
-                    $query2 = $conn->query($sql2);
-                    $user_id = $conn->insert_id;
+                    $query2 = mysqli_query($conn, $sql2);
+                    if($query2){
+                        $msg = '<span class="bg-success p-3">Faculty Added</span> ';
+                    }
                 }else{
-                    $result = $query->fetch_assoc();
-                    $user_id = $result['user_id'];
+                    // if faculty already exist
+                    $msg = '<span class="bg-dander p-3">Already exists </span> ';
                 }
             }
         }
-
-        
-            
-        $Qaddress = $conn->query("INSERT INTO address(city,state,country,pincode)
-        VALUES ('".$city."','".$state."','".$country."','".$pincode."');");
-        $address_id = $conn->insert_id;
-
-        $Qfaculty = $conn->query("INSERT INTO faculty(faculty_address,faculty_join_date,user_id,faculty_photo)
-        VALUES ('".$address_id."','".$faculty_join_date."','".$user_id."','".$img_folder."');");
-        if($Qaddress && $Qfaculty){
-            $msg = '<span class="bg-success p-3">Faculty Added</span> ';
-        }else{
-            $msg = '<span class="bg-dander p-3">Failed to Add faculty </span> ';
-        }
     }
 
-    
 ?>
 <section id="content">
     <div class="container p-4">
@@ -98,25 +92,10 @@
                             <input class="form-control" type="date" name="faculty_join_date" id="faculty_join_date">
                     </div>
                 
-                    <!-- Address details -->
-                    <h5 class="card-subtitle ">Address Details</h5>
-                    <hr>
                     <div class="mb-3">  
-                            <label for="city" class="form-label">City</label><br>
-                            <input type="text"  class="form-control" name="city" id="city">
+                            <label for="address" class="form-label">address</label><br>
+                            <input type="text"  class="form-control" name="address" id="address">
                     </div>  
-                    <div class="mb-3">
-                            <label for="state" class="form-label">State</label><br>
-                            <input type="text"  class="form-control" name="state" id="state">
-                    </div>
-                    <div class="mb-3">
-                            <label for="country" class="form-label">Country</label><br>
-                            <input type="text"  class="form-control" name="country" id="country">
-                    </div>
-                    <div class="mb-3">
-                            <label for="pincode" class="form-label">Pincode</label><br>
-                            <input type="text"  class="form-control" name="pincode" id="pincode">
-                    </div> 
 
                     <button class="btn btn-outline-primary" name="submitBtn" type="submit">Submit</button>
                 </form>

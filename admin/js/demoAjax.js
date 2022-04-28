@@ -1,10 +1,11 @@
 $(document).ready(function (e) {
     $("#addDemoForm").on('submit',(function (e) {
+      
 		
 		$.ajax({
 			url:"./adddemo.php",
 			type:"post",
-			data: new FormData(this),
+			data: formdata,
 			processData: false,
 			contentType: false,
 			success: function (data){

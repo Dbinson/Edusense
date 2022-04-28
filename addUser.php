@@ -60,7 +60,7 @@ header('Content-type: application/json');
           }//end of row count
         }//end of if query check
       }elseif($userLogRole == 102){
-        $sql = "SELECT faculty_id,faculty_email,password FROM student 
+        $sql = "SELECT faculty_id,faculty_email,password FROM faculty 
             WHERE faculty_email='".$userLogEmail."'";
         $query =mysqli_query($conn, $sql);
         if($query){

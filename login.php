@@ -21,6 +21,7 @@
           <option value="102">Faculty</option>
         </select>
         <input type="password" placeholder="Password" name="userLogPass" id="userLogPass"/>
+        <input type="hidden" name="enrollsub" value="<?php if(isset($_GET['enroll'])){echo $_GET['enroll'];} ?>">
         <button type="button" onclick="checkUserLogin()">Login</button>
         <span>Didn't Registered Yet? <a href="./signup.php">Click here</a> </span>
       </form>
