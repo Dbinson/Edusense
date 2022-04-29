@@ -9,7 +9,7 @@
     include('../../dbConnection.php');
 
     if(!isset($_SESSION['is_login'])){
-        echo "<script> location.href='../index.php'; </script>";
+        echo "<script> location.href='../../index.php'; </script>";
        }
       
 ?>

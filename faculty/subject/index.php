@@ -31,7 +31,7 @@
            <tbody>
                 <?php
                     $count=1;
-                    $sql = " SELECT enroll.subject_id, subject.name FROM enroll
+                    $sql = "SELECT enroll.subject_id,enroll.status, subject.name FROM enroll
                         LEFT JOIN subject ON enroll.subject_id = subject.subject_id
                         WHERE faculty_id = '".$_SESSION['faculty_id']."'
                         ";
@@ -42,12 +42,13 @@
                             <th>'.$count++.'</th>
                             <td>'.$row['subject_id'].'</td>
                             <td>'.$row['name'].'</td>
+                            <td>'.$row['status'].'</td>
                             ';
-                        if($row['faculty_name']== null){
-                            echo 'NUll';
-                        }else{
-                            echo '<td>'.$row['faculty_name'].'</td>';
-                        }
+                        // if($row['faculty_name']== null){
+                        //     echo 'NUll';
+                        // }else{
+                        //     echo '<td>'.$row['faculty_name'].'</td>';
+                        // }
                         //     <td>
                         //         <button name="updatebtn" class="btn btn-outline-success updatebtn btn-sm" type="submit" id="'.$row['faculty_id'].'">
                         //         <i class="material-icons-outlined">update</i>

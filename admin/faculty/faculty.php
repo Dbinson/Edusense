@@ -68,7 +68,7 @@
 </section>
 </div>
 <script>
-    //update 
+    //update
     $(document).ready(function () {
         $('.updatebtn').on('click', function () {
             var id = $(this).attr('id');

@@ -1,0 +1,188 @@
+/* GLOBAL CSS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Redressed&display=swap");
+
+/* CSS RESET */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+}
+
+/* GLOBAL CSS VARIABLES */
+:root {
+  --primary-color: rgb(55, 52, 253);
+  --grey-color: #eeeeee;
+  --primary-font: "Poppins", sans-serif;
+  --cursive-font: "Redressed", cursive;
+}
+
+/* TAG RESET */
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+/* button {
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+} */
+
+input {
+  outline: none;
+}
+
+/* CSS UTITLITY CLASSES */
+.rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.columns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bd {
+  border: 1px solid red;
+}
+
+/* body {
+  padding: 100px 200px;
+  background: #f9fafc;
+} */
+
+.line::after {
+  content: '\A';
+  white-space: pre;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  justify-content: flex-start;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 25px;
+}
+
+.header button {
+  background: none;
+  color: rgb(128, 128, 128);
+  margin-right: 20px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-bottom: 2px;
+  border-radius: 0;
+}
+.header .btn-active {
+  border-bottom: 2px solid var(--primary-color);
+  color: #000;
+}
+
+.add-assesment-form {
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+}
+.form-title {
+  width: 100%;
+}
+.form-title h1 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.4rem;
+  margin-bottom: 25px;
+}
+.input-box {
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+.input-box label {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.add-std-btn {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.delete-std-btn {
+  display: none;
+}
+.std-table {
+  margin-bottom: px;
+  display: none;
+}
+.asse-form-submit {
+  width: 100%;
+}
+.asse-form-submit button {
+  margin: 15px;
+}
+
+.cards {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.card {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.09);
+  border: none;
+}
+
+.card-icon {
+  width: 10%;
+  height: 100%;
+}
+.card-icon i {
+  font-size: 2rem;
+}
+.card-details {
+  width: 80%;
+  height: 100%;
+  align-items: flex-start;
+}
+.card-details h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.card-details .card-deadline {
+  color: red;
+  margin-left: 10px;
+}
+.card-delete {
+  width: 10%;
+  height: 100%;
+  font-size: 1.5rem;
+}
+
+.submitted-sec {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  display: none;
+}
+
+a{
+  color: #000;
+}

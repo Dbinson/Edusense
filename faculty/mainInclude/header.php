@@ -74,7 +74,7 @@
 
         <li class="slidebar-Item <?php if(PAGE == 'assignment'){echo 'active';} ?>">
           <i class="material-icons ic">assignment_ind</i>
-          <a href="#">Assignment</a>
+          <a href="../assignment/">Assignment</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'examination'){echo 'active';} ?>">
