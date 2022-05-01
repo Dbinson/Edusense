@@ -11,7 +11,7 @@ header("location:javascript://history.go(-1)");
 $aid = $_GET['aid'];
 $file = $_GET['file'];
 
-$sql=mysqli_query($conn,"DELETE FROM assignment_submission WHERE assi_submit_id = ".$aid.";");
+$sql=mysqli_query($conn,"DELETE FROM assignment WHERE assi_submit_id = ".$aid.";");
 
   if (is_file($file)){
     echo (unlink($file));

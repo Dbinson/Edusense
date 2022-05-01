@@ -26,5 +26,12 @@
             $array[] = $row;
         }
     }
+    if(isset($_POST['id']) && $_POST['request']=="mstNoteUpdate"){
+        $sql = 'SELECT * FROM mst_notes WHERE mst_notes_id="' .$_POST['id'].'"';
+        $query = mysqli_query($conn , $sql);
+        while($row = mysqli_fetch_array($query)){
+            $array[] = $row;
+        }
+    }
     echo json_encode($array);
 ?>

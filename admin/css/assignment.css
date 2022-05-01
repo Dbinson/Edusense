@@ -23,13 +23,13 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-button {
+/* button {
   background: var(--primary-color);
   color: #fff;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-}
+} */
 input {
   outline: none;
 }
@@ -74,10 +74,10 @@ body {
   padding-bottom: 2px;
   border-radius: 0;
 }
-.header .btn-active {
+/* .header .btn-active {
   border-bottom: 2px solid var(--primary-color);
   color: #000;
-}
+} */
 
 .add-assesment-form {
   width: 100%;

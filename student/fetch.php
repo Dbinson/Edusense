@@ -7,7 +7,7 @@
     $array = array();
 
     if(isset($_POST['id']) && $_POST['request']=="assignmentDetails"){
-        $sql = 'SELECT  FROM assignment WHERE assignment_id="' .$_POST['id'].'"';
+        $sql = 'SELECT assignment_id,question FROM assignment WHERE assignment_id="' .$_POST['id'].'"';
         $query = mysqli_query($conn , $sql);
         while($row = mysqli_fetch_array($query)){
             $array[] = $row;

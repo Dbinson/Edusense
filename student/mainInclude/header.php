@@ -126,17 +126,17 @@
           <a href="#">Examination</a>
         </li>
 
-        <li class="slidebar-Item <?php if(PAGE == 'books'){echo 'active';} ?>">
+        <li class="slidebar-Item <?php if(PAGE == 'notes'){echo 'active';} ?>">
           <i class="material-icons ic">import_contacts</i>
-          <a href="#bookSubmenu" data-bs-toggle="collapse" aria-expanded="false">Books</a>
+          <a href="#notesubmenu" data-bs-toggle="collapse" aria-expanded="true">Notes</a>
         </li>
-        <!-- sublist Books-->
-        <ul class="collapse list-unstyled list-group sublist" id="bookSubmenu">
+        <!-- sublist notes-->
+        <ul class="collapse list-unstyled list-group sublist" id="notesubmenu">
           <li>
-              <a href="../books/index.php">Your Archive</a>
+              <a href="../notes/index.php">Institute Notes</a>
           </li>
           <li>
-              <a href="../books/bookRequest.php">Requested Books</a>
+              <a href="../notes/facultyNotes.php">Faculty Notes</a>
           </li>
         </ul>
 

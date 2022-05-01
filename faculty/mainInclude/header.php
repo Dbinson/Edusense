@@ -62,9 +62,14 @@
         </li> -->
 
         <!-- For Subject -->
-        <li class="slidebar-Item <?php if(PAGE == 'courses'){echo 'active';} ?>">
+        <li class="slidebar-Item <?php if(PAGE == 'subject'){echo 'active';} ?>">
           <i class="material-icons ic">local_library</i>
           <a href="../subject/">Subjects</a>
+        </li>
+        
+        <li class="slidebar-Item <?php if(PAGE == 'mcq'){echo 'active';} ?>">
+          <i class="material-icons ic">local_library</i>
+          <a href="../mcq/">Mcq</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'lecture'){echo 'active';} ?>">
