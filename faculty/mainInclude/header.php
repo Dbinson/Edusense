@@ -56,65 +56,30 @@
       </div>
       <!-- <a href="javascript:void(0)" class=" closebtn">x</a> -->
       <ul class="text-center s">
-        <li class="slidebar-Item <?php if(PAGE == 'dashboard'){echo 'active';} ?>">
+        <!-- <li class="slidebar-Item <?php //if(PAGE == 'dashboard'){echo 'active';} ?>">
           <i class="material-icons ic">home</i>
           <a href="#" >Dashboard</a>
-        </li>
+        </li> -->
 
         <!-- For Subject -->
-        <li class="slidebar-Item <?php if(PAGE == 'courses'){echo 'active';} ?>">
+        <li class="slidebar-Item <?php if(PAGE == 'subject'){echo 'active';} ?>">
           <i class="material-icons ic">local_library</i>
-          <a href="#">Subjects</a>
-          <!-- <a href="#courseSubmenu" data-bs-toggle="collapse" aria-expanded="false">Subjects</a> -->
+          <a href="../subject/">Subjects</a>
         </li>
-        <!-- sublist COURSES-->
-        <!-- <ul class="collapse list-unstyled list-group sublist" id="courseSubmenu">
-          <li>
-              <a href="../courses/Course.php">View Courses</a>
-          </li>
-          <li>
-              <a href="../courses/Subject.php">View Subjects</a>
-          </li>
-        </ul> -->
-
-
-
-        <li class="slidebar-Item <?php if(PAGE == 'demo'){echo 'active';} ?>">
-          <i class="material-icons ic">airplay</i>
-          <a href="#demoSubmenu" data-bs-toggle="collapse" aria-expanded="false">Demo</a>
+        
+        <li class="slidebar-Item <?php if(PAGE == 'mcq'){echo 'active';} ?>">
+          <i class="material-icons ic">local_library</i>
+          <a href="../mcq/">Mcq</a>
         </li>
-        <!-- sublist Demo-->
-        <ul class="collapse list-unstyled list-group sublist" id="demoSubmenu">
-          <li>
-              <a href="../courses/Course.php">Demo Requests</a>
-          </li>
-          <li>
-              <a href="../demo/demo.php">Assigned Demo</a>
-          </li>
-        </ul>
 
         <li class="slidebar-Item <?php if(PAGE == 'lecture'){echo 'active';} ?>">
           <i class="material-icons ic">contacts</i>
-          <a href="#lectureSubmenu" data-bs-toggle="collapse" aria-expanded="false">Lecture</a>
-        </li>
-        <!-- sublist Lecture-->
-        <ul class="collapse list-unstyled list-group sublist" id="lectureSubmenu">
-          <li>
-              <a href="../lecture/addlecture.php">Create Lecture</a>
-          </li>
-          <li>
-              <a href="../lecture/lecturevid.php">Recordings</a>
-          </li>
-        </ul>
-
-        <li class="slidebar-Item <?php if(PAGE == 'attendance'){echo 'active';} ?>">
-          <i class="material-icons ic">event</i>
-          <a href="#">Attendance</a>
+          <a href="#lectureSubmenu">Lecture</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'assignment'){echo 'active';} ?>">
           <i class="material-icons ic">assignment_ind</i>
-          <a href="#">Assignment</a>
+          <a href="../assignment/">Assignment</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'examination'){echo 'active';} ?>">

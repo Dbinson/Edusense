@@ -56,9 +56,9 @@
       </div>
       <!-- <a href="javascript:void(0)" class=" closebtn">x</a> -->
       <ul class="text-center s">
-        <li class="slidebar-Item <?php if(PAGE == 'dashboard'){echo 'active';} ?>">
+        <li class="slidebar-Item <?php if(PAGE == 'enrolledStudent'){echo 'active';} ?>">
           <i class="material-icons ic">home</i>
-          <a href="#" >Dashboard</a>
+          <a href="../enrolled-student/" >Enrolled</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'users'){echo 'active';} ?>">
@@ -97,23 +97,23 @@
 
         <li class="slidebar-Item <?php if(PAGE == 'demo'){echo 'active';} ?>">
           <i class="material-icons ic">airplay</i>
-          <a href="#demoSubmenu" data-bs-toggle="collapse" aria-expanded="false">Demo</a>
+          <a href="../demo">Demo</a>
         </li>
         <!-- sublist Demo-->
-        <ul class="collapse list-unstyled list-group sublist" id="demoSubmenu">
+        <!-- <ul class="collapse list-unstyled list-group sublist" id="demoSubmenu">
           <li>
               <a href="../courses/Course.php">Demo Requests</a>
           </li>
           <li>
               <a href="../demo/demo.php">Assigned Demo</a>
           </li>
-        </ul>
+        </ul> -->
 
-        <li class="slidebar-Item <?php if(PAGE == 'lecture'){echo 'active';} ?>">
+        <!-- <li class="slidebar-Item <?php //if(PAGE == 'lecture'){echo 'active';} ?>">
           <i class="material-icons ic">contacts</i>
           <a href="#lectureSubmenu" data-bs-toggle="collapse" aria-expanded="false">Lecture</a>
         </li>
-        <!-- sublist Lecture-->
+
         <ul class="collapse list-unstyled list-group sublist" id="lectureSubmenu">
           <li>
               <a href="../lecture/addlecture.php">Create Lecture</a>
@@ -121,22 +121,22 @@
           <li>
               <a href="../lecture/lecturevid.php">Recordings</a>
           </li>
-        </ul>
-
+        </ul> -->
+<!-- 
         <li class="slidebar-Item <?php if(PAGE == 'attendance'){echo 'active';} ?>">
           <i class="material-icons ic">event</i>
           <a href="#">Attendance</a>
-        </li>
+        </li> -->
 
         <li class="slidebar-Item <?php if(PAGE == 'assignment'){echo 'active';} ?>">
           <i class="material-icons ic">assignment_ind</i>
-          <a href="#">Assignment</a>
+          <a href="../assignment">Assignment</a>
         </li>
 
-        <li class="slidebar-Item <?php if(PAGE == 'examination'){echo 'active';} ?>">
+        <!-- <li class="slidebar-Item <?php if(PAGE == 'examination'){echo 'active';} ?>">
           <i class="material-icons ic">assignment</i>
           <a href="#">Examination</a>
-        </li>
+        </li> -->
 
         <li class="slidebar-Item <?php if(PAGE == 'notes'){echo 'active';} ?>">
           <i class="material-icons ic">import_contacts</i>
@@ -145,12 +145,7 @@
 
         <li class="slidebar-Item <?php if(PAGE == 'feedback'){echo 'active';} ?>">
           <i class="material-icons ic">important_devices</i>
-          <a href="#">feedback</a>
-        </li>
-
-        <li class="slidebar-Item <?php if(PAGE == 'schedule'){echo 'active';} ?>">
-          <i class="material-icons ic">date_range</i>
-          <a href="#">Schedule</a>
+          <a href="../feedback">feedback</a>
         </li>
 
         <li class="slidebar-Item pt-5">

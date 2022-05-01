@@ -3,12 +3,12 @@ if (!isset($_SESSION)) {
     session_start();
    
 }
-    define('TITLE','Book');
-    define('PAGE', 'books');
+    define('TITLE','Notes');
+    define('PAGE', 'notes');
     include('../mainInclude/header.php');
     include('../../dbConnection.php');
 
-    if(!isset($_SESSION['is_stud_login'])){
+    if(!isset($_SESSION['is_login'])){
          echo "<script> location.href='../../index.php'; </script>";
        }
 ?>

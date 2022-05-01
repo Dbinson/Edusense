@@ -1,30 +1,26 @@
 $(document).ready(function (e) {
-    $("#addDemoForm").on('submit',(function (e) {
-      
-		
+    $("#addAssForm").on('submit',(function (e) {
 		$.ajax({
-			url:"./adddemo.php",
+			url:"./addAssignment.php",
 			type:"post",
 			data: new FormData(this),
 			processData: false,
 			contentType: false,
 			success: function (data){
-				// console.log(data)
+				console.log(data)
                 if (data == 0) {
                     $("#successMsg").html(
-                      '<small class="alert alert-danger">insert falied ! </small>'
+                      '<small class="alert alert-danger w-100">insert falied ! </small>'
                     );
                   } else if (data == 1) {
                     $("#successMsg").html(
-                      '<small class="alert alert-success"> Success! Loading..... </small>'
+                      '<small class="alert alert-success w-100"> Success!</small>'
                     );
                     // Empty Fields
-                    clearField("#addDemoForm");
-
+                    clearField("#addAssForm");
                     setTimeout(() => {
-                      $('#addDemoModalCenter').modal('hide');
-                      location.reload();
-                    }, 1000);
+                        location.reload();
+                      }, 1000);
                   }
 			}
 		});

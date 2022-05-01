@@ -15,7 +15,6 @@
   --grey-color: #eeeeee;
   --primary-font: "Poppins", sans-serif;
   --cursive-font: "Redressed", cursive;
-  --bs-table-accent-bg: #000;
 }
 
 /* TAG RESET */
@@ -30,6 +29,7 @@ a {
   border: none;
   cursor: pointer;
 } */
+
 input {
   outline: none;
 }
@@ -50,11 +50,16 @@ input {
 .bd {
   border: 1px solid red;
 }
-/* 
-body {
+
+/* body {
   padding: 100px 200px;
   background: #f9fafc;
 } */
+
+.line::after {
+  content: '\A';
+  white-space: pre;
+}
 
 .header {
   width: 100%;
@@ -74,10 +79,10 @@ body {
   padding-bottom: 2px;
   border-radius: 0;
 }
-/* .header .btn-active {
+.header .btn-active {
   border-bottom: 2px solid var(--primary-color);
   color: #000;
-} */
+}
 
 .add-assesment-form {
   width: 100%;
@@ -133,91 +138,51 @@ body {
   height: 100%;
   display: none;
 }
-.cards a {
-  width: 100%;
-  height: 100%;
-}
 .card {
   width: 100%;
+  height: 100px;
   margin-bottom: 15px;
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
-  border: none;
-  padding: 15px 25px;
-  cursor: pointer;
-}
-.card:hover {
-  transition: all 0.3s;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.09);
-  transform: translateY(-5px);
+  border: none;
+}
+
+.card-icon {
+  width: 10%;
+  height: 100%;
+}
+.card-icon i {
+  font-size: 2rem;
 }
 .card-details {
-  width: 90%;
+  width: 80%;
   height: 100%;
   align-items: flex-start;
-  justify-content: center;
 }
 .card-details h2 {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #000;
-  margin: 0;
 }
-.card-details p {
-  margin: 0;
+.card-details .card-deadline {
+  color: red;
+  margin-left: 10px;
 }
 .card-delete {
   width: 10%;
   height: 100%;
   font-size: 1.5rem;
 }
-.card-delete {
-  color: red;
-  justify-content: flex-end;
-}
-.table-btns {
-  width: 100%;
-  height: 100%;
-}
-.table-btns i {
-  font-size: 1.2rem;
-  padding: 3px 6px;
-  cursor: pointer;
-}
-.table-btns i:nth-of-type(1) {
-  color: rgb(107, 248, 64);
-}
-.table-btns i:nth-of-type(2) {
-  color: red;
-}
 
-.table-striped > tbody > tr:nth-of-type(odd) > * {
-  --bs-table-accent-bg: rgba(158, 157, 157, 0.05);
-}
-.table-striped tbody tr td {
-  padding: 15px;
-}
-
-.faculty-sec {
+.submitted-sec {
   width: 100%;
   height: 100%;
   padding: 30px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-}
-.back-btn {
-  /* width: 100%; */
-  background-color: transparent !important;
-  color:#000;
-  justify-content: flex-start;
-  margin-bottom: 15px;
-}
-.back-btn:hover {
-  background-color: #eeeeee !important;
+  display: none;
 }
 
-.back-btn i {
-  margin-right: 10px;
+a{
+  color: #000;
 }

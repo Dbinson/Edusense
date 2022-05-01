@@ -40,17 +40,17 @@ viewSubAssesBtn.addEventListener("click", () => {
 
 // DISPLAY STUDENTS IN FORM
 
-const addStdBtn = document.querySelector('.add-std-btn')
-const deleteStdBtn = document.querySelector('.delete-std-btn')
-const stdTable = document.querySelector('.std-table')
+// const addStdBtn = document.querySelector('.add-std-btn')
+// const deleteStdBtn = document.querySelector('.delete-std-btn')
+// const stdTable = document.querySelector('.std-table')
 
-addStdBtn.addEventListener("click", () => {
-    stdTable.style.display = 'table'
-    addStdBtn.style.display = 'none'
-    deleteStdBtn.style.display = 'flex'
-})
-deleteStdBtn.addEventListener('click', () => {
-    stdTable.style.display = 'none'
-    addStdBtn.style.display = 'flex'
-    deleteStdBtn.style.display = 'none'
-})
+// addStdBtn.addEventListener("click", () => {
+//     stdTable.style.display = 'table'
+//     addStdBtn.style.display = 'none'
+//     deleteStdBtn.style.display = 'flex'
+// })
+// deleteStdBtn.addEventListener('click', () => {
+//     stdTable.style.display = 'none'
+//     addStdBtn.style.display = 'flex'
+//     deleteStdBtn.style.display = 'none'
+// })

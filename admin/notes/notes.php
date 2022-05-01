@@ -8,6 +8,7 @@ define('PAGE', 'notes');
 include('../mainInclude/header.php');
 include('../../dbConnection.php');
 include('../modals/addNotesModal.php');
+include('../modals/updateNoteModal.php');
 
 // if(!isset($_SESSION['is_admin_login'])){
 //     echo "<script> location.href='../index.php'; </script>";
@@ -45,7 +46,7 @@ if (isset($_REQUEST['submitBtn'])) {
                         <tr>
                             <?php
 
-                            $sql = "SELECT mst_notes_id, mst_notes.subject_id, chapter_no,subject.name, subject.class, filename FROM mst_notes
+                            $sql = "SELECT mst_notes_id, mst_notes.subject_id, mst_notes.chapter_no,subject.name, subject.class, filename FROM mst_notes
                                         LEFT JOIN subject ON mst_notes.subject_id = subject.subject_id
                                        ";
                             $query = mysqli_query($conn, $sql);
@@ -56,16 +57,18 @@ if (isset($_REQUEST['submitBtn'])) {
                                 $count++;
                                 echo "<th scope='row'>" . $count . "</th>
                                     <td>" . $result['name'] . "</td>
+                                    <td>" . $result['chapter_no'] . "</td>
+
                                     <td>" . $result['class'] . "</td>";
                                 echo '
                                     <td>
-                                        <a href="#ViewNotesModal"  class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#ViewNotesModal">View</a>
+                                        <a href="'.$result['filename'].'"  target="_blank" class="btn btn-primary btn-sm" type="button">View</a>
                                     </td>
                                     <td>
-                                        <button name="editbookbtn"  class="btn btn-success btn-sm editbookbtn" >Edit</button>
+                                        <button name="updateNotebtn"  class="btn btn-success btn-sm updateNotebtn" id="'.$result['mst_notes_id'].'" ><span class="material-icons">update</span></button>
                                     </td>
                                     <td>
-                                        <a href ="removeRequest.php?Request_id=" &request_type=book" class="btn btn-danger btn-sm" type="submit">Remove</a>
+                                        <a href ="#" class="btn btn-danger btn-sm deletebtn" type="button" id="'.$result['mst_notes_id'].'"><span class="material-icons">delete</span></a>
                                     </td>
                                 </tr>
                                 ';
@@ -79,24 +82,6 @@ if (isset($_REQUEST['submitBtn'])) {
     </div>
 
 </section>
-</div>
-
-<div class="modal fade" id="ViewNotesModal" tabindex="-1" aria-labelledby="ViewNotesModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-fullscreen-xxl-down">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="ViewNotesModalLabel"><?php echo $cn;?></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <object data="data:application/pdf;base64,<?php echo base64_encode($content) ?>" type="application/pdf" style="height:100%;width:100%"></object>
-                                     
-        </div>
-        <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div> -->
-        </div>
-    </div>
 </div>
 <script src="../js/notesAjax.js"></script>
 

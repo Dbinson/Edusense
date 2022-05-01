@@ -96,6 +96,7 @@ nav{
 }
 .mb-5 {
     margin-bottom: 1rem !important;
+    font-family:cursive !important;
 }
  .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     margin-top: 0;
@@ -138,16 +139,15 @@ nav{
 .img{
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-    width: 15vmin;
-    height: 15vmin;
+    width: 9vmin;
+    height: 9vmin;
 }
 
 .fadein {
         opacity:0;
-}
-    
+}  
 #section-3{
-    margin-top: 2%;
+    /* margin-top: 2%; */
     margin-bottom: 2%;
     padding:10em 0 10em 0;
     background: url('../assets/combo.jpg');
@@ -199,8 +199,8 @@ img {
 
 .course-img{
     padding: 0;
-    width: 33%;
-    margin: 0 1px;
+    width: 25%;
+    margin: 0 20px;
     border-radius: 10px;
     background-color: rgb(232 237 241);
 }
@@ -230,7 +230,7 @@ a{
 .board-container{
     margin: 5px;
     background-color: #fff;
-    padding: 20px;
+    padding: 27px;
     width: fit-content;
     border: 1px solid #000;
     border-radius: 5px;
@@ -251,4 +251,9 @@ a{
 
 #section-2{
     background-color: rgba(233, 223, 214, 0.63);
+}
+
+.acenter > col {
+    
+    margin: auto
 }
