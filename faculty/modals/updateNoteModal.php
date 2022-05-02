@@ -24,9 +24,24 @@
                             echo "<option value=".$result['subject_id'].">".$result['subject_id']."</option>";
                         }
                     ?>
+                    
+                </select>
+                
+                </div>
+                <div class="mb-3">  
+                    <label for="StudentId" class="form-label">Student</label>
+                            <select class="form-select" name="studentId" id="stud_Id"
+                                aria-label="Default select example">
+                            <option selected>Select Student </option>
+                    <?php
+                        include_once('../../dbConnection.php');    
+                        $sql=mysqli_query($conn,"SELECT student_id,stud_name from student");
+                        while($result=mysqli_fetch_assoc($sql)){
+                            echo "<option value=".$result['student_id'].">".$result['stud_name']."</option>";
+                        }
+                    ?>
                     </select>
                 </div>
-
                     <div class="mb-3">
                         <label for="chapter_no" class="form-label">Chapter No</label>
                         <input type="text" class="form-control" name="chapterNum" id="chapterNo">

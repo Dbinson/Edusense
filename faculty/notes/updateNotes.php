@@ -12,17 +12,26 @@
         
     //to Update all the fields 
     if(isset( $_POST['subjectId'])){
-        $sql = "UPDATE mst_notes SET subject_id = '".$_POST['subjectId']."'
-             WHERE mst_notes_id='".$_POST['note_id']."'";
+        $sql = "UPDATE faculty_notes SET subject_id = '".$_POST['subjectId']."'
+             WHERE fac_notes_id='".$_POST['note_id']."'";
         $query = mysqli_query($conn,$sql);
         if($query){
             $isUpdated=true;
         }
     }
+    //to Update all the fields 
+    if(isset( $_POST['subjectId'])){
+      $sql = "UPDATE faculty_notes SET student_id = '".$_POST['studentId']."'
+           WHERE fac_notes_id='".$_POST['note_id']."'";
+      $query = mysqli_query($conn,$sql);
+      if($query){
+          $isUpdated=true;
+      }
+  }
 
     if(isset( $_POST['chapterNum'])){
-      $sql = "UPDATE mst_notes SET chapter_no = '".$_POST['chapterNum']."'
-           WHERE mst_notes_id='".$_POST['note_id']."'";
+      $sql = "UPDATE faculty_notes SET chapter_no = '".$_POST['chapterNum']."'
+           WHERE fac_notes_id='".$_POST['note_id']."'";
       $query = mysqli_query($conn,$sql);
       if($query){
           $isUpdated=true;
@@ -33,7 +42,7 @@
         if(unlink($_POST['prevFile'])){
           //checking if there is reference to the assignment
           $valid_extensions = array( 'pdf'); // valid extensions
-          $path = '../../mst_notes/'; // upload directory
+          $path = '../../fac_notes/'; // upload directory
           if($_FILES['noteFile']['name']){
             $fname = $_FILES['noteFile']['name'];
             $tmp = $_FILES['noteFile']['tmp_name'];
@@ -46,8 +55,8 @@
             { 
               $path = $path.strtolower($final_file); 
               move_uploaded_file($tmp,$path);
-              $sql = "UPDATE mst_notes SET filename = '".$path."'
-                WHERE mst_notes_id='".$_POST['note_id']."'";
+              $sql = "UPDATE faculty_notes SET file_name = '".$path."'
+                WHERE fac_notes_id='".$_POST['note_id']."'";
               $query = mysqli_query($conn,$sql);
               if($query){
                   $isUpdated=true;
