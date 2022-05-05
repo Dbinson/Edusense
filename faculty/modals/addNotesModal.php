@@ -12,7 +12,7 @@
 
                 <div class="mb-3">  
                     <label for="subjectId" class="form-label">Subject</label>
-                            <select class="form-select" name="subjectId" id="subjectId"
+                            <select class="form-select" required name="subjectId" required id="subjectId"
                                 aria-label="Default select example">
                             <option selected>Select subject </option>
                     <?php
@@ -28,7 +28,7 @@
 
                 <div class="mb-3">  
                     <label for="StudentId" class="form-label">Student</label>
-                            <select class="form-select" name="studentId" id="student_Id"
+                            <select class="form-select" required name="studentId" required id="student_Id"
                                 aria-label="Default select example">
                             <option selected>Select Student </option>
                     <?php
@@ -43,11 +43,11 @@
                 
                     <div class="mb-3">
                         <label for="chapter_no" class="form-label">Chapter No</label>
-                        <input type="text" class="form-control" name="chapterNum" id="chapterNum">
+                        <input type="text" class="form-control" name="chapterNum" required id="chapterNum">
                     </div>
                     <div class="mb-3">
                         <label for="noteFile" class="form-label">File </label>
-                        <input class="form-control" type="file" name="noteFile" id="noteFile">
+                        <input class="form-control" required type="file" name="noteFile" required id="noteFile">
                     </div>
                 </div>
                 <div class="modal-footer">

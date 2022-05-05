@@ -14,7 +14,7 @@
                 <input type="hidden" name="assignment_id" id="assignment_id">
                 <div class="mb-3">  
                     <label for="selectSubject" class="form-label">Subject</label>
-                    <select class="form-select" aria-label="Default select example" name="sid" id="sid">
+                    <select class="form-select" aria-label="Default select example" name="sid"required id="sid">
                         <option selected>Select a subject</option>
                         <?php
                             $sql=mysqli_query($conn,"SELECT * from enroll 
@@ -29,7 +29,7 @@
           
                 <div class="mb-3">  
                     <label for="selectSubject" class="form-label">Student</label>
-                    <select class="form-select" aria-label="Default select example" name="stud_Id" id="stud_Id">
+                    <select class="form-select" aria-label="Default select example" name="stud_Id" required id="stud_Id">
                         <option selected>Select a student</option>
                         <?php
                             $sql=mysqli_query($conn,"SELECT * from enroll 
@@ -54,11 +54,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="class">Assesment Deadline</label>
-                    <input type="datetime-local" class="form-control" name="adeadline" id="adeadLine"/>
+                    <input type="datetime-local" class="form-control" name="adeadline" required id="adeadLine"/>
                 </div>
                 <div class="mb-3">
                     <label for="class">Assesment Marks</label>
-                    <input type="number" class="form-control" name="amarks" id="amarks"/>
+                    <input type="number" class="form-control" name="amarks"required id="amarks"/>
                 </div>
                 <!-- End Form  -->
             </div>

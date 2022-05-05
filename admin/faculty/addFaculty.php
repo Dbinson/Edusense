@@ -69,27 +69,27 @@
                     <h1 class="display-6 card-title text-center">Add Faculty</h1>
                     <div class="mb-3">  
                         <label for="faculty_name" class="form-label">Faculty Name</label><br>
-                            <input type="text"  class="form-control" name="faculty_name" id="faculty_name">
+                            <input type="text"  class="form-control" name="faculty_name" required id="faculty_name">
                     </div>
                     
                     <div class="mb-3">
                         <label for="faculty_photo" class="form-label">Faculty Photo</label>
-                            <input class="form-control" type="file" name="faculty_photo" id="faculty_photo">
+                            <input class="form-control" type="file" name="faculty_photo" required id="faculty_photo">
                     </div>
 
                     <div class="mb-3">
                         <label for="faculty_mobile" class="form-label">Faculty Mobile</label>
-                            <input class="form-control" type="tel" min="10" max="10" name="faculty_mobile" id="faculty_mobile">
+                            <input class="form-control" type="tel" min="10" max="10" name="faculty_mobile" required id="faculty_mobile">
                     </div>
 
                     <div class="mb-3">
                         <label for="faculty_email" class="form-label">Faculty Email</label>
-                            <input class="form-control" type="email" name="faculty_email" id="faculty_email">
+                            <input class="form-control" type="email" required name="faculty_email" required id="faculty_email">
                     </div>
 
                     <div class="mb-3">
                         <label for="faculty_join_date" class="form-label">Faculty Join Date</label>
-                            <input class="form-control" type="date" name="faculty_join_date" id="faculty_join_date">
+                            <input class="form-control" type="date" required name="faculty_join_date" required id="faculty_join_date">
                     </div>
                 
                     <div class="mb-3">  
