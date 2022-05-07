@@ -34,7 +34,7 @@ if (!isset($_SESSION['is_login'])) {
                         include_once('../../dbConnection.php');    
                         $sql=mysqli_query($conn,"SELECT * from subject");
                         while($result=mysqli_fetch_assoc($sql)){
-                            echo "<option value=".$result['subject_id'].">".$result['subject_id']."</option>";
+                            echo "<option value=".$result['subject_id'].">".$result['name']. "  ".$result['class']."</option>";
                         }
                     ?>
                     
@@ -69,15 +69,15 @@ if (!isset($_SESSION['is_login'])) {
 
             <div class="form-check mb-3">
               <input class="form-check-input" type="radio" name="question1Option" id="question1Option1" />
-              <input type="text" placeholder="Option 1" id="question1Option1Text" />
+              <input type="text" placeholder="Option 1" name="question1Option1Text" id="question1Option1Text" />
             </div>
             <div class="form-check mb-3">
               <input class="form-check-input" type="radio" name="question1Option" id="question1Option2" />
-              <input type="text" placeholder="OPtion 2" id="question1Option2Text" />
+              <input type="text" placeholder="OPtion 2" name="question1Option2Text" id="question1Option2Text" />
             </div>
             <div class="form-check mb-3">
               <input class="form-check-input" type="radio" name="question1Option" id="question1Option3" />
-              <input type="text" placeholder="Option 3" id="question1Option3Text" />
+              <input type="text" placeholder="Option 3" name="question1Option3Text" id="question1Option3Text" />
             </div>
           </div>
 
@@ -313,4 +313,6 @@ if (!isset($_SESSION['is_login'])) {
     </div>
   </div>
 </section>
+
+<script src="../js/mcqAjax.js"></script>
 <?php include('../mainInclude/footer.php'); ?>
