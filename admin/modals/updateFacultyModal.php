@@ -11,7 +11,7 @@
             <input type="hidden" value="" name="fac_id" id="fac_id">
             <div class="mb-3">  
                 <label for="faculty_name" class="form-label">faculty Name</label><br>
-                    <input type="text"  class="form-control" name="faculty_name" id="facultyName">
+                    <input type="text"  class="form-control" required name="faculty_name" id="facultyName">
             </div>
 
             <div class="mb-3">

@@ -27,7 +27,7 @@ if (!isset($_SESSION['is_login'])) {
 
           <div class="mb-3">  
                     <label for="subjectId" class="form-label">Subject</label>
-                            <select class="form-select" name="subjectId" id="subjectId"
+                            <select class="form-select" required name="subjectId" required id="subjectId"
                                 aria-label="Default select example">
                             <option selected>Select subject </option>
                     <?php
@@ -43,7 +43,7 @@ if (!isset($_SESSION['is_login'])) {
 
                 <div class="mb-3">  
                     <label for="StudentId" class="form-label">Student</label>
-                            <select class="form-select" name="studentId" id="student_Id"
+                            <select class="form-select" required name="studentId" required id="student_Id"
                                 aria-label="Default select example">
                             <option selected>Select Student </option>
                     <?php
@@ -59,124 +59,125 @@ if (!isset($_SESSION['is_login'])) {
           <div class="input-box">
             <div class=" mb-3">
               <label for="question1" class="form-label">Q1</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question1" id="question1" />
+              <input type="text" class="form-control" placeholder="Enter Question" required name="question1" required id="question1" />
             </div>
           
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks1" id="marks1" />
+              <input type="number" class="form-control" placeholder="Enter Marks" required name="marks1" required id="marks1" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question1Option" id="question1Option1" />
-              <input type="text" placeholder="Option 1" name="question1Option1Text" id="question1Option1Text" />
+              <input class="form-check-input" type="radio" required name="question1Option" required id="question1Option1" />
+              <input type="text" placeholder="Option 1" name="question10option1Text" id="question1Option1Text" />
+            </div>
+            
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="radio" required name="question1Option" required id="question1Option2" />
+              <input type="text" placeholder="OPtion 2" name="question10option2Text" id="question1Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question1Option" id="question1Option2" />
-              <input type="text" placeholder="OPtion 2" name="question1Option2Text" id="question1Option2Text" />
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question1Option" id="question1Option3" />
-              <input type="text" placeholder="Option 3" name="question1Option3Text" id="question1Option3Text" />
+              <input class="form-check-input" type="radio" required name="question1Option" required id="question1Option3" />
+              <input type="text" placeholder="Option 3" name="question10option3Text" id="question1Option3Text" />
             </div>
           </div>
 
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q2</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question2" id="question2" />
+              <input type="text" class="form-control" required placeholder="Enter Question" required name="question2" required id="question2" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks2" id="marks2" />
+              <input type="number" class="form-control" placeholder="Enter Marks" required name="marks2" required id="marks2" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question2Option" id="question2Option1" />
-              <input type="text" placeholder="option 1" id="question2Option1Text" />
+              <input class="form-check-input" type="radio" required name="question2Option" required id="question2Option1" />
+              <input type="text" placeholder="option 1" name="question20option1Text" required id="question2Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question2Option" id="question2Option2" />
-              <input type="text" placeholder="option 2" id="question2Option2Text" />
+              <input class="form-check-input" type="radio" required name="question2Option" required id="question2Option2" />
+              <input type="text" placeholder="option 2" name="question20option2Text" required id="question2Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question2Option" id="question2Option3" />
-              <input type="text" placeholder="option 3" id="question2Option3Text" />
+              <input class="form-check-input" type="radio" required name="question2Option" required id="question2Option3" />
+              <input type="text" placeholder="option 3" name="question20option3Text" required id="question2Option3Text" />
             </div>
           </div>
 
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q3</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question3" id="question3" />
+              <input type="text" class="form-control" placeholder="Enter Question" required name="question3" required id="question3" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks3" id="marks3" />
+              <input type="number" class="form-control" placeholder="Enter Marks" name="marks3" required id="marks3" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question3Option" id="question3Option3" />
-              <input type="text" placeholder="option 1" id="question3Option1Text" />
+              <input class="form-check-input" type="radio" name="question3Option" required id="question3Option3" />
+              <input type="text" placeholder="option 1" name="question30option1Text" required id="question3Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question3Option" id="question3Option3" />
-              <input type="text" placeholder="option 2" id="question3Option2Text" />
+              <input class="form-check-input" type="radio" name="question3Option" required id="question3Option3" />
+              <input type="text" placeholder="option 2" name="question30option2Text" required id="question3Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question3Option" id="question3Option3" />
-              <input type="text" placeholder="option 3" id="question3Option3Text" />
+              <input class="form-check-input" type="radio" required name="question3Option" required id="question3Option3" />
+              <input type="text" placeholder="option 3" name="question30option3Text" required id="question3Option3Text" />
             </div>
           </div>
 
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q4</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question4" id="question4" />
+              <input type="text" class="form-control" placeholder="Enter Question" name="question4" required id="question4" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks4" id="marks4" />
+              <input type="number" class="form-control" placeholder="Enter Marks" name="marks4" required id="marks4" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question4Option" id="question4Option4" />
-              <input type="text" placeholder="option 1" id="question4Option1Text" />
+              <input class="form-check-input" type="radio" required name="question4Option" required id="question4Option4" />
+              <input type="text" placeholder="option 1" name="question40option1Text" required id="question4Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question4Option" id="question4Option4" />
-              <input type="text" placeholder="option 2" id="question4Option2Text" />
+              <input class="form-check-input" type="radio" required name="question4Option" required id="question4Option4" />
+              <input type="text" placeholder="option 2" name="question40option2Text" required id="question4Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question4Option" id="question4Option4" />
-              <input type="text" placeholder="option 3" id="question4Option3Text" />
+              <input class="form-check-input" type="radio" required name="question4Option" required id="question4Option4" />
+              <input type="text" placeholder="option 3" name="question40option3Text" required id="question4Option3Text" />
             </div>
           </div>
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q5</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question5" id="question5" />
+              <input type="text" class="form-control" placeholder="Enter Question" required name="question5" required id="question5" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks5" id="marks5" />
+              <input type="number" class="form-control" placeholder="Enter Marks" required name="marks5" required id="marks5" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question5Option" id="question5Option5" />
-              <input type="text" placeholder="option 1" id="question5Option1Text" />
+              <input class="form-check-input" type="radio" required name="question5Option" required id="question5Option5" />
+              <input type="text" placeholder="option 1" name="question50option1Text" required id="question5Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question5Option" id="question5Option5" />
-              <input type="text" placeholder="option 2" id="question5Option2Text" />
+              <input class="form-check-input" type="radio" required name="question5Option" required id="question5Option5" />
+              <input type="text" placeholder="option 2"  name="question50option2Text" required id="question5Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question5Option" id="question5Option5" />
-              <input type="text" placeholder="option 3" id="question5Option1Text" />
+              <input class="form-check-input" type="radio" required name="question5Option" required id="question5Option5" />
+              <input type="text" placeholder="option 3"  name="question50option3Text" required id="question5Option1Text" />
             </div>
           </div>
 
@@ -184,49 +185,49 @@ if (!isset($_SESSION['is_login'])) {
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q6</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question6" id="question6" />
+              <input type="text" class="form-control" placeholder="Enter Question" required name="question6" required id="question6" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks6" id="marks6" />
+              <input type="number" class="form-control" placeholder="Enter Marks" required name="marks6" required id="marks6" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question6Option" id="question6Option6" />
-              <input type="text" placeholder="option 1" id="question6Option1Text" />
+              <input class="form-check-input" type="radio" required name="question6Option" required id="question6Option6" />
+              <input type="text" placeholder="option 1" name="question60option1Text" required id="question6Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question6Option" id="question6Option6" />
-              <input type="text" placeholder="option 2" id="question6Option2Text" />
+              <input class="form-check-input" type="radio" required name="question6Option" required id="question6Option6" />
+              <input type="text" placeholder="option 2" name="question60option2Text" required id="question6Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question6Option" id="question6Option6" />
-              <input type="text" placeholder="option 3" id="question6Option3Text" />
+              <input class="form-check-input" type="radio" required name="question6Option" required id="question6Option6" />
+              <input type="text" placeholder="option 3" name="question60option3Text" required id="question6Option3Text" />
             </div>
           </div>
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q7</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question7" id="question7" />
+              <input type="text" class="form-control" placeholder="Enter Question" required name="question7" required id="question7" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks7" id="marks7" />
+              <input type="number" class="form-control" placeholder="Enter Marks" required name="marks7" required id="marks7" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question7Option" id="question7Option7" />
-              <input type="text" placeholder="option 1" id="question7Option1Text" />
+              <input class="form-check-input" type="radio" required name="question7Option" required id="question7Option7" />
+              <input type="text" placeholder="option 1" name="question70option1Text" required id="question7Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question7Option" id="question7Option7" />
-              <input type="text" placeholder="option 2" id="question7Option2Text" />
+              <input class="form-check-input" type="radio" required name="question7Option" required id="question7Option7" />
+              <input type="text" placeholder="option 2" name="question70option2Text" required id="question7Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question7Option" id="question7Option7" />
-              <input type="text" placeholder="option 3" id="question7Option3Text" />
+              <input class="form-check-input" type="radio"required name="question7Option" required id="question7Option7" />
+              <input type="text" placeholder="option 3" name="question70option3Text" required id="question7Option3Text" />
             </div>
           </div>
 
@@ -234,25 +235,25 @@ if (!isset($_SESSION['is_login'])) {
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q8</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question8" id="question8" />
+              <input type="text" class="form-control" placeholder="Enter Question" required name="question8" required id="question8" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks8" id="marks8" />
+              <input type="number" class="form-control" placeholder="Enter Marks" required name="marks8" required id="marks8" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question8Option" id="question8Option8" />
-              <input type="text" placeholder="option 1" id="question8Option1Text" />
+              <input class="form-check-input" type="radio" required name="question8Option" required id="question8Option8" />
+              <input type="text" placeholder="option 1" name="question80option1Text" required id="question8Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question8Option" id="question8Option8" />
-              <input type="text" placeholder="option 2" id="question8Option2Text" />
+              <input class="form-check-input" type="radio" required name="question8Option" required id="question8Option8" />
+              <input type="text" placeholder="option 2" name="question80option2Text" required id="question8Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question8Option" id="question8Option8" />
-              <input type="text" placeholder="option 3" id="question8Option3Text" />
+              <input class="form-check-input" type="radio" required name="question8Option" required id="question8Option8" />
+              <input type="text" placeholder="option 3" name="question80option3Text" required id="question8Option3Text" />
             </div>
           </div>
 
@@ -260,49 +261,49 @@ if (!isset($_SESSION['is_login'])) {
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q9</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question9" id="question9" />
+              <input type="text" class="form-control" placeholder="Enter Question" required name="question9" required id="question9" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks9" id="marks9" />
+              <input type="number" class="form-control" placeholder="Enter Marks" required name="marks9" required id="marks9" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question9Option" id="question9Option9" />
-              <input type="text" placeholder="option 1" id="question9Option1Text" />
+              <input class="form-check-input" type="radio" required name="question9Option" required id="question9Option9" />
+              <input type="text" placeholder="option 1" name="question90option1Text" required id="question9Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question9Option" id="question9Option9" />
-              <input type="text" placeholder="option 2" id="question9Option2Text" />
+              <input class="form-check-input" type="radio" required name="question9Option" required id="question9Option9" />
+              <input type="text" placeholder="option 2" name="question90option2Text" required id="question9Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question9Option" id="question9Option9" />
-              <input type="text" placeholder="option 3" id="question9Option3Text" />
+              <input class="form-check-input" type="radio" required name="question9Option" required id="question9Option9" />
+              <input type="text" placeholder="option 3" name="question90option3Text" required id="question9Option3Text" />
             </div>
           </div>
           <div class="input-box">
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Q10</label>
-              <input type="text" class="form-control" placeholder="Enter Question" name="question10" id="question10" />
+              <input type="text" class="form-control" placeholder="Enter Question" required name="question10" required id="question10" />
             </div>
 
             <div class=" mb-3">
               <label for="question1" class="form-label">Marks</label>
-              <input type="number" class="form-control" placeholder="Enter Marks" name="marks10" id="marks10" />
+              <input type="number" class="form-control" placeholder="Enter Marks" required name="marks10" required id="marks10" />
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question10Option" id="question10Option10" />
-              <input type="text" placeholder="option 1" id="question10Option1Text" />
+              <input class="form-check-input" type="radio" required name="question10Option" required id="question10Option10" />
+              <input type="text" placeholder="option 1" name="question100option1Text" required id="question10Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question10Option" id="question10Option10" />
-              <input type="text" placeholder="option 2" id="question10Option2Text" />
+              <input class="form-check-input" type="radio" required name="question10Option" required id="question10Option10" />
+              <input type="text" placeholder="option 2" name="question100option2" required id="question10Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question10Option" id="question10Option10" />
-              <input type="text" placeholder="option 3" id="question10Option3Text" />
+              <input class="form-check-input" type="radio" required name="question10Option" required id="question10Option10" />
+              <input type="text" placeholder="option 3" name="question100option3" required id="question10Option3Text" />
             </div>
           </div>
 

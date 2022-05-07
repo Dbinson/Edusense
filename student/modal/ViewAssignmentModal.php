@@ -10,12 +10,12 @@
           </div>
           <form id="submitAssignmentForm" class="submit-Assignment-form" enctype="multipart/form-data" name="submitAssignment" role="form">
             <div class="modal-body">
-                <input type="hidden" name="ass_Id" id="ass_Id">
+                <input type="hidden" name="ass_Id" required id="ass_Id">
               <h5>Assignment description</h5>
               <p id="assDesc"></p>
                 <div class="mb-3">
                     <label for="class">Your Submition</label>
-                    <input type="file" class="form-control" name="submitionFile" id="submitionFile"/>
+                    <input type="file" class="form-control" required name="submitionFile" required id="submitionFile"/>
                 </div>
             </div>
             <div class="modal-footer">

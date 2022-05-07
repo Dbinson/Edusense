@@ -16,7 +16,7 @@
             <!-- Select faculty -->
                 <div class="columns input-box">
                     <label for="subject">Faculty</label>
-                    <select class="form-select" name="fname" required id="faculty_id" aria-label="Default select example">
+                    <select class="form-select" required name="fname" required id="faculty_id" aria-label="Default select example">
                     <option selected>Select a Faculty</option>
                     <?php
                     include_once('../../dbConnection.php');

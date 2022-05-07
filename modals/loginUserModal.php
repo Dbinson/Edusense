@@ -14,14 +14,14 @@
             <label for="LogEmail" class="pl-2 font-weight-bold">Email</label>
             <small id="statusLogMsg1"></small>
             <input type="email"
-                class="form-control" placeholder="Email" name="LogEmail" id="userLogEmail">
+                class="form-control" placeholder="Email" name="LogEmail" required id="userLogEmail">
             </div>
 
             <div class="form-group">
             <i class="fas fa-user"></i>
               <label for="LogEmail" class="pl-2 font-weight-bold">Role</label>
               <small id="statusLogMsg1"></small>
-              <select class="form-control " aria-label=".form-select-lg example" id="userLogRole">
+              <select class="form-control " aria-label=".form-select-lg example" required id="userLogRole">
               <option selected value="103">Student</option>
               <option value="102">Faculty</option>
             </select>
@@ -30,7 +30,7 @@
             <div class="form-group">
               <i class="fas fa-key"></i>
               <label for="LogPass" class="pl-2 font-weight-bold">Password</label>
-              <input type="password" class="form-control" placeholder="Password" name="userLogPass" id="userLogPass">
+              <input type="password" class="form-control" placeholder="Password" name="userLogPass" required id="userLogPass">
           </div>
         </form>
       </div>

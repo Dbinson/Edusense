@@ -15,13 +15,13 @@
           
                     <div class="mb-3">  
                         <label for="selectSubject" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="selectSubject">
+                        <input type="text" class="form-control" required id="selectSubject">
                     
                 </div>
                 
                 <div class="mb-3">
                     <label for="className" class="form-label">Class</label>
-                    <input type="text" class="form-control" id="className"> 
+                    <input type="text" class="form-control" required id="className"> 
                 </div>
                 <!-- End Form  -->
             </div>

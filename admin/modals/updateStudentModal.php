@@ -16,12 +16,12 @@
 
             <div class="mb-3">
                 <label for="student_mobile" class="form-label">Student Mobile</label>
-                    <input class="form-control" type="tel" min="10" max="10" name="student_mobile" id="studentMobile">
+                    <input class="form-control" type="tel" min="10" max="10" name="student_mobile"required id="studentMobile">
             </div>
 
             <div class="mb-3">
                 <label for="student_email" class="form-label">Student Email</label>
-                    <input class="form-control" type="email" name="student_email" id="studentEmail">
+                    <input class="form-control" type="email" name="student_email" required id="studentEmail">
             </div>
         
             <!-- Address details -->
@@ -39,7 +39,7 @@
             </div>
             <div class="mb-3">
                     <label for="parent_mobile" class="form-label">Parent Mobile Number</label><br>
-                    <input type="text"  class="form-control" name="parent_mobile"v id="parentMobile">
+                    <input type="text"  class="form-control" name="parent_mobile"v required id="parentMobile">
             </div>
             <div class="mb-3">
                     <label for="parent_email" class="form-label">Parent Email</label><br>
