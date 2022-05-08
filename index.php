@@ -1,6 +1,7 @@
 <?php
 include('./mainInclude/header.php');
 include_once('./dbConnection.php');
+
 ?>
 
 <main class="" id="">

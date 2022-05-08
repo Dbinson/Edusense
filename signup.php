@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SignUp</title>
     <link rel="stylesheet" href="./public/css/signInOut.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css">
   </head>
   <body class="rows">
     <div class="columns box left-box">
@@ -23,8 +24,10 @@
       </form>
     </div>
 
+    <?php include('./modals/studentRegModal.php'); ?>
     <script src="./js/jquery.js"></script>
     <script src="./public/js/ajaxrequest.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
     <script
       src="https://kit.fontawesome.com/915fb40dfa.js"
       crossorigin="anonymous"

@@ -36,7 +36,7 @@
   <!--Modals import-->
   <?php
     include("./modals/loginUserModal.php");
-    include("./modals/userRegModal.php");
+    // include("./modals/userRegModal.php");
   ?>
 
   <!-- swiper.js css imports -->

@@ -27,7 +27,6 @@
         $parent_name =  $_REQUEST['parent_name'];
         $parent_mobile = $_REQUEST['parent_mobile'];
         $parent_email =  $_REQUEST['parent_email'];  
-        $user_id = '';
         $student_photo = $_FILES['student_photo']['name']; 
         $student_photo_temp = $_FILES['student_photo']['tmp_name'];
         $img_folder = '../images/stud/'. $student_photo; 

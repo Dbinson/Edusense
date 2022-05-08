@@ -15,20 +15,75 @@ function addUser(){
       stuemail: stuemail,
     },
     success: function(data) {
-      // console.log(data);
-      if (data == 'Failed') {
+      console.log(data);
+      if (data[1]== 'Failed') {
         
-      } else if (data == 'OK') {
+      } else if (data[1] == 'OK') {
         console.log("completed")
-        // Empty Login Fields
-        // clearAdminLoginField();
-        $('.msg').append('span').addClass('bg-success p-3').text('Registered')
+
+        $("#successMsg").html(
+          '<small class="alert alert-success"> Registered Loading..... </small>'
+        );       
         setTimeout(() => {
-          window.location.href = "login.php";
+          $('#studentRegModalCenter').modal('show')
+          if(addDetails(data[0])==1){
+            $('#successMsgs'.html(
+              '<small class="alert alert-success p4"> Success Loading..... </small>'
+            ));
+            setTimeout(() => {
+              window.location.href = "login.php";
+            }, 1000);
+          }else{
+            $('#successMsgs'.html(
+              '<small class="alert alert-danger p4"> Failed Loading..... </small>'
+            ));
+          }
         }, 1000);
       }
     }
   });
+}
+
+function addDetails(id){
+  $("#addDeatilsStudForm").on('submit',(function (e) {
+      var formdata = new FormData(this)
+      formdata.append('addstuddetails','addstuddetails')
+      formdata.append('id',id)
+		
+		$.ajax({
+			url:"./addUser.php",
+			type:"post",
+			data: formdata,
+			processData: false,
+			contentType: false,
+      dataType: 'json',
+			success: function (data){
+				// console.log(data)
+        if(data==1)
+          return 1
+        else
+          return 0
+        
+                // if (data == 0) {
+                //     $("#successMsg").html(
+                //       '<small class="alert alert-danger">insert falied ! </small>'
+                //     );
+                //   } else if (data == 1) {
+                //     $("#successMsg").html(
+                //       '<small class="alert alert-success"> Success! Loading..... </small>'
+                //     );
+                //     // Empty Fields
+                //     clearField("#addDemoForm");
+
+                //     setTimeout(() => {
+                //       $('#addDemoModalCenter').modal('hide');
+                //       location.reload();
+                //     }, 1000);
+                  // }
+			}
+		});
+		e.preventDefault();
+    }));
 }
 
 //Login user
@@ -91,7 +146,7 @@ function checkUserLogin(){
     }));
   });
   
-
+export {addDetails}
 //   // Empty Login Fields
 // function clearLoginField() {
 //   $("#adminLoginForm").trigger("reset");

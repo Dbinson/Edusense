@@ -1,3 +1,5 @@
+import {addDetails} from './ajaxrequest.js'
+
 $(document).on("click", ".openVideoModal", function () {
     var id = $(this).data('id');
     // console.log(id)
@@ -49,6 +51,21 @@ function enrollSub(){
                 window.location.href = "./login.php?enroll=1"
             }else if(data == -1){
                 $('#enrollBtn').html('Already Enrolled');
+            }else{
+                $('#studentRegModalCenter').modal('show')
+                var arr = data.split(',')
+                if(addDetails(arr[1])==1){
+                    $('#successMsgs'.html(
+                    '<small class="alert alert-success p4"> Success Loading..... </small>'
+                    ));
+                    setTimeout(() => {
+                    window.location.href = "login.php";
+                    }, 1000);
+                }else{
+                    $('#successMsgs'.html(
+                    '<small class="alert alert-danger p4"> Failed Loading..... </small>'
+                    ));
+                }
             }
         }
     });

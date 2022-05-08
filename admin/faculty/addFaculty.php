@@ -29,9 +29,9 @@
         $img_folder = '../images/'. $faculty_photo;
         move_uploaded_file($faculty_photo_temp, $img_folder);
 
-        $sql3 = "SELECT SUBSTRING(faculty_id, 1, 4) as Year FROM faculty
-            WHERE SUBSTRING(faculty_id, 1, 4) = YEAR(CURDATE())
-            GROUP BY SUBSTRING(faculty_id, 1, 4) ";
+        $sql3 = "SELECT SUBSTRING(faculty_id, 4, 4) as Year FROM faculty
+            WHERE SUBSTRING(faculty_id, 4, 4) = YEAR(CURDATE())
+             ";
         $query3 = mysqli_query($conn, $sql3);
         $count = mysqli_num_rows($query3) + 1;
 
@@ -74,7 +74,7 @@
                     
                     <div class="mb-3">
                         <label for="faculty_photo" class="form-label">Faculty Photo</label>
-                            <input class="form-control" type="file" name="faculty_photo" required id="faculty_photo">
+                            <input class="form-control" type="file" name="faculty_photo"  id="faculty_photo">
                     </div>
 
                     <div class="mb-3">

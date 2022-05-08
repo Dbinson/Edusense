@@ -16,21 +16,86 @@ header('Content-type: application/json');
 //   echo json_encode($row);
 //   }
 
-//   // Inserting or Adding New Student
-//   if(isset($_POST['studsignup']) && isset($_POST['stuname']) && isset($_POST['stuemail']) && isset($_POST['stupass'])){
-//     $stuname = $_POST['stuname'];
-//     $stuemail = $_POST['stuemail'];
-//     $stupass = password_hash($_POST['stupass'],PASSWORD_DEFAULT);
+  // Inserting or Adding New Student
+  if(isset($_POST['studsignup']) && isset($_POST['stuname']) && isset($_POST['stuemail']) && isset($_POST['stupass'])){
+    $stuname = $_POST['stuname'];
+    $stuemail = $_POST['stuemail'];
+    $stupass = password_hash($_POST['stupass'],PASSWORD_DEFAULT);
 
-//     $sql2 = "INSERT INTO student(stud_name,stud_email,password) VALUES ('".$stuname."','".$stuemail."', '".$stupass."');";
-//     $result2 = mysqli_query($conn, $sql2);
+    $sql3 = "SELECT SUBSTRING(student_id, 5, 4) as Year FROM student
+              WHERE SUBSTRING(student_id, 5, 4) = YEAR(CURDATE())
+           ";
+        $query3 = mysqli_query($conn, $sql3);
+        $count = mysqli_num_rows($query3) + 1;
 
-//     if($result2){
-//       echo json_encode("OK");
-//     } else {
-//       echo json_encode("Failed");
-//     }
-//   }
+        $student_id = 'stud'.date('Y').$count;
+
+    $sql2 = "INSERT INTO student(student_id,stud_name,stud_email,password) VALUES ('".$student_id."','".$stuname."','".$stuemail."', '".$stupass."');";
+    $result2 = mysqli_query($conn, $sql2);
+
+    $arr = array();
+    if($result2){
+      array_push($arr,mysqli_insert_id($conn),'OK');
+
+    }else{
+      array_push($arr,'Failed');
+    }
+    echo json_encode($arr);
+  }
+
+  if(isset($_POST['addstuddetails']) && isset($_POST['id'])){
+
+    $isUpdated = 0;
+
+
+    //update student Mobile
+    if(isset($_POST['student_mobile'])){
+        $sql = "UPDATE student SET stud_mobile = '".$_POST['student_mobile']."' WHERE student_id = '".$_POST['id']."'";
+        $query = mysqli_query($conn,$sql);
+        if($query){
+            $isUpdated = 1;
+        }
+    }
+
+    //update student address
+    if(isset($_POST['address'])){
+        $sql = "UPDATE student SET address = '".$_POST['address']."' WHERE student_id = '".$_POST['id']."'";
+        $query = mysqli_query($conn,$sql);
+        if($query){
+            $isUpdated = 1;
+        }
+    }
+
+    //update student parent Name
+    if(isset($_POST['parent_name'])){
+        $sql = "UPDATE student SET parent_name_ = '".$_POST['parent_name']."' WHERE student_id = '".$_POST['id']."'";
+        $query = mysqli_query($conn,$sql);
+        if($query){
+            $isUpdated = 1;
+        }
+    }
+
+    //update student parent Mobile
+    if(isset($_POST['parent_mobile'])){
+        $sql = "UPDATE student SET parent_mobile = '".$_POST['parent_mobile']."' WHERE student_id = '".$_POST['id']."'";
+        $query = mysqli_query($conn,$sql);
+        if($query){
+            $isUpdated = 1;
+        }
+    }
+
+    //update student parent email
+    if(isset($_POST['parent_email'])){
+        $sql = "UPDATE student SET parent_email = '".$_POST['parent_email']."' WHERE student_id = '".$_POST['id']."'";
+        $query = mysqli_query($conn,$sql);
+        if($query){
+            $isUpdated = 1;
+        }
+    }
+
+    echo $isUpdated;
+
+  }
 
   //Login Verification for student and faculty
   if(!isset($_SESSION['is_login'])){
@@ -41,7 +106,7 @@ header('Content-type: application/json');
       $userLogPass = $_POST['userLogPass'];
 
       if($userLogRole == 103){
-        $sql = "SELECT student_id,stud_email,password FROM student 
+        $sql = "SELECT student_id,stud_email,stud_mobile,password FROM student 
             WHERE stud_email='".$userLogEmail."'";
         $query =mysqli_query($conn, $sql);
         if($query){
@@ -54,6 +119,11 @@ header('Content-type: application/json');
                 $_SESSION['is_login'] = true;
                 $_SESSION['logRole'] = $userLogRole;
                 $_SESSION['student_id'] = $result['student_id'];
+                if($result['stud_mobile'] == null){
+                  $_SESSION['$aDetails'] = 0;
+                }else{
+                  $_SESSION['$aDetails'] = 1;
+                }
                 $islogged = true;
               }
             }//end of while

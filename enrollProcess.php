@@ -6,7 +6,7 @@
 
     $isEnroll = 0;
 
-    if(isset($_SESSION['islogged'])){
+    if(isset($_SESSION['islogged']) && $_SESSION['aDetails'] == 1){
         if(isset($_POST['id'])){
 
             //check if already enrolled
@@ -26,6 +26,8 @@
             }
             
         }   
+    }else{
+        $isEnroll = '2'.$_SESSION['student_id'];
     }
 
     echo $isEnroll;
