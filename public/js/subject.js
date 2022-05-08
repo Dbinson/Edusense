@@ -1,4 +1,4 @@
-import {addDetails} from './ajaxrequest.js'
+// import {addDetails} from './ajaxrequest.js'
 
 $(document).on("click", ".openVideoModal", function () {
     var id = $(this).data('id');

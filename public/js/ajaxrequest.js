@@ -146,7 +146,7 @@ function checkUserLogin(){
     }));
   });
   
-export {addDetails}
+// export {addDetails}
 //   // Empty Login Fields
 // function clearLoginField() {
 //   $("#adminLoginForm").trigger("reset");

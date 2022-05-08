@@ -309,7 +309,6 @@ if (!isset($_SESSION['is_login'])) {
 
           <button type="submit" class="btn btn-primary ">Add</button>
         </form>
-
       </div>
     </div>
   </div>
