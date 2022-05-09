@@ -21,6 +21,8 @@
         <input type="password" required placeholder="Password" name="stupass" id="stupass"/>
         <button type="button" onclick="addUser()">Signup</button>
         <span>Already Registered? <a href="./login.php">Click here</a> </span>
+
+        <span id="successMsg"></span>
       </form>
     </div>
 

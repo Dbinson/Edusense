@@ -65,7 +65,7 @@
                 
           </div>
           <div class="modal-footer">
-            <span id="successMsgs"></span>
+            <span id="successMsgss"></span>
             <button type="Submit" class="btn btn-primary" id="signup">Submit</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
