@@ -3,7 +3,7 @@ function addUser(){
   var stuname = $("#stuname").val()
   var stuemail = $("#stuemail").val()
   var stupass = $("#stupass").val()
-  console.log(stuname)
+  // console.log(stuname)
 
   $.ajax({
     url: "addUser.php",
@@ -15,28 +15,32 @@ function addUser(){
       stuemail: stuemail,
     },
     success: function(data) {
-      console.log(data);
+      // console.log(data);
       if (data[1]== 'Failed') {
         
       } else if (data[1] == 'OK') {
-        console.log("completed")
+        // console.log("completed")
 
         $("#successMsg").html(
           '<small class="alert alert-success"> Registered Loading..... </small>'
         );       
         setTimeout(() => {
+          
           $('#studentRegModalCenter').modal('show')
-          if(addDetails(data[0])==1){
-            $('#successMsgs'.html(
+          var upd = addDetails(data[0])
+          console.log(upd)
+          if( upd == 1){
+            
+            $('#successMsgss'.html(
               '<small class="alert alert-success p-4"> Success Loading..... </small>'
             ));
             setTimeout(() => {
-              window.location.href = "login.php";
+              window.location.href = "./login.php";
             }, 1000);
-          }else{
-            $('#successMsgs'.html(
+          }else if(upd == 0) {
+            $('#successMsgss').html(
               '<small class="alert alert-danger p-4"> Failed Loading..... </small>'
-            ));
+            );
           }
         }, 1000);
       }
@@ -56,30 +60,11 @@ function addDetails(id){
 			data: formdata,
 			processData: false,
 			contentType: false,
-      dataType: 'json',
 			success: function (data){
-				// console.log(data)
-        if(data==1)
-          return 1
-        else
-          return 0
-        
-                // if (data == 0) {
-                //     $("#successMsg").html(
-                //       '<small class="alert alert-danger">insert falied ! </small>'
-                //     );
-                //   } else if (data == 1) {
-                //     $("#successMsg").html(
-                //       '<small class="alert alert-success"> Success! Loading..... </small>'
-                //     );
-                //     // Empty Fields
-                //     clearField("#addDemoForm");
+				console.log("jhbhjbvgvgv".data)
 
-                //     setTimeout(() => {
-                //       $('#addDemoModalCenter').modal('hide');
-                //       location.reload();
-                //     }, 1000);
-                  // }
+          return data
+    
 			}
 		});
 		e.preventDefault();

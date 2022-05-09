@@ -299,11 +299,11 @@ if (!isset($_SESSION['is_login'])) {
             </div>
             <div class="form-check mb-3">
               <input class="form-check-input" type="radio" required name="question10Option" required id="question10Option10" />
-              <input type="text" placeholder="option 2" name="question100option2" required id="question10Option2Text" />
+              <input type="text" placeholder="option 2" name="question100option2Text" required id="question10Option2Text" />
             </div>
             <div class="form-check mb-3">
               <input class="form-check-input" type="radio" required name="question10Option" required id="question10Option10" />
-              <input type="text" placeholder="option 3" name="question100option3" required id="question10Option3Text" />
+              <input type="text" placeholder="option 3" name="question100option3Text" required id="question10Option3Text" />
             </div>
           </div>
 

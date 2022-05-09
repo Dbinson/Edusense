@@ -31,11 +31,11 @@ header('Content-type: application/json');
         $student_id = 'stud'.date('Y').$count;
 
     $sql2 = "INSERT INTO student(student_id,stud_name,stud_email,password) VALUES ('".$student_id."','".$stuname."','".$stuemail."', '".$stupass."');";
-    $result2 = mysqli_query($conn, $sql2);
+    $query2 = mysqli_query($conn, $sql2);
 
     $arr = array();
-    if($result2){
-      array_push($arr,mysqli_insert_id($conn),'OK');
+    if($query2){
+      array_push($arr,$student_id,'OK');
 
     }else{
       array_push($arr,'Failed');
@@ -58,8 +58,9 @@ header('Content-type: application/json');
     }
 
     //update student address
-    if(isset($_POST['address'])){
-        $sql = "UPDATE student SET address = '".$_POST['address']."' WHERE student_id = '".$_POST['id']."'";
+    if(isset($_POST['city']) && isset($_POST['state']) && isset($_POST['country']) && isset($_POST['pincode'])){
+       $address = $_POST['city'].','.$_POST['state'].','.$_POST['country'].' '.$_POST['pincode'];
+      $sql = "UPDATE student SET address = '".$address."' WHERE student_id = '".$_POST['id']."'";
         $query = mysqli_query($conn,$sql);
         if($query){
             $isUpdated = 1;
@@ -68,7 +69,7 @@ header('Content-type: application/json');
 
     //update student parent Name
     if(isset($_POST['parent_name'])){
-        $sql = "UPDATE student SET parent_name_ = '".$_POST['parent_name']."' WHERE student_id = '".$_POST['id']."'";
+        $sql = "UPDATE student SET parent_name = '".$_POST['parent_name']."' WHERE student_id = '".$_POST['id']."'";
         $query = mysqli_query($conn,$sql);
         if($query){
             $isUpdated = 1;
