@@ -10,22 +10,22 @@ $(document).ready(function (e) {
 			contentType: false,
 			success: function (data){
 				// console.log(data)
-                if (data == 0) {
-                    $("#successMsg").html(
-                      '<small class="alert alert-danger">insert falied ! </small>'
-                    );
-                  } else if (data == 1) {
-                    $("#successMsg").html(
-                      '<small class="alert alert-success"> Success! Loading..... </small>'
-                    );
-                    // Empty Fields
-                    clearField("#addDemoForm");
+      if (data == 0) {
+          $("#successMsg").html(
+            '<small class="alert alert-danger">insert falied ! </small>'
+          );
+        } else if (data == 1) {
+          $("#successMsg").html(
+            '<small class="alert alert-success"> Success! Loading..... </small>'
+          );
+          // Empty Fields
+          clearField("#addDemoForm");
 
-                    setTimeout(() => {
-                      $('#addDemoModalCenter').modal('hide');
-                      location.reload();
-                    }, 1000);
-                  }
+          setTimeout(() => {
+            $('#addDemoModalCenter').modal('hide');
+            location.reload();
+          }, 1000);
+        }
 			}
 		});
 		e.preventDefault();

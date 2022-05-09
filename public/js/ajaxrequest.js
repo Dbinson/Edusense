@@ -28,14 +28,14 @@ function addUser(){
           $('#studentRegModalCenter').modal('show')
           if(addDetails(data[0])==1){
             $('#successMsgs'.html(
-              '<small class="alert alert-success p4"> Success Loading..... </small>'
+              '<small class="alert alert-success p-4"> Success Loading..... </small>'
             ));
             setTimeout(() => {
               window.location.href = "login.php";
             }, 1000);
           }else{
             $('#successMsgs'.html(
-              '<small class="alert alert-danger p4"> Failed Loading..... </small>'
+              '<small class="alert alert-danger p-4"> Failed Loading..... </small>'
             ));
           }
         }, 1000);
@@ -103,18 +103,29 @@ function checkUserLogin(){
       },
       success: function(data) {
         console.log(data);
-        if (data == 0) {
-          console.log('failed');
-        }else if(data == 1){
-         console.log("working")
-          // Empty Login Fields
-          // clearLoginField();
-          setTimeout(() => {
-              window.location.href = "./index.php";
-          }, 1000);
+          if (data == 0) {
+            console.log($('#successMsg'))
+            $("#successMsg").html(
+              '<small class="alert alert-danger px-5">insert falied ! </small>'
+            );
+          } else if (data == 1) {
+
+              $("#successMsg").html(
+                '<small class="alert alert-success px-3"> Success! Loading..... </small>'
+              );
+              // Empty Fields
+              clearField("#loginForm");
+              
+            setTimeout(() => {
+                window.location.href = "./index.php";
+            }, 1000);
         }
       }
     });
+  }
+//clear field
+  function clearField(id){
+    $(id).trigger('reset');
   }
 
   $(document).ready(function (){

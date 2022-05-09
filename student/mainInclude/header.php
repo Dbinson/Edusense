@@ -97,33 +97,14 @@
           </li>
         </ul> -->
 
-        <li class="slidebar-Item <?php if(PAGE == 'lecture'){echo 'active';} ?>">
+        <li class="slidebar-Item <?php if(PAGE == 'mcq'){echo 'active';} ?>">
           <i class="material-icons ic">contacts</i>
-          <a href="#lectureSubmenu" data-bs-toggle="collapse" aria-expanded="false">Lecture</a>
-        </li>
-        <!-- sublist Lecture-->
-        <ul class="collapse list-unstyled list-group sublist" id="lectureSubmenu">
-          <li>
-              <a href="../lecture/addlecture.php">Create Lecture</a>
-          </li>
-          <li>
-              <a href="../lecture/lecturevid.php">Recordings</a>
-          </li>
-        </ul>
-
-        <li class="slidebar-Item <?php if(PAGE == 'attendance'){echo 'active';} ?>">
-          <i class="material-icons ic">event</i>
-          <a href="#">Attendance</a>
+          <a href="../mcqs">MCQs</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'assignment'){echo 'active';} ?>">
           <i class="material-icons ic">assignment_ind</i>
           <a href="../assignment">Assignment</a>
-        </li>
-
-        <li class="slidebar-Item <?php if(PAGE == 'examination'){echo 'active';} ?>">
-          <i class="material-icons ic">assignment</i>
-          <a href="#">Examination</a>
         </li>
 
         <li class="slidebar-Item <?php if(PAGE == 'notes'){echo 'active';} ?>">
@@ -155,12 +136,12 @@
             <button class="openbtn">☰</button>
             <div class=" nav justify-content-end pe-4">
               <!-- notification bell -->
-              <button type="button" class="btn position-relative pe-5" data-bs-toggle="popover-notify">
+              <!-- <button type="button" class="btn position-relative pe-5" data-bs-toggle="popover-notify">
                 <i class="material-icons">notifications</i>
                 <span class="position-absolute top-1 start-90 translate-middle p-2 bg-danger border border-light rounded-circle">
                   <span class="visually-hidden">New alerts</span>
                 </span>
-              </button>
+              </button> -->
               <!-- Popover for Notification -->
               <ul id="popover-content-notify" class="list-group text-center" style="display: none">
                 <li class="list-group-item">This is notification1</li>

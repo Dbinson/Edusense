@@ -99,7 +99,7 @@ header('Content-type: application/json');
 
   //Login Verification for student and faculty
   if(!isset($_SESSION['is_login'])){
-    $islogged = false;
+    $islogged = 0;
     if(isset($_POST['checkLogemail']) && isset($_POST['userLogEmail']) && isset($_POST['userLogPass'])){
       $userLogEmail = $_POST['userLogEmail'];
       $userLogRole = $_POST['userLogRole'];
@@ -124,7 +124,7 @@ header('Content-type: application/json');
                 }else{
                   $_SESSION['$aDetails'] = 1;
                 }
-                $islogged = true;
+                $islogged = 1;
               }
             }//end of while
           }//end of row count
@@ -143,7 +143,7 @@ header('Content-type: application/json');
                 $_SESSION['is_login'] = true;
                 $_SESSION['logRole'] = $userLogRole;
                 $_SESSION['faculty_id'] = $result['faculty_id'];
-                $islogged = true;
+                $islogged = 1;
               }
             }//end of while
           }//end of row count
