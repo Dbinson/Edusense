@@ -29,44 +29,43 @@
         $parent_email =  $_REQUEST['parent_email'];  
         $student_photo = $_FILES['student_photo']['name']; 
         $student_photo_temp = $_FILES['student_photo']['tmp_name'];
-        $img_folder = '../images/stud/'. $student_photo; 
+        $img_folder = '../../images/stud/'. $student_photo; 
         move_uploaded_file($student_photo_temp, $img_folder);
 
+        $address = $city.','.$state.','.$country.' '.$pincode; 
         // checking if the student already exist
         if(isset($student_email) and isset($student_mobile)){
-            $sql = 'SELECT * FROM user WHERE user_email = "'.$student_email.'"';
-            $query = $conn->query($sql);
-            if($query){
-                if(!$query->num_rows >= 1){
-                    $sql2 = 'INSERT INTO user(user_name,user_email,user_mobile,role_id,user_password) VALUES(
-                        "'.$student_name.'","'.$student_email.'","'.$student_mobile.'","103","'.$defaultPass.'"
-                    )';
-                    $query2 = $conn->query($sql2);
-                    $user_id = $conn->insert_id;
-                }else{
-                    $result = $query->fetch_assoc();
-                    $user_id = $result['user_id'];
-                }
+            
+            $stupass = password_hash($_POST['stupass'],PASSWORD_DEFAULT);
+        
+            $sql3 = "SELECT SUBSTRING(student_id, 5, 4) as Year FROM student
+                        WHERE SUBSTRING(student_id, 5, 4) = YEAR(CURDATE())
+                    ";
+                $query3 = mysqli_query($conn, $sql3);
+                $count = mysqli_num_rows($query3) + 1;
+        
+                $student_id = 'stud'.date('Y').$count;
+        
+            $sql2 = "INSERT INTO student(student_id,profile_pic,stud_name,stud_email,password,address) 
+                VALUES ('".$student_id."','".$image_folder."','".$stuname."','".$stuemail."', '".$stupass."','".$address."');";
+            $result2 = mysqli_query($conn, $sql2);
+        
+            $arr = array();
+            if($result2){
+                $msg = '<span class="alert-success p-3">Added!!!</span> ';
+        
+            }else{
+                $msg = '<span class="alert-danger p-3">Failed!!! </span> ';
             }
         }
 
-        
-            
-        $Qaddress = $conn->query("INSERT INTO address(city,state,country,pincode)
-        VALUES ('".$city."','".$state."','".$country."','".$pincode."');");
-        $address_id = $conn->insert_id;
+        // if($result2){
+        //     $msg = '<span class="alert-success p-3">Student Added</span> ';
+        // }else{
+        //     $msg = '<span class="bg-dander p-3">Failed to Add Student </span> ';
+        // }
 
-        $Qparent=$conn->query("INSERT INTO parents(parent_name,parent_mobile,parent_email)
-        VALUES ('".$parent_name."','".$parent_mobile."','".$parent_email."');");
-        $parent_id = $conn->insert_id;
 
-        $Qstudent = $conn->query("INSERT INTO students(student_address_id,parent_id,user_id,student_photo)
-        VALUES ('".$address_id."','".$parent_id."','".$user_id."','".$img_folder."');");
-        if($Qaddress && $Qparent && $Qstudent){
-            $msg = '<span class="bg-success p-3">Student Added</span> ';
-        }else{
-            $msg = '<span class="bg-dander p-3">Failed to Add Student </span> ';
-        }
     }
 
     

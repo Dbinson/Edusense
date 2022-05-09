@@ -163,12 +163,12 @@
             <button class="openbtn">☰</button>
             <div class=" nav justify-content-end pe-4">
               <!-- notification bell -->
-              <button type="button" class="btn position-relative pe-5" data-bs-toggle="popover-notify">
+              <!-- <button type="button" class="btn position-relative pe-5" data-bs-toggle="popover-notify">
                 <i class="material-icons">notifications</i>
                 <span class="position-absolute top-1 start-90 translate-middle p-2 bg-danger border border-light rounded-circle">
                   <span class="visually-hidden">New alerts</span>
                 </span>
-              </button>
+              </button> -->
               <!-- Popover for Notification -->
               <ul id="popover-content-notify" class="list-group text-center" style="display: none">
                 <li class="list-group-item">This is notification1</li>

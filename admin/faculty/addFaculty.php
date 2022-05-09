@@ -26,7 +26,7 @@
         $address =  $_REQUEST['address'];
         $faculty_photo = $_FILES['faculty_photo']['name']; 
         $faculty_photo_temp = $_FILES['faculty_photo']['tmp_name'];
-        $img_folder = '../images/'. $faculty_photo;
+        $img_folder = '../../images/'. $faculty_photo;
         move_uploaded_file($faculty_photo_temp, $img_folder);
 
         $sql3 = "SELECT SUBSTRING(faculty_id, 4, 4) as Year FROM faculty
@@ -44,8 +44,8 @@
             if($query){
                 if(!mysqli_num_rows($query) >= 1){
                     // if faculty dosn't exist
-                    $sql2 = 'INSERT INTO faculty(faculty_id,faculty_name,faculty_email,faculty_mobile,password,address,join_date) VALUES(
-                        "'.$faculty_id.'","'.$faculty_name.'","'.$faculty_email.'","'.$faculty_mobile.'","'.$pass.'","'.$address.'","'.$faculty_join_date.'"
+                    $sql2 = 'INSERT INTO faculty(faculty_id,profile_pic,faculty_name,faculty_email,faculty_mobile,password,address,join_date) VALUES(
+                        "'.$faculty_id.'","'.$faculty_photo.'"'.$faculty_name.'","'.$faculty_email.'","'.$faculty_mobile.'","'.$pass.'","'.$address.'","'.$faculty_join_date.'"
                     )';
                     $query2 = mysqli_query($conn, $sql2);
                     if($query2){
