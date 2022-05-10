@@ -19,6 +19,7 @@
     <?php
         $sql = "SELECT * FROM faculty_notes
             LEFT JOIN faculty ON faculty_notes.faculty_id = faculty.faculty_id
+            LEFT JOIN subject ON subject.subject_id = subject.subject_id
              WHERE faculty_notes.student_id = '".$_SESSION['student_id']."'";
         $query = mysqli_query($conn,$sql);
         echo '<section class="row books-section">';
@@ -31,7 +32,7 @@
                             <p class="card-text">class: '.$result['class'].'
                                 faculty: '.$result['faculty_name'].'
                             </p>
-                            <a href="'.$re['filename'].'" target="_blank" class="btn btn-outline-info">View</a>
+                            <a href="'.$result['file_name'].'" target="_blank" class="btn btn-outline-info">View</a>
                         </div>
                     </div>
                 </div>
