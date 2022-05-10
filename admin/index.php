@@ -30,16 +30,9 @@
             if(password_verify($pass,$result["password"])){
               $_SESSION['user_email'] = $result['email'];
               $_SESSION['is_admin_login'] = true;
-              echo "
-                <script>
-                $('#msg').append(\"<span class='bg-success p-4'>Login Success ......</span>\")
-                setTimeout(()=>{
-                  window.location = \"./enrolled-student\";
-                },1000)
-                </script>     
-                ";
+              $msg = '<div class="p-3  alert- success> Login successful.  </div>';
             }else{
-              $msg = '<div class="p-3  bg-danger "> Login Faild. Try Again </div>';
+              $msg = '<div class="p-3  alert-danger "> Login Faild. Try Again </div>';
             }
           }
         }else{
@@ -49,6 +42,8 @@
         </script>     
           ";
         }
+        
+       
       }
 
     }
@@ -71,7 +66,10 @@
       <input type="email" id="login" class="fadeIn second" name="login_mail" required placeholder="Email">
       <input type="password" id="password" class="fadeIn third" name="login_pass" required placeholder="Password">
       <input type="submit" name="logbtn" class="fadeIn fourth" >
-      <div id="msg">
+      
+      
+       <?php if(isset($msg)){ echo $msg; } ?>
+      <span id="successMsg"></span>
       </div>  
     </form>
     

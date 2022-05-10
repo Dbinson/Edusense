@@ -14,7 +14,7 @@
                 <input type="hidden" name="assignment_id" id="assignment_id">
                 <div class="mb-3">  
                     <label for="selectSubject" class="form-label">Subject</label>
-                    <select class="form-select" aria-label="Default select example" name="sid"required id="sid">
+                    <select class="form-select" aria-label="Default select example" name="sid" id="sid">
                         <option selected>Select a subject</option>
                         <?php
                             $sql=mysqli_query($conn,"SELECT * from enroll 
