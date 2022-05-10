@@ -110,15 +110,33 @@
                 </span>
               </button> -->
               <!-- Popover for Notification -->
-              <ul id="popover-content-notify" class="list-group text-center" style="display: none">
+              <!-- <ul id="popover-content-notify" class="list-group text-center" style="display: none">
                 <li class="list-group-item">This is notification1</li>
                 <a href="#" class="list-group-item">View</a>
-              </ul>
+              </ul> -->
 
               <!-- for Account -->
-              <a href="">
-                <img src="../../public/assets/defaultpic.png" class="profile-pic">
-              </a>
+              <?php
+                include('../../dbConnection.php');
+                $sql = "SELECT profile_pic FROM faculty WHERE faculty_id='".$_SESSION['faculty_id']."'";
+                $q=mysqli_query($conn,$sql);
+                while($r=mysqli_fetch_assoc($q)){
+                  if($r['profile_pic'] == null){
+                    echo '
+                    <a href="#">
+                    <img src="../../public/assets/t6.jpg" class="profile-pic">
+                  </a>
+                    ';
+                  }else{
+                    echo '
+                    <a href="#">
+                    <img src="'.$r['profile_pic'].'" class="profile-pic">
+                  </a>
+                  ';
+                  }
+                }
+              ?>
+              
               
             </div>
           </nav>

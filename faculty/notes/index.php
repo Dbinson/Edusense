@@ -35,8 +35,8 @@ if(!isset($_SESSION['is_login'])){
                             <th scope="col">#</th>
                             <th scope="col">Subject Name</th>
                             <th scope="col">Class</th>
-                            <th scope="col">Student Name</th>
                             <th scope="col">Chapter No</th>
+                            <th scope="col">Student Name</th>
                             
                         </tr>
                     </thead>

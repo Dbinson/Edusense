@@ -28,13 +28,16 @@ function addUser(){
           
           $('#studentRegModalCenter').modal('show')
           var upd = addDetails(data[0])
-          console.log(upd)
+          // console.log(upd)
           if( upd == 1){
             
             $('#successMsgss'.html(
               '<small class="alert alert-success p-4"> Success Loading..... </small>'
             ));
+            clearField('addDeatilsStudForm')
+            
             setTimeout(() => {
+              $('#studentRegModalCenter').modal('hide')
               window.location.href = "./login.php";
             }, 1000);
           }else if(upd == 0) {
