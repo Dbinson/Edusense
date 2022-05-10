@@ -16,18 +16,18 @@
 
             <div class="mb-3">
                 <label for="faculty_mobile" class="form-label">faculty Mobile</label>
-                    <input class="form-control" type="tel" min="10" max="10" name="faculty_mobile" id="facultyMobile">
+                    <input class="form-control" type="tel" min="10" max="10" required name="faculty_mobile" id="facultyMobile">
             </div>
 
             <div class="mb-3">
                 <label for="faculty_email" class="form-label">faculty Email</label>
-                    <input class="form-control" type="email" name="faculty_email" id="facultyEmail">
+                    <input class="form-control" type="email" required name="faculty_email" id="facultyEmail">
             </div>
         
             <!-- Address details -->
             <div class="mb-3">  
                     <label for="address" class="form-label">Address</label><br>
-                    <input type="text"  class="form-control" name="address" id="address">
+                    <input type="text"  class="form-control" required name="address" id="address">
             </div>  
         </div>
         <div class="modal-footer">

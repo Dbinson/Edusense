@@ -39,7 +39,7 @@
             </div>
             <div class="mb-3">
                     <label for="parent_mobile" class="form-label">Parent Mobile Number</label><br>
-                    <input type="text"  class="form-control" name="parent_mobile"v required id="parentMobile">
+                    <input type="text"  class="form-control" name="parent_mobile" required id="parentMobile">
             </div>
             <div class="mb-3">
                     <label for="parent_email" class="form-label">Parent Email</label><br>
