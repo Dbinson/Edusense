@@ -56,7 +56,7 @@ function enrollSub(){
                 $('#videoPlayerModal').modal('hide')    
                 $('#studentRegModalCenter').modal('show')
                 var arr = data.split(',')
-                if(addDetails(arr[1])==1 ){
+                if(addDetails(arr[1]) == 1 ){
                     $('#successMsgs'.html(
                     '<small class="alert alert-success p4"> Success Loading..... </small>'
                     ));
