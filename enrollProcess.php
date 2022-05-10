@@ -27,7 +27,7 @@
             
         }   
     }else{
-        $isEnroll = '2'.$_SESSION['student_id'];
+        $isEnroll = '2,'.$_SESSION['student_id'];
     }
 
     echo $isEnroll;

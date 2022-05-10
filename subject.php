@@ -1,6 +1,7 @@
 <?php 
     include('./mainInclude/header.php'); 
     include('./modals/demoPlayerModal.php');
+    include('./modals/studentRegModal.php');
 ?>
 
 
@@ -106,7 +107,7 @@ include('./dbConnection.php');
                 <div class="card text-center f-item">
                     <div class="card-body">
                         <h5 class="card-title py-4 display-5">'.$result['name'].'</h5>
-                        <a href="#videoPlayerModal" type="button" data-bs-tonggle="modal" data-id="'.$result['subject_id'].'" class="btn btn-outline-primary my-3 openVideoModal ">View Demo</a>
+                        <a href="#videoPlayerModal" type="button" data-bs-toggle="modal" data-id="'.$result['subject_id'].'" class="btn btn-outline-primary my-3 openVideoModal ">View Demo</a>
                     </div>
                 </div>
             ';
@@ -119,7 +120,7 @@ include('./dbConnection.php');
                 <div class="card text-center f-item">
                     <div class="card-body">
                         <h5 class="card-title py-4 display-5">'.$data['name'].'</h5>
-                        <a href="#videoPlayerModal" type="button" data-bs-tonggle="modal" data-id="'.$data['subject_id'].'" class="btn btn-outline-primary my-3 openVideoModal ">View Demo</a>
+                        <a href="#videoPlayerModal" type="button" data-bs-toggle="modal" data-id="'.$data['subject_id'].'" class="btn btn-outline-primary my-3 openVideoModal ">View Demo</a>
                     </div>
                 </div>
             ';
