@@ -56,8 +56,8 @@ if(!isset($_SESSION['is_login'])){
                                 $count++;
                                 echo "<th scope='row'>" . $count . "</th>
                                     <td>" . $result['name'] . "</td>
-                                    <td>" . $result['chapter_no'] . "</td>
                                     <td>" . $result['class'] . "</td>
+                                    <td>" . $result['chapter_no'] . "</td>
                                     <td>" . $result['stud_name'] . "</td>"
                                     ;
                                 echo '
