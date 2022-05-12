@@ -28,19 +28,16 @@
 
             //validate the password
             if(password_verify($pass,$result["password"])){
+              $_SESSION['mst_id'] = $result['id'];
               $_SESSION['user_email'] = $result['email'];
               $_SESSION['is_admin_login'] = true;
-              $msg = '<div class="p-3  alert- success> Login successful.  </div>';
+              $msg = '<div class="p-3 alert-success> Login successful.  </div>';
             }else{
-              $msg = '<div class="p-3  alert-danger "> Login Faild. Try Again </div>';
+              $msg = '<div class="p-3 alert-danger "> Login Faild. Try Again </div>';
             }
           }
         }else{
-          echo "
-          <script>
-          $('#formFooter').append(\"<span class='bg-success p-4'>Admin not registered</span>\")
-        </script>     
-          ";
+          $msg = '<div class="p-3 alert-danger "> Not Registered. Try Again </div>';
         }
         
        
@@ -68,8 +65,12 @@
       <input type="submit" name="logbtn" class="fadeIn fourth" >
       
       
-       <?php if(isset($msg)){ echo $msg; } ?>
-      <span id="successMsg"></span>
+       <?php if(isset($msg)){ 
+          echo $msg; 
+          header('location: ./enrolled-student');
+          die(); 
+        }
+        ?>
       </div>  
     </form>
     

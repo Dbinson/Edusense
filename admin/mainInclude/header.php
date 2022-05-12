@@ -44,7 +44,15 @@
     <!-- <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> -->
 
     <!-- <script src="https://kit.fontawesome.com/08917cd252.js" crossorigin="anonymous"></script> -->
-
+    <style>
+      .modal-backdrop {
+    z-index: 1019 !important;
+}
+.modal-content {
+    margin: 2px auto;
+    z-index: 1100 !important;
+}
+    </style>
 </head>
 
 <body>
@@ -170,15 +178,50 @@
                 </span>
               </button> -->
               <!-- Popover for Notification -->
-              <ul id="popover-content-notify" class="list-group text-center" style="display: none">
+              <!-- <ul id="popover-content-notify" class="list-group text-center" style="display: none">
                 <li class="list-group-item">This is notification1</li>
                 <a href="#" class="list-group-item">View</a>
-              </ul>
+              </ul> -->
 
               <!-- for Account -->
-              <a href="">
-                <img src="../../public/assets/defaultpic.png" class="profile-pic">
-              </a>
+              <div class="dropdown">
+                <!-- <a class="btn p-2 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../../public/assets/t6.jpg" class="profile-pic">
+                </a> -->
+
+                
               
+              <?php
+                include('../../dbConnection.php');
+                include('../../modals/changePassModal.php');
+                
+                // $sql = "SELECT profile_pic FROM faculty WHERE faculty_id='".$_SESSION['faculty_id']."'";
+                // $q=mysqli_query($conn,$sql);
+                // while($r=mysqli_fetch_assoc($q)){
+                //   if($r['profile_pic'] == null){
+                //     echo '
+                //     <a class="btn p-2 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                // <img src="../../public/assets/t6.jpg" class="profile-pic">
+                // </a>
+                //     ';
+                //   }else{
+                //     echo '
+                //     <a href="#">
+                //     <img src="'.$r['profile_pic'].'" class="profile-pic">
+                //   </a>
+                //   ';
+                //   }
+                // }
+                echo '
+                     <a class="btn p-2 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                 <img src="../../public/assets/t6.jpg" class="profile-pic">
+                 </a>
+                    ';
+              ?>
+              <ul class="dropdown-menu mr-4" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="#changePassModal" type="button"  data-bs-toggle="modal" >Change Password</a></li>
+                  <li><a class="dropdown-item" href="./../../logout.php" type="button">Log out</a></li>
+                </ul>
+              </div>
             </div>
           </nav>

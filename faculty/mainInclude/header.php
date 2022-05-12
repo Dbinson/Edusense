@@ -45,6 +45,15 @@
 
     <!-- <script src="https://kit.fontawesome.com/08917cd252.js" crossorigin="anonymous"></script> -->
 
+    <style>
+      .modal-backdrop {
+    z-index: 1019 !important;
+}
+.modal-content {
+    margin: 2px auto;
+    z-index: 1100 !important;
+}
+    </style>
 </head>
 
 <body>
@@ -84,8 +93,17 @@
 
         <li class="slidebar-Item <?php if(PAGE == 'notes'){echo 'active';} ?>">
           <i class="material-icons ic">import_contacts</i>
-          <a href="../notes/index.php" >Notes</a>
+          <a href="#notesubmenu" data-bs-toggle="collapse" aria-expanded="true">Notes</a>
         </li>
+        <!-- sublist notes-->
+        <ul class="collapse list-unstyled list-group sublist" id="notesubmenu">
+          <li>
+              <a href="../notes/index.php">My Notes</a>
+          </li>
+          <li>
+              <a href="../notes/instNotes.php">Institute Notes</a>
+          </li>
+        </ul>
 
 
         <li class="slidebar-Item pt-5">
@@ -116,16 +134,26 @@
               </ul> -->
 
               <!-- for Account -->
+
+              <div class="dropdown">
+                <!-- <a class="btn p-2 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../../public/assets/t6.jpg" class="profile-pic">
+                </a> -->
+
+                
+              
               <?php
                 include('../../dbConnection.php');
+                include('../../modals/changePassModal.php');
+                
                 $sql = "SELECT profile_pic FROM faculty WHERE faculty_id='".$_SESSION['faculty_id']."'";
                 $q=mysqli_query($conn,$sql);
                 while($r=mysqli_fetch_assoc($q)){
                   if($r['profile_pic'] == null){
                     echo '
-                    <a href="#">
-                    <img src="../../public/assets/t6.jpg" class="profile-pic">
-                  </a>
+                    <a class="btn p-2 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../../public/assets/t6.jpg" class="profile-pic">
+                </a>
                     ';
                   }else{
                     echo '
@@ -136,7 +164,14 @@
                   }
                 }
               ?>
+              <ul class="dropdown-menu mr-4" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="#changePassModal" type="button"  data-bs-toggle="modal" >Change Password</a></li>
+                  <li><a class="dropdown-item" href="./../../logout.php" type="button">Log out</a></li>
+                </ul>
+              </div>
               
               
             </div>
           </nav>
+
+          

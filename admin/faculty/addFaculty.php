@@ -26,7 +26,7 @@
         $address =  $_REQUEST['address'];
         $faculty_photo = $_FILES['faculty_photo']['name']; 
         $faculty_photo_temp = $_FILES['faculty_photo']['tmp_name'];
-        $img_folder = '../../images/'. $faculty_photo;
+        $img_folder = '../../images/fac/'. $faculty_photo;
         move_uploaded_file($faculty_photo_temp, $img_folder);
 
         $sql3 = "SELECT SUBSTRING(faculty_id, 4, 4) as Year FROM faculty

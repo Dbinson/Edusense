@@ -83,6 +83,7 @@
                         LEFT JOIN student ON enroll.student_id = student.student_id
                         LEFT JOIN faculty ON enroll.faculty_id = faculty.faculty_id
                         LEFT JOIN subject ON enroll.subject_id = subject.subject_id
+                        WHERE enroll.faculty_id IS NOT NULL
                         ";
                     $query = mysqli_query($conn,$sql);
                     while($row = mysqli_fetch_assoc($query)){

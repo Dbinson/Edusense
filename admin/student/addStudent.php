@@ -46,8 +46,8 @@
         
                 $student_id = 'stud'.date('Y').$count;
         
-            $sql2 = "INSERT INTO student(student_id,profile_pic,stud_name,stud_email,password,address) 
-                VALUES ('".$student_id."','".$img_folder."','".$student_name."','".$student_email."', '".$stupass."','".$address."');";
+            $sql2 = "INSERT INTO student(student_id,profile_pic,stud_name,stud_email,password,address,stud_mobile,parent_name,parent_email,parent_mobile) 
+                VALUES ('".$student_id."','".$img_folder."','".$student_name."','".$student_email."', '".$stupass."','".$address."','".$student_mobile."','".$parent_name."','".$parent_email."','".$parent_mobile."')";
             $result2 = mysqli_query($conn, $sql2);
         
             $arr = array();

@@ -153,10 +153,15 @@
   
   .profile-pic{
 	padding: 5px;
-	width: 35px;
-	height: 35px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 	border: 1px solid #000;
+  }
+
+    .dropdown-menu[data-bs-popper] {
+      top: 110% !important;
+      left: -71px !important;
   }
   
   /* #content .container{

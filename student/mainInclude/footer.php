@@ -65,6 +65,42 @@
             }
       });
     });
+
+    
+    $(document).ready(function () {
+      $('#changePassForm').on('submit', function (e) {
+      $.ajax({
+        type: "post",
+        url: "../../changePass.php",
+        data: new FormData(this),
+        processData: false,
+			contentType: false,
+        success: function (data) {
+          if(data == 1){
+            $("#successMsg").html(
+              '<small class="alert alert-success w-100"> Password changed</small>'
+            );
+            // Empty Fields
+            clearField("#addAssForm");
+            setTimeout(() => {
+                $('#changePassModal').modal('hide')
+                location.reload();
+              }, 1000);
+          }else if(data == 0){
+            $("#successMsg").html(
+              '<small class="alert alert-danger w-100"> failed!!! Try Again</small>'
+            );
+            // Empty Fields
+            clearField("#addAssForm");
+          }
+        }
+      });
+      e.preventDefault()
+      });
+    });
+    function clearField(id){
+    $(id).trigger('reset');
+  }
     </script>
     </body>
 </html>
