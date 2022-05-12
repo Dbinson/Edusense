@@ -159,62 +159,75 @@ include_once('./dbConnection.php');
     </div>
   </section>
 
-  <section id="section-4">
-    <div class="container text-center">
-      <div class="section-title">
-        <h2>Testimonials</h2>
-        <span class="section-separator"></span>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-    </div>
+ 
 
     <?php
     $sql = "SELECT feedback.student_id,feedback.ratings,feedback.feedback_desc,student.stud_name,student.profile_pic from feedback
-                        LEFT JOIN student ON feedback.student_id = student.student_id
-                        WHERE feedback.ratings >= 3";
+            LEFT JOIN student ON feedback.student_id = student.student_id
+            WHERE feedback.ratings >= 3";
     $query = mysqli_query($conn, $sql);
     if ($query) {
       if (mysqli_num_rows($query) >= 1) {
-        echo '<div class="testimonials-carousel-wrap text-center">
-                        <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
-                        <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>
-                        <div class="testimonials-carousel">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper"> ';
+        echo '
+        <section id="section-4">
+        <div class="container text-center">
+          <div class="section-title">
+            <h2>Testimonials</h2>
+            <span class="section-separator"></span>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <div class="testimonials-carousel-wrap text-center">
+                <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
+                <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>
+                <div class="testimonials-carousel">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper"> ';
         while ($r = mysqli_fetch_assoc($query)) {
           echo '
-                                    <!-- start -->
-                                    <div class="swiper-slide">
-                                        <div class="testi-item">
-                                            <div class="testi-avatar">';
+              <!-- start -->
+              <div class="swiper-slide">
+                  <div class="testi-item">
+                      <div class="testi-avatar">';
           if ($r['profile_pic'] == null) {
             echo '<img src="./public/assets/defaultpic.png">';
           } else {
             echo '<img src="' . $r['profile_pic'] . '">';
           }
           echo '
-                                            </div>
-                                            <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
-                                            <div class="testimonials-text">
-                                                <div class="listing-rating">';
+            </div>
+            <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
+            <div class="testimonials-text">
+                <div class="listing-rating">';
           for ($i = 1; $i <= $r['ratings']; $i++) {
             echo '<i class="fa fa-star"></i>';
           }
           echo '
-                                                </div>
-                                                <p>' . $r['feedback_desc'] . '</p>
-                                                <a href="#" class="text-link"></a>
-                                                <div class="testimonials-avatar">
-                                                    <h3>' . $r['stud_name'] . '</h3>
-                                                    <h4>Student</h4>
-                                                </div>
-                                            </div>
-                                            <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
-                                        </div>
-                                    </div>
-                                    <!--testi end-->
+                      </div>
+                      <p>' . $r['feedback_desc'] . '</p>
+                      <a href="#" class="text-link"></a>
+                      <div class="testimonials-avatar">
+                          <h3>' . $r['stud_name'] . '</h3>
+                          <h4>Student</h4>
+                      </div>
+                  </div>
+                  <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
+              </div>
+          </div>
+          <!--testi end-->
+
+
                           ';
         }
+        echo '
+        </div>
+        </div>
+        </div>
+    
+        <!-- <div class="tc-pagination text-right"></div> -->
+        </div>
+      </section>
+        ';
       }
     }
     ?>
