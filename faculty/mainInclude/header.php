@@ -157,9 +157,9 @@
                     ';
                   }else{
                     echo '
-                    <a href="#">
-                    <img src="'.$r['profile_pic'].'" class="profile-pic">
-                  </a>
+                    <a class="btn p-2 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="'.$r['profile_pic'].'" class="profile-pic">
+                </a>
                   ';
                   }
                 }

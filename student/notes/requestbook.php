@@ -7,16 +7,10 @@
     include('./mainInclude/header.php');
     include('../dbConnection.php');
 
-    // if(!isset($_SESSION['is_admin_login'])){
-    //     echo "<script> location.href='./index.php'; </script>";
-    //    }
+    if(!isset($_SESSION['is_login'])){
+        echo "<script> location.href='../../index.php'; </script>";
+       }
     
-
-    if(isset($_REQUEST['submitBtn'])){
-
-        
-    }
-
     
 ?>
 <section id="content">
