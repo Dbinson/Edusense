@@ -32,7 +32,7 @@
            <tbody>
                 <?php
                     $count=1;
-                    $sql = " SELECT enroll.subject_id, subject.name,faculty.faculty_name FROM enroll
+                    $sql = " SELECT enroll.subject_id, subject.name,faculty.faculty_name,enroll.status FROM enroll
                         LEFT JOIN faculty ON enroll.faculty_id = faculty.faculty_id
                         LEFT JOIN subject ON enroll.subject_id = subject.subject_id
                         WHERE student_id = '".$_SESSION['student_id']."'
@@ -46,7 +46,7 @@
                             <td>'.$row['name'].'</td>
                             ';
                         if($row['faculty_name']== null){
-                            echo 'NUll';
+                            echo '<td>nill</td>';
                         }else{
                             echo '<td>'.$row['faculty_name'].'</td>';
                         }
@@ -60,7 +60,9 @@
                         //         </button>
                         //     </td>
 
-                        // </tr>
+                        echo '
+                        <td>'.$row['status'].'</td>
+                        </tr>';
                         
                     }               
 
