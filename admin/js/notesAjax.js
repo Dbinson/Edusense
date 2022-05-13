@@ -22,7 +22,16 @@ $(document).ready(function (e) {
                       $('#addNotesModalCenter').modal('hide');
                       location.reload();
                     }, 1000);
-                  }
+                  }else if(data == 0){
+					if (data == 1) {
+						$("#successMsg").html(
+						  '<small class="alert alert-danger"> Failed!!! Try Again </small>'
+						);
+						// Empty Fields
+						clearField("#addDemoForm");
+	
+					  }
+				  }
 			}
 		});
 		e.preventDefault();
