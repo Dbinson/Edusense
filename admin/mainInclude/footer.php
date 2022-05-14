@@ -97,9 +97,17 @@
     function clearField(id){
     $(id).trigger('reset');
   }
+
+
+//   $('input').oninvalid = function(e) {
+// 	e.preventDefault(); //prevent default tooltip
+//   this.style.background = '#f2dede'; //whatever 
+//   var elem = this.parentNode.getElementsByClassName('tooltiptext')[0]; //select tooltip element
+  
+//   //show the tooltip
+//   elem.style.visibility = "visible";
+//   elem.style.opacity = "1";
+// }
     </script>
-
-
-    
     </body>
 </html>

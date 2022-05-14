@@ -94,7 +94,7 @@ function checkUserLogin(){
           if (data == 0) {
             console.log($('#successMsg'))
             $("#successMsg").html(
-              '<small class="alert alert-danger px-5">insert falied ! </small>'
+              '<small class="alert alert-danger px-5">Invalid Credentials  ! </small>'
             );
           } else if (data == 1) {
 
