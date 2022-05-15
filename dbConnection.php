@@ -2,7 +2,7 @@
 $db_host = "localhost";
 $db_user = "root";
 $db_password = "";
-$db_name = "edusense-final";
+$db_name = "edu-final";
 
 // Create Connection
 $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
