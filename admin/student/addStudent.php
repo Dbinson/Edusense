@@ -79,7 +79,7 @@
                     <h1 class="display-6 card-title text-center">Add Student</h1>
                     <div class="mb-3">  
                         <label for="student_name" class="form-label">Student Name</label><br>
-                            <input type="text"  class="form-control" name="student_name" id="student_name">
+                            <input type="text"  pattern="[a-zA-Z]+" required title="Please enter Alphabets." class="form-control" name="student_name" id="student_name" >
                     </div>
                     
                     <div class="mb-3">
@@ -89,12 +89,12 @@
 
                     <div class="mb-3">
                         <label for="student_mobile" class="form-label">Student Mobile</label>
-                            <input class="form-control" type="tel" min="10" max="10" name="student_mobile" id="student_mobile">
+                            <input class="form-control" required type="number" min="10" max="10" name="student_mobile" id="student_mobile">
                     </div>
 
                     <div class="mb-3">
                         <label for="student_email" class="form-label">Student Email</label>
-                            <input class="form-control" type="email" name="student_email" id="student_email">
+                            <input class="form-control" required type="email" name="student_email" id="student_email">
                     </div>
                 
                     <!-- Address details -->
@@ -102,19 +102,19 @@
                     <hr>
                     <div class="mb-3">  
                             <label for="city" class="form-label">City</label><br>
-                            <input type="text"  class="form-control" name="city" id="city">
+                            <input type="text" required  class="form-control" name="city" id="city">
                     </div>  
                     <div class="mb-3">
                             <label for="state" class="form-label">State</label><br>
-                            <input type="text"  class="form-control" name="state" id="state">
+                            <input type="text" required  class="form-control" name="state" id="state">
                     </div>
                     <div class="mb-3">
                             <label for="country" class="form-label">Country</label><br>
-                            <input type="text"  class="form-control" name="country" id="country">
+                            <input type="text" required class="form-control" name="country" id="country">
                     </div>
                     <div class="mb-3">
                             <label for="pincode" class="form-label">Pincode</label><br>
-                            <input type="text"  class="form-control" name="pincode" id="pincode">
+                            <input type="text" required class="form-control" name="pincode" id="pincode">
                     </div> 
 
                     <!-- Parent details -->
@@ -123,17 +123,17 @@
                     <hr>
                     <div class="mb-3">
                             <label for="parent_name" class="form-label">Parent Name</label><br>
-                            <input type="text"  class="form-control" name="parent_name" id="parent_name">
+                            <input type="text" pattern="[a-zA-Z]+" required title="Please enter Alphabets." class="form-control" name="parent_name" id="parent_name">
                     </div>
                     <div class="mb-3">
                             <label for="parent_mobile" class="form-label">Parent Mobile Number</label><br>
-                            <input type="text"  class="form-control" name="parent_mobile"v id="parent_mobile">
+                            <input type="number" required class="form-control" name="parent_mobile"v id="parent_mobile">
                     </div>
                     <div class="mb-3">
                             <label for="parent_email" class="form-label">Parent Email</label><br>
-                            <input type="email"  class="form-control" name="parent_email" id="parent_email">
+                            <input type="email" required class="form-control" name="parent_email" id="parent_email">
                     </div>
-                    <button class="btn btn-outline-primary" name="submitBtn" type="submit">Submit</button>
+                    <button class="btn btn-outline-primary" required name="submitBtn" type="submit">Submit</button>
                 </form>
                 <?php if(isset($msg)){ echo $msg; } ?>
             </div>

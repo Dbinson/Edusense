@@ -13,7 +13,7 @@
                     
                     <div class="mb-3">
                         <label for="student_photo" class="form-label">Student Photo</label>
-                            <input class="form-control" type="file" required name="student_photo" id="student_photo">
+                            <input class="form-control" type="file" name="student_photo" id="student_photo">
                     </div>
 
                     <div class="mb-3">

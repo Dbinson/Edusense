@@ -38,22 +38,22 @@
         $faculty_id = 'fac'.date('Y').$count;
 
         // checking if the faculty already exist
-        if(isset($faculty_email) and isset($faculty_mobile)){
+        if(isset($faculty_email) && isset($faculty_mobile)){
             $sql = 'SELECT * FROM faculty WHERE faculty_email = "'.$faculty_email.'"';
             $query = mysqli_query($conn,$sql);
             if($query){
                 if(!mysqli_num_rows($query) >= 1){
                     // if faculty dosn't exist
                     $sql2 = 'INSERT INTO faculty(faculty_id,profile_pic,faculty_name,faculty_email,faculty_mobile,password,address,join_date) VALUES(
-                        "'.$faculty_id.'","'.$faculty_photo.'"'.$faculty_name.'","'.$faculty_email.'","'.$faculty_mobile.'","'.$pass.'","'.$address.'","'.$faculty_join_date.'"
+                        "'.$faculty_id.'","'.$faculty_photo.'","'.$faculty_name.'","'.$faculty_email.'","'.$faculty_mobile.'","'.$pass.'","'.$address.'","'.$faculty_join_date.'"
                     )';
                     $query2 = mysqli_query($conn, $sql2);
                     if($query2){
-                        $msg = '<span class="bg-success p-3">Faculty Added</span> ';
+                        $msg = '<span class="alert-success p-3">Faculty Added</span> ';
                     }
                 }else{
                     // if faculty already exist
-                    $msg = '<span class="bg-dander p-3">Already exists </span> ';
+                    $msg = '<span class="alert-dander p-3">Already exists </span> ';
                 }
             }
         }
