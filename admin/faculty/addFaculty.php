@@ -27,6 +27,13 @@
         $faculty_photo = $_FILES['faculty_photo']['name']; 
         $faculty_photo_temp = $_FILES['faculty_photo']['tmp_name'];
         $img_folder = '../../images/fac/'. $faculty_photo;
+
+        //image validate
+        $allowed =  array('jpeg','jpg', "png", "gif", "bmp", "JPEG","JPG", "PNG", "GIF", "BMP");
+        $ext = pathinfo($faculty_photo, PATHINFO_EXTENSION);
+        if(!in_array($ext,$allowed) ) {
+            $msg = '<span class="alert-danger p-3">INVALID Photo format</span> ';
+        }else{
         move_uploaded_file($faculty_photo_temp, $img_folder);
 
         $sql3 = "SELECT SUBSTRING(faculty_id, 4, 4) as Year FROM faculty
@@ -58,6 +65,7 @@
             }
         }
     }
+}
 
 ?>
 <section id="content">

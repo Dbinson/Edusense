@@ -36,24 +36,38 @@
                         LEFT JOIN subject ON enroll.subject_id = subject.subject_id
                         WHERE faculty_id IS NULL";
                     $query = mysqli_query($conn,$sql);
-                    while($row = mysqli_fetch_assoc($query)){
-                        echo '
-                        <tr>
-                            <th>'.$count++.'</th>
-                            <td>'.$row['student_id'].'</td>
-                            <td>'.$row['stud_name'].'</td>
-                            <td>'.$row['name'].'</td>
-                            <td>'.$row['stud_mobile'].'</td>
-                            <td>      
-                                <button type="submit" class="btn btn-primary btn-sm acceptbtn" id="'.$row['subject_id'].','.$row['student_id'].'" >Accept</button>             
-                            </td>
-                            <td>
-                                <a href="request.php?stud_id='.$row['student_id'].'&r=2 &sub_id='.$row['subject_id'].' " class="btn btn-danger btn-sm">Decline</a>
-                            </td>
-
-                        </tr>
-                        ';
-                    }               
+                    if(mysqli_num_rows($query)>=1){
+                        while($row = mysqli_fetch_assoc($query)){
+                            echo '
+                            <tr>
+                                <th>'.$count++.'</th>
+                                <td>'.$row['student_id'].'</td>
+                                <td>'.$row['stud_name'].'</td>
+                                <td>'.$row['name'].'</td>
+                                <td>'.$row['stud_mobile'].'</td>
+                                <td>      
+                                    <button type="submit" class="btn btn-primary btn-sm acceptbtn" id="'.$row['subject_id'].','.$row['student_id'].'" >Accept</button>             
+                                </td>
+                                <td>
+                                    <a href="request.php?stud_id='.$row['student_id'].'&r=2 &sub_id='.$row['subject_id'].' " class="btn btn-danger btn-sm">Decline</a>
+                                </td>
+    
+                            </tr>
+                            ';
+                        }    
+                    }else{
+                        echo "
+                        <tr class='text-center'>
+                        <td></td>
+                        <td></td>
+                        <td>No New Requests</td>
+                        <td></td>
+                        <td></td>
+                            </tr>
+                        
+                        ";
+                    }
+                               
 
                 ?>
            </tbody>
@@ -86,18 +100,31 @@
                         WHERE enroll.faculty_id IS NOT NULL
                         ";
                     $query = mysqli_query($conn,$sql);
-                    while($row = mysqli_fetch_assoc($query)){
-                        echo '
-                        <tr>
-                            <th>'.$count++.'</th>
-                            <td>'.$row['student_id'].'</td>
-                            <td>'.$row['stud_name'].'</td>
-                            <td>'.$row['name'].'</td>
-                            <td>'.$row['faculty_name'].'</td>
-                        </tr>
-                        ';
-                    }               
-
+                    if(mysqli_num_rows($query) >=1){
+                        while($row = mysqli_fetch_assoc($query)){
+                            echo '
+                            <tr>
+                                <th>'.$count++.'</th>
+                                <td>'.$row['student_id'].'</td>
+                                <td>'.$row['stud_name'].'</td>
+                                <td>'.$row['name'].'</td>
+                                <td>'.$row['faculty_name'].'</td>
+                            </tr>
+                            ';
+                        }               
+                    }else{
+                        echo "
+                        <tr class='text-center'>
+                        <td></td>
+                        <td></td>
+                        <td>No New Requests</td>
+                        <td></td>
+                        <td></td>
+                            </tr>
+                        
+                        ";
+                    }
+                    
                 ?>
            </tbody>
        </table>

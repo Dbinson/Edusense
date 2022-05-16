@@ -26,37 +26,48 @@
         $pincode = $_REQUEST['pincode'];
         $parent_name =  $_REQUEST['parent_name'];
         $parent_mobile = $_REQUEST['parent_mobile'];
-        $parent_email =  $_REQUEST['parent_email'];  
+        $parent_email =  $_REQUEST['parent_email'];
+        $result2 = "";
+        
         $student_photo = $_FILES['student_photo']['name']; 
         $student_photo_temp = $_FILES['student_photo']['tmp_name'];
         $img_folder = '../../images/stud/'. $student_photo; 
-        move_uploaded_file($student_photo_temp, $img_folder);
 
-        $address = $city.','.$state.','.$country.' '.$pincode; 
-        // checking if the student already exist
-        if(isset($student_email) and isset($student_mobile)){
+        //image validate
+        $allowed =  array('jpeg','jpg', "png", "gif", "bmp", "JPEG","JPG", "PNG", "GIF", "BMP");
+        $ext = pathinfo($student_photo, PATHINFO_EXTENSION);
+        if(!in_array($ext,$allowed) ) {
+            $msg = '<span class="alert-danger p-3">INVALID Photo format</span> ';
+        }else{
+            move_uploaded_file($student_photo_temp, $img_folder);
+
+            $address = $city.','.$state.','.$country.' '.$pincode; 
+            // checking if the student already exist
+            if(isset($student_email) and isset($student_mobile)){
+                
+                $stupass = password_hash($defaultPass,PASSWORD_DEFAULT);
             
-            $stupass = password_hash($defaultPass,PASSWORD_DEFAULT);
-        
-            $sql3 = "SELECT SUBSTRING(student_id, 5, 4) as Year FROM student
-                        WHERE SUBSTRING(student_id, 5, 4) = YEAR(CURDATE())
-                    ";
-                $query3 = mysqli_query($conn, $sql3);
-                $count = mysqli_num_rows($query3) + 1;
-        
-                $student_id = 'stud'.date('Y').$count;
-        
-            $sql2 = "INSERT INTO student(student_id,profile_pic,stud_name,stud_email,password,address,stud_mobile,parent_name,parent_email,parent_mobile) 
-                VALUES ('".$student_id."','".$img_folder."','".$student_name."','".$student_email."', '".$stupass."','".$address."','".$student_mobile."','".$parent_name."','".$parent_email."','".$parent_mobile."')";
-            $result2 = mysqli_query($conn, $sql2);
-        
-            $arr = array();
-            if($result2){
-                $msg = '<span class="alert-success p-3">Added!!!</span> ';
-        
-            }else{
-                $msg = '<span class="alert-danger p-3">Failed!!! </span> ';
+                $sql3 = "SELECT SUBSTRING(student_id, 5, 4) as Year FROM student
+                            WHERE SUBSTRING(student_id, 5, 4) = YEAR(CURDATE())
+                        ";
+                    $query3 = mysqli_query($conn, $sql3);
+                    $count = mysqli_num_rows($query3) + 1;
+            
+                    $student_id = 'stud'.date('Y').$count;
+            
+                $sql2 = "INSERT INTO student(student_id,profile_pic,stud_name,stud_email,password,address,stud_mobile,parent_name,parent_email,parent_mobile) 
+                    VALUES ('".$student_id."','".$img_folder."','".$student_name."','".$student_email."', '".$stupass."','".$address."','".$student_mobile."','".$parent_name."','".$parent_email."','".$parent_mobile."')";
+                $result2 = mysqli_query($conn, $sql2);
+            
             }
+        }
+        
+        // $arr = array();
+        if($result2){
+            $msg = '<span class="alert-success p-3">Added!!!</span> ';
+    
+        }else{
+            $msg = '<span class="alert-danger p-3">Failed!!! </span> ';
         }
 
         // if($result2){
@@ -79,7 +90,7 @@
                     <h1 class="display-6 card-title text-center">Add Student</h1>
                     <div class="mb-3">  
                         <label for="student_name" class="form-label">Student Name</label><br>
-                            <input type="text"  pattern="[a-zA-Z]+" required title="Please enter Alphabets." class="form-control" name="student_name" id="student_name" >
+                            <input type="text"  pattern="[a-zA-Z ]*$" required title="Please enter Alphabets." class="form-control" oninvalid="alert('Incorrect.')" name="student_name" id="student_name" >
                     </div>
                     
                     <div class="mb-3">
@@ -89,12 +100,12 @@
 
                     <div class="mb-3">
                         <label for="student_mobile" class="form-label">Student Mobile</label>
-                            <input class="form-control" required type="number" min="10" max="10" name="student_mobile" id="student_mobile">
+                            <input class="form-control" required type="number" pattern="[7-9]{1}[0-9]{9}" name="student_mobile" oninvalid="alert('Incorrect Phone number')" id="student_mobile">
                     </div>
 
                     <div class="mb-3">
                         <label for="student_email" class="form-label">Student Email</label>
-                            <input class="form-control" required type="email" name="student_email" id="student_email">
+                            <input class="form-control" required type="email" name="student_email"  pattern="[^ @]*@[^ @]*" oninvalid="alert('Invalid Email')" id="student_email">
                     </div>
                 
                     <!-- Address details -->
@@ -102,19 +113,19 @@
                     <hr>
                     <div class="mb-3">  
                             <label for="city" class="form-label">City</label><br>
-                            <input type="text" required  class="form-control" name="city" id="city">
+                            <input type="text" required  class="form-control" name="city" pattern="[A-Za-z0-9]{1,20}" oninvalid="alert('Invalid')" id="city">
                     </div>  
                     <div class="mb-3">
                             <label for="state" class="form-label">State</label><br>
-                            <input type="text" required  class="form-control" name="state" id="state">
+                            <input type="text" required  class="form-control" name="state"  pattern="[A-Za-z0-9]{1,20}" oninvalid="alert('Invalid')" id="state">
                     </div>
                     <div class="mb-3">
                             <label for="country" class="form-label">Country</label><br>
-                            <input type="text" required class="form-control" name="country" id="country">
+                            <input type="text" required class="form-control" name="country"  pattern="[A-Za-z0-9]{1,20}" oninvalid="alert('Invalid')" id="country">
                     </div>
                     <div class="mb-3">
                             <label for="pincode" class="form-label">Pincode</label><br>
-                            <input type="text" required class="form-control" name="pincode" id="pincode">
+                            <input type="text" required class="form-control" name="pincode"  pattern="[A-Za-z0-9]{1,20}" oninvalid="alert('Invalid')" id="pincode">
                     </div> 
 
                     <!-- Parent details -->
@@ -123,15 +134,15 @@
                     <hr>
                     <div class="mb-3">
                             <label for="parent_name" class="form-label">Parent Name</label><br>
-                            <input type="text" pattern="[a-zA-Z]+" required title="Please enter Alphabets." class="form-control" name="parent_name" id="parent_name">
+                            <input type="text" pattern="[a-zA-Z ]*$" required title="Please enter Alphabets." class="form-control" oninvalid="alert('Invalid Name')"name="parent_name" id="parent_name">
                     </div>
                     <div class="mb-3">
                             <label for="parent_mobile" class="form-label">Parent Mobile Number</label><br>
-                            <input type="number" required class="form-control" name="parent_mobile"v id="parent_mobile">
+                            <input type="number" required class="form-control" pattern="[7-9]{1}[0-9]{9}" oninvalid="alert('Incorrect Phone number')" name="parent_mobile"v id="parent_mobile">
                     </div>
                     <div class="mb-3">
                             <label for="parent_email" class="form-label">Parent Email</label><br>
-                            <input type="email" required class="form-control" name="parent_email" id="parent_email">
+                            <input type="email" required class="form-control" pattern="[^ @]*@[^ @]*" oninvalid="alert('Invalid Email')" name="parent_email" id="parent_email">
                     </div>
                     <button class="btn btn-outline-primary" required name="submitBtn" type="submit">Submit</button>
                 </form>
