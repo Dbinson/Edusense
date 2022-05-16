@@ -16,7 +16,7 @@
     if(isset($_REQUEST['submitBtn'])){
 
         // assigning user values to variable
-        $defaultPass = strtolower(strtok($_REQUEST['student_name'], '@'))."123";
+        $defaultPass = strtolower(strtok($_REQUEST['student_name'],' '))."123".rand(1,500);
         $student_name = $_REQUEST['student_name'];
         $student_email = $_REQUEST['student_email'];
         $student_mobile = $_REQUEST['student_mobile'];
