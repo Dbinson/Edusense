@@ -16,13 +16,13 @@
         <img src="./public/assets/MainLogo.png" alt="" />
         <h2>Welcome back, Login</h2>
         
-        <input type="email" placeholder="Email" required name="userLogEmail" id="userLogEmail" />
+        <input type="email" placeholder="Email" required name="userLogEmail"  pattern="[^ @]*@[^ @]*" oninvalid="alert('Invalid Email')" id="userLogEmail" />
         <select required name="userLogRole" id="userLogRole">
           <option disabled >Select Role</option>
           <option value="103" default>Student</option>
           <option value="102">Faculty</option>
         </select>
-        <input type="password" placeholder="Password" required name="userLogPass" id="userLogPass"/>
+        <input type="password" placeholder="Password" required name="userLogPass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="alert('Invalid Password')" id="userLogPass"/>
         <input type="hidden" name="enrollsub" value="<?php if(isset($_GET['enroll'])){echo $_GET['enroll'];} ?>">
         <button type="button" onclick="checkUserLogin()">Login</button>
         <span>Didn't Registered Yet? <a href="./signup.php">Click here</a> </span>

@@ -27,7 +27,7 @@ if (!isset($_SESSION['is_login'])) {
 
           <div class="mb-3">  
                     <label for="subjectId" class="form-label">Subject</label>
-                            <select class="form-select" required name="subjectId" required id="subjectId"
+                            <select class="form-select" required name="subjectId"  pattern="[a-zA-Z ]*$" required id="subjectId"  oninvalid="alert('Incorrect Name.')"
                                 aria-label="Default select example">
                             <option selected>Select subject </option>
                     <?php

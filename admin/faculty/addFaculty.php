@@ -77,7 +77,7 @@
                     <h1 class="display-6 card-title text-center">Add Faculty</h1>
                     <div class="mb-3">  
                         <label for="faculty_name" class="form-label">Faculty Name</label><br>
-                            <input type="text"  class="form-control" name="faculty_name" required id="faculty_name">
+                            <input type="text"  class="form-control" name="faculty_name"  pattern="[a-zA-Z ]*$" required id="faculty_name"  oninvalid="alert('Incorrect Name.')">
                     </div>
                     
                     <div class="mb-3">
@@ -87,12 +87,12 @@
 
                     <div class="mb-3">
                         <label for="faculty_mobile" class="form-label">Faculty Mobile</label>
-                            <input class="form-control" type="tel" min="10" max="10" name="faculty_mobile" required id="faculty_mobile">
+                            <input class="form-control" type="tel" min="10" max="10" name="faculty_mobile"  pattern="[7-9]{1}[0-9]{9}" required id="faculty_mobile" oninvalid="alert('Incorrect Phone number')">
                     </div>
 
                     <div class="mb-3">
                         <label for="faculty_email" class="form-label">Faculty Email</label>
-                            <input class="form-control" type="email" required name="faculty_email" required id="faculty_email">
+                            <input class="form-control" type="email" required name="faculty_email"  pattern="[^ @]*@[^ @]*" oninvalid="alert('Invalid Email')" required id="faculty_email" >
                     </div>
 
                     <div class="mb-3">
