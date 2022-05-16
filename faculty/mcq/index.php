@@ -32,7 +32,9 @@ if (!isset($_SESSION['is_login'])) {
                             <option selected>Select subject </option>
                     <?php
                         include_once('../../dbConnection.php');    
-                        $sql=mysqli_query($conn,"SELECT * from subject");
+                        $sql=mysqli_query($conn,"SELECT * from enroll 
+                        LEFT JOIN subject ON enroll.subject_id=subject.subject_id 
+                        WHERE faculty_id='".$_SESSION["faculty_id"]."';");
                         while($result=mysqli_fetch_assoc($sql)){
                             echo "<option value=".$result['subject_id'].">".$result['name']. "  ".$result['class']."</option>";
                         }
@@ -48,7 +50,9 @@ if (!isset($_SESSION['is_login'])) {
                             <option selected>Select Student </option>
                     <?php
                         include_once('../../dbConnection.php');    
-                        $sql=mysqli_query($conn,"SELECT student_id,stud_name from student");
+                        $sql=mysqli_query($conn,"SELECT student.student_id,student.stud_name from enroll 
+                        LEFT JOIN student ON enroll.student_id=student.student_id 
+                        WHERE enroll.faculty_id='".$_SESSION["faculty_id"]."';");
                         while($result=mysqli_fetch_assoc($sql)){
                             echo "<option value=".$result['student_id'].">".$result['stud_name']."</option>";
                         }
@@ -308,6 +312,7 @@ if (!isset($_SESSION['is_login'])) {
           </div>
 
           <button type="submit" class="btn btn-primary ">Add</button>
+          <span id="successmsgg"></span>
         </form>
       </div>
     </div>

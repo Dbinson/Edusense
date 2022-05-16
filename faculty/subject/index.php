@@ -23,16 +23,16 @@
                     <th>#</th>
                     <th>Subject ID</th>
                     <th>Subject Name</th>
+                    <th>Student Name</th>
                     <th>Status</th>
-                    <!-- <th>Update</th>
-                    <th>Remove</th> -->
                </tr>
            </thead>
            <tbody>
                 <?php
                     $count=1;
-                    $sql = "SELECT enroll.subject_id,enroll.status, subject.name FROM enroll
+                    $sql = "SELECT enroll.subject_id, enroll.status, subject.name,student.stud_name FROM enroll
                         LEFT JOIN subject ON enroll.subject_id = subject.subject_id
+                        LEFT JOIN student ON enroll.student_id = student.student_id
                         WHERE faculty_id = '".$_SESSION['faculty_id']."'
                         ";
                     $query = mysqli_query($conn,$sql);
@@ -42,24 +42,9 @@
                             <th>'.$count++.'</th>
                             <td>'.$row['subject_id'].'</td>
                             <td>'.$row['name'].'</td>
+                            <td>'.$row['stud_name'].'</td>
                             <td>'.$row['status'].'</td>
                             ';
-                        // if($row['faculty_name']== null){
-                        //     echo 'NUll';
-                        // }else{
-                        //     echo '<td>'.$row['faculty_name'].'</td>';
-                        // }
-                        //     <td>
-                        //         <button name="updatebtn" class="btn btn-outline-success updatebtn btn-sm" type="submit" id="'.$row['faculty_id'].'">
-                        //         <i class="material-icons-outlined">update</i>
-                        //     </td>
-                        //     <td>
-                        //         <button name="deletebtn" class="btn btn-outline-danger deletebtn btn-sm" type="submit" id="'.$row['faculty_id'].'">
-                        //         <i class="material-icons-outlined">delete</i>
-                        //         </button>
-                        //     </td>
-
-                        // </tr>
                         
                     }               
 

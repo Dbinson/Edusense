@@ -16,7 +16,7 @@
     if(isset($_REQUEST['submitBtn'])){
 
         // assigning user values to variable
-        $defaultPass = strtolower(strtok($_REQUEST['student_name'], ' '))."123";
+        $defaultPass = strtolower(strtok($_REQUEST['student_name'], '@'))."123";
         $student_name = $_REQUEST['student_name'];
         $student_email = $_REQUEST['student_email'];
         $student_mobile = $_REQUEST['student_mobile'];
@@ -90,7 +90,7 @@
                     <h1 class="display-6 card-title text-center">Add Student</h1>
                     <div class="mb-3">  
                         <label for="student_name" class="form-label">Student Name</label><br>
-                            <input type="text"  pattern="[a-zA-Z ]*$" required title="Please enter Alphabets." class="form-control" oninvalid="alert('Incorrect.')" name="student_name" id="student_name" >
+                            <input type="text"  pattern="[a-zA-Z ]*$" required title="Please enter Alphabets." class="form-control" oninvalid="alert('Incorrect Alphabets')" name="student_name" id="student_name" >
                     </div>
                     
                     <div class="mb-3">

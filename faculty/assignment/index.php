@@ -35,7 +35,7 @@
           <?php
                         $sql=mysqli_query($conn,"SELECT * from enroll 
                             LEFT JOIN subject ON enroll.subject_id=subject.subject_id 
-                            WHERE faculty_id='".$_SESSION["faculty_id"]."';");
+                            WHERE faculty_id='".$_SESSION["faculty_id"]."'");
                         while($r=mysqli_fetch_assoc($sql)){
                             echo "<option value=".$r['subject_id'].">".$r['name']." ".$r["class"]."</option>";
                         }

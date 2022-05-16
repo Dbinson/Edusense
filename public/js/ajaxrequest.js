@@ -92,7 +92,7 @@ function checkUserLogin(){
       success: function(data) {
         console.log(data);
           if (data == 0) {
-            console.log($('#successMsg'))
+            // console.log($('#successMsg'))
             $("#successMsg").html(
               '<small class="alert alert-danger px-5">Invalid Credentials  ! </small>'
             );

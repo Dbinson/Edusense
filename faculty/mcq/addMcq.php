@@ -28,6 +28,7 @@
         }
     }
 
+    echo $isAdded;
 
 
 ?>

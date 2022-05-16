@@ -13,11 +13,19 @@
                     console.log(data)
                     if (data == 1) {
                         clearField("#addMcqForm");
+                        $("#successmsgg").html(
+                          '<small class="alert alert-success px-5">MCQ Assigned !!! </small>'
+                        );
     
                         setTimeout(() => {
                           prompt('Created')
                           location.reload();
                         }, 1000);
+                      }else if(data == 0){
+                        clearField("#addMcqForm");
+                        $("#successmsgg").html(
+                          '<small class="alert alert-danger px-5">Assigned Failed!!! </small>'
+                        );
                       }
                 }
             });

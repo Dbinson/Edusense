@@ -46,7 +46,7 @@ if (!isset($_SESSION['is_admin_login'])) {
                             <td>' . $row['stud_email'] . '</td>
                             <td>' . $row['stud_mobile'] . '</td>
                             <td>' . $row['address'] . '</td>
-                            <td> <a href="" type="button" class="evtSend" data-tagid="' . $row['student_id']    . '" >View </a></td>
+                            <td> <span type="button" class="evtSend" id="'.$row['student_id'].'" >View </span></td>
 
                             <td>
                             <button name="updatebtn" class="btn btn-outline-success updatebtn btn-sm" type="submit" id="' . $row['student_id'] . '"><span class="material-icons">update</span>
@@ -76,29 +76,16 @@ if (!isset($_SESSION['is_admin_login'])) {
                     <span aria-hidden="true"></span>
                 </button>
             </div>
-            <form id="addDemoForm" class="Edit-Demo-form" name="addDemo" enctype="multipart/form-data" role="form">
                 <div class="modal-body">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Parent Name</th>
                                 <th scope="col">Mobile</th>
                                 <th scope="col">Email</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php 
-                                include_once('../../dbConnection.php');
-                            $sql = "SELECT parent_name,parent_mobile,parent_email FROM student 
-                                    WHERE student_id='". $id ."";
-                            ?>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
+                        <tbody id="tbody">
 
                         </tbody>
                     </table>
@@ -106,28 +93,41 @@ if (!isset($_SESSION['is_admin_login'])) {
                 </div>
                 <div class="modal-footer">
                     <span id="successMsg"></span>
-                    <button class="btn btn-primary" type="submit" id="submit">Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
-            </form>
         </div>
     </div>
 </div>
 </div>
 <script>
-    $(".evtSend").on('click', function(e) {
-
-        e.preventDefault();
-
-        var $this = $(this),
-
-            tagid = $this.data('tagid'),
-
-            modal = $this.attr('href');
-
-        $(modal).find('#TagID').val(tagid);
-
-        $(modal).modal('show');
+     $(document).ready(function() {
+        $('.evtSend').on('click', function() {
+            var id = $(this).attr('id');
+            // console.log(id)
+            $.ajax({
+                type: "post",
+                url: "../fetch.php",
+                data: {
+                    request: 'studParent',
+                    id: id
+                },
+                dataType: "json",
+                success: function(data) {
+                    // console.log(data);
+                    $.each(data, (index, val) => {
+                        console.log(val)
+                        
+                        // Adding a row inside the tbody.
+                        $('#tbody').append(`<tr>
+                            <td>${val.parent_name}</td>
+                            <td>${val.parent_mobile}</td>
+                            <td>${val.parent_email}</td>
+                            </tr>`);
+                    })
+                    $('#viewParentModal').modal('show')
+                }
+            });
+        });
 
     });
     //update student

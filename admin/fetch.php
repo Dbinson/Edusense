@@ -33,5 +33,13 @@
             $array[] = $row;
         }
     }
+
+    if(isset($_POST['id']) && $_POST['request']=="studParent"){
+        $sql = 'SELECT parent_name,parent_email,parent_mobile FROM student WHERE student_id="' .$_POST['id'].'"';
+        $query = mysqli_query($conn , $sql);
+        while($row = mysqli_fetch_array($query)){
+            $array[] = $row;
+        }
+    }
     echo json_encode($array);
 ?>

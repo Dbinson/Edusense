@@ -8,7 +8,7 @@
 	$id = 'DEMO'. $_POST['subjectId'];
 
 	//checking if there is reference to the assignment
-	$valid_extensions = array( 'mp4','mov','avi','mkv'); // valid extensions
+	$valid_extensions = array( 'mp4','mov','avi','mkv','wvm'); // valid extensions
 	$path = '../../demo-Recordings/'; // upload directory
 	if($_FILES['demoFile']){
 		$fname = $_FILES['demoFile']['name'];
