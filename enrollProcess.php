@@ -20,7 +20,7 @@
                 VALUES ('".$_POST['id']."','".$_SESSION['student_id']."','Request Pending') ";
                 $query = mysqli_query($conn, $sql2);
                 if($query){
-                    $isEnrolled = 1;
+                    $isEnroll = 1;
                 }
             }else{
                 $isEnroll = -1;

@@ -42,7 +42,7 @@
         $query3 = mysqli_query($conn, $sql3);
         $count = mysqli_num_rows($query3) + 1;
 
-        $faculty_id = 'fac'.date('Y').$count;
+        $faculty_id = 'fac'.date('Y').$count.rand(1,500);
 
         // checking if the faculty already exist
         if(isset($faculty_email) && isset($faculty_mobile)){

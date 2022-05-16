@@ -27,24 +27,8 @@ function addUser(){
         setTimeout(() => {
           
           $('#studentRegModalCenter').modal('show')
-          var upd = addDetails(data[0])
+          addDetails(data[0])
           // console.log(upd)
-          if( upd == 1){
-            
-            $('#successMsgss'.html(
-              '<small class="alert alert-success p-4"> Success Loading..... </small>'
-            ));
-            clearField('addDeatilsStudForm')
-            
-            setTimeout(() => {
-              $('#studentRegModalCenter').modal('hide')
-              window.location.href = "./login.php";
-            }, 1000);
-          }else if(upd == 0) {
-            $('#successMsgss').html(
-              '<small class="alert alert-danger p-4"> Failed Loading..... </small>'
-            );
-          }
         }, 1000);
       }
     }
@@ -64,10 +48,22 @@ function addDetails(id){
 			processData: false,
 			contentType: false,
 			success: function (data){
-				console.log("jhbhjbvgvgv".data)
-
-          return data
-    
+        if( data == 1){
+            
+          $('#successMsgss'.html(
+            '<small class="alert alert-success p-4"> Success Loading..... </small>'
+          ));
+          clearField('addDeatilsStudForm')
+          
+          setTimeout(() => {
+            $('#studentRegModalCenter').modal('hide')
+            window.location.href = "./login.php";
+          }, 1000);
+        }else if(data == 0) {
+          $('#successMsgss').html(
+            '<small class="alert alert-danger p-4"> Failed Loading..... </small>'
+          );
+        }    
 			}
 		});
 		e.preventDefault();
