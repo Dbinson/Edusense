@@ -48,7 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="noteFile" class="form-label">File </label>
-                        <input class="form-control" type="file" name="noteFile" required id="noteF">
+                        <input class="form-control" type="file" name="noteFile" id="noteF">
                     </div>
                 </div>
                 <div class="modal-footer">
