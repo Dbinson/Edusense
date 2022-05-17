@@ -20,7 +20,7 @@
         }
     }
     //to Update all the fields 
-    if(isset( $_POST['subjectId'])){
+    if(isset( $_POST['studentId'])){
       $sql = "UPDATE faculty_notes SET student_id = '".$_POST['studentId']."'
            WHERE fac_notes_id='".$_POST['note_id']."'";
       $query = mysqli_query($conn,$sql);
