@@ -309,6 +309,7 @@ if (!isset($_SESSION['is_login'])) {
 
           <button type="submit" class="btn btn-primary ">Add</button>
         </form>
+        <span id="successmsgg"></span>
       </div>
     </div>
   </div>

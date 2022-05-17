@@ -64,7 +64,7 @@
         
         // $arr = array();
         if($result2){
-            $msg = '<span class="alert-success p-3">Added!!!</span> ';
+            $msg = '<span class="alert-success p-3">Added Successfully</span> ';
     
         }else{
             $msg = '<span class="alert-danger p-3">Failed!!! </span> ';

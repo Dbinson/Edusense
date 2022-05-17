@@ -121,9 +121,23 @@
         contentType: false,
         success: function (data){
           console.log(data)
-          if(data ==1){
+          if(data == 1){
+            $("#successAssMsg").html(
+            '<small class="alert alert-success"> Success! Loading..... </small>'
+          );
+          setTimeout(() => {
             $('#viewAssignmentModalCenter').modal('hide')
             location.reload();
+          },1000)
+           
+          }else if(data == -1){
+            $("#successAssMsg").html(
+            '<small class="alert alert-danger"> Please use .pdf and .docx file format. </small>'
+          );
+          }else{
+            $("#successAssMsg").html(
+            '<small class="alert alert-danger"> Please Attach the file. </small>'
+          );
           }
         }
       });

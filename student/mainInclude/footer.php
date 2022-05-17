@@ -13,7 +13,7 @@
       var main = $('#main')
       $('.openbtn').click(function (e) { 
         console.log(sidebar.width())
-       if(sidebar.width() ==  88){
+       if(sidebar.width() == 88){
          openNav()
        }else{
          closeNav()

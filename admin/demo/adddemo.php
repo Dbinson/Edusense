@@ -3,7 +3,7 @@
 
 	header('Content-type: application/json');
 
-	$isNoteAdded = false;
+	$isNoteAdded = 0;
 
 	$id = 'DEMO'. $_POST['subjectId'];
 
@@ -29,13 +29,11 @@
             $query = mysqli_query($conn, $sql);
 
             if($query){
-                $isNoteAdded = true;
+                $isNoteAdded = 1;
             }
 		}else{
-			echo 'invalid';
+			$isNoteAdded = -1;
 		}
-
-        
 	}
 	
 	echo $isNoteAdded;

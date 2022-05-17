@@ -22,7 +22,7 @@
         echo '<section class="row books-section">';
         while($result = mysqli_fetch_assoc($query)){
             $sql2 = "SELECT * FROM mst_notes 
-                LEFT JOIN subject ON subject.subject_id = subject.subject_id
+                LEFT JOIN subject ON mst_notes.subject_id = subject.subject_id
                 WHERE mst_notes.subject_id = '".$result['subject_id']."'";
             $query2 = mysqli_query($conn,$sql2);
             // print_r($result);

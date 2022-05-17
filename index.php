@@ -172,9 +172,9 @@ include_once('./dbConnection.php');
         <section id="section-4">
         <div class="container text-center">
           <div class="section-title">
-            <h2>Testimonials</h2>
+            <h2>FEEDBACK</h2>
             <span class="section-separator"></span>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+           
           </div>
         </div>
         <div class="testimonials-carousel-wrap text-center">

@@ -6,6 +6,7 @@ include_once('dbConnection.php');
 
 // setting header type to json, We'll be outputting a Json data
 header('Content-type: application/json');
+$arr = array();
 
 // // Checking Email already Registered
 // if(isset($_POST['stuemail']) && isset($_POST['checkemail'])){
@@ -17,29 +18,37 @@ header('Content-type: application/json');
 //   }
 
   // Inserting or Adding New Student
-  if(isset($_POST['studsignup']) && isset($_POST['stuname']) && isset($_POST['stuemail']) && isset($_POST['stupass'])){
+  if(isset($_POST['studsignup'])){
     $stuname = $_POST['stuname'];
     $stuemail = $_POST['stuemail'];
     $stupass = password_hash($_POST['stupass'],PASSWORD_DEFAULT);
-
-    $sql3 = "SELECT SUBSTRING(student_id, 5, 4) as Year FROM student
-              WHERE SUBSTRING(student_id, 5, 4) = YEAR(CURDATE())
-           ";
-        $query3 = mysqli_query($conn, $sql3);
-        $count = mysqli_num_rows($query3) + 1;
-
-        $student_id = 'stud'.date('Y').$count .rand(1,500);
-
-    $sql2 = "INSERT INTO student(student_id,stud_name,stud_email,password) VALUES ('".$student_id."','".$stuname."','".$stuemail."', '".$stupass."');";
-    $query2 = mysqli_query($conn, $sql2);
-
     $arr = array();
-    if($query2){
-      array_push($arr,$student_id,'OK');
-
+    if($_POST['stuname'] == "" || $_POST['stuemail'] == "" || $_POST['stupass'] == ""){
+      array_push($arr,'empty');
+      // echo json_encode($arr);
     }else{
-      array_push($arr,'Failed');
+      if(filter_var($stuemail, FILTER_VALIDATE_EMAIL) ){
+        $sql3 = "SELECT SUBSTRING(student_id, 5, 4) as Year FROM student
+                WHERE SUBSTRING(student_id, 5, 4) = YEAR(CURDATE())
+            ";
+          $query3 = mysqli_query($conn, $sql3);
+          $count = mysqli_num_rows($query3) + 1;
+
+          $student_id = 'stud'.date('Y').$count .rand(1,500);
+
+        $sql2 = "INSERT INTO student(student_id,stud_name,stud_email,password) VALUES ('".$student_id."','".$stuname."','".$stuemail."', '".$stupass."');";
+        $query2 = mysqli_query($conn, $sql2);
+
+        
+        if($query2){
+          array_push($arr,$student_id,'OK');
+
+        }
+      }else{
+        array_push($arr,'invalidemail');
+      }
     }
+    
     echo json_encode($arr);
   }
 

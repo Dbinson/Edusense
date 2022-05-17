@@ -1,5 +1,5 @@
 <div class="modal fade" id="addDemoModalCenter" tabindex="-1" role="dialog" aria-labelledby="addDemoModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title add-Demo-title" id="addDemoModalCenterTitle">Add Demo</h5>
@@ -30,7 +30,7 @@
 				</div>
                 </div>
                 <div class="modal-footer">
-                    <span id="successMsg"></span>
+                    <span id="successdemoMsg"></span>
                     <button  class="btn btn-primary" type="submit" id="submit" >Add</button>              
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
                 </div>

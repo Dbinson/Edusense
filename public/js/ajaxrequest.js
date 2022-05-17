@@ -15,10 +15,13 @@ function addUser(){
       stuemail: stuemail,
     },
     success: function(data) {
-      // console.log(data);
-      if (data[1]== 'Failed') {
-        
-      } else if (data[1] == 'OK') {
+      console.log(data);
+      if (data[0] == 'empty') {
+        // console.log('worbfgjk')
+        $("#successMsg").html(
+          '<small class="alert alert-danger"> Please fill out the empty fields. </small>'
+        ); 
+      } else if (data[0] == 'OK') {
         // console.log("completed")
 
         $("#successMsg").html(
@@ -31,6 +34,10 @@ function addUser(){
           // addDetails(data[0])
           // console.log(upd)
         }, 1000);
+      }else if(data[0] == 'invalidemail'){
+        $("#successMsg").html(
+          '<small class="alert alert-danger"> Invalid email id. </small>'
+        );  
       }
     }
   });
@@ -81,7 +88,7 @@ function checkUserLogin(){
 
     if(userLogEmail == "" && userLogPass == ""){
       $("#successMsg").html(
-        '<small class="alert alert-danger px-5">Plese fill all the fields ! </small>'
+        '<small class="alert alert-danger px-5">Please fill all empty fields. </small>'
       );
     }else{
 

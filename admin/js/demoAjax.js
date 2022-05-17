@@ -9,14 +9,14 @@ $(document).ready(function (e) {
 			processData: false,
 			contentType: false,
 			success: function (data){
-				// console.log(data)
+				console.log(data)
       if (data == 0) {
-          $("#successMsg").html(
-            '<small class="alert alert-danger">insert falied ! </small>'
+          $("#successdemoMsg").html(
+            '<small class="alert alert-danger">Falied ! </small>'
           );
         } else if (data == 1) {
-          $("#successMsg").html(
-            '<small class="alert alert-success"> Success! Loading..... </small>'
+          $("#successdemoMsg").html(
+            '<small class="alert alert-success"> Added Successfully </small>'
           );
           // Empty Fields
           clearField("#addDemoForm");
@@ -25,6 +25,11 @@ $(document).ready(function (e) {
             $('#addDemoModalCenter').modal('hide');
             location.reload();
           }, 1000);
+        }else if (data == -1) {
+          console.log('hjefg')
+          $("#successdemoMsg").html(
+            '<small class="alert alert-danger"> Please input MP4, MOV , MKV file Format </small>'
+          );
         }
 			}
 		});

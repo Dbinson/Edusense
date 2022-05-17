@@ -56,7 +56,7 @@
                     )';
                     $query2 = mysqli_query($conn, $sql2);
                     if($query2){
-                        $msg = '<span class="alert-success p-3">Faculty Added</span> ';
+                        $msg = '<span class="alert-success p-3">Added Successfully</span> ';
                     }
                 }else{
                     // if faculty already exist

@@ -16,9 +16,10 @@
        }
         
       });
-    
+    console.log('working')
 
       function openNav() {
+        
         sidebar.width("250px");
         main.css('marginLeft',"250px");
         $('.sidebar-header img').attr('src','../../public/assets/MainLogo.png')

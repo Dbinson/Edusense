@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <span id="successMsg"></span>
+                <span id="successAssMsg"></span>
                 <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
             </div>

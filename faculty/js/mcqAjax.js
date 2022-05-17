@@ -2,7 +2,6 @@
 
     $(document).ready(function (e) {
         $("#addMcqForm").on('submit',(function (e) {
-            
             $.ajax({
                 url:"addmcq.php",
                 type:"post",
@@ -18,7 +17,6 @@
                         );
     
                         setTimeout(() => {
-                          prompt('Created')
                           location.reload();
                         }, 1000);
                       }else if(data == 0){

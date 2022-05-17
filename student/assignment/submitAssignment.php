@@ -35,6 +35,8 @@
                     echo 'faild';
                 }
             }
+        }else{
+            $isSubmitted = -1;
         }
     }
 
