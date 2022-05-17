@@ -200,6 +200,7 @@ $questions = json_decode($quiz, true);
       ';
     ?>
     <button class="btn btn-primary">Submit</button>
+    <span id="successmsg"></span>
   </form>
 </div>
 
@@ -208,9 +209,13 @@ $questions = json_decode($quiz, true);
     $.ajax({
       type: "post",
       url: "url",
+      dataType: "json",
       data: new FormData(this),
       success: function(data) {
         console.log(data)
+        if(data[1] == 1){
+          $('#successmsg').html
+        }elseif(data[1] == 0)
       }
     });
   });

@@ -79,36 +79,43 @@ function checkUserLogin(){
     var userLogRole = $("#userLogRole").val()
     var userLogPass = $("#userLogPass").val()
 
-    $.ajax({
-      url: "addUser.php",
-      type: "post",
-      data: {
-        checkLogemail: "checklogmail",
-        userLogEmail: userLogEmail,
-        userLogPass: userLogPass,
-        userLogRole: userLogRole
-      },
-      success: function(data) {
-        console.log(data);
-          if (data == 0) {
-            // console.log($('#successMsg'))
-            $("#successMsg").html(
-              '<small class="alert alert-danger px-5">Invalid Credentials  ! </small>'
-            );
-          } else if (data == 1) {
+    if(userLogEmail == "" && userLogPass == ""){
+      $("#successMsg").html(
+        '<small class="alert alert-danger px-5">Plese fill all the fields ! </small>'
+      );
+    }else{
 
+      $.ajax({
+        url: "addUser.php",
+        type: "post",
+        data: {
+          checkLogemail: "checklogmail",
+          userLogEmail: userLogEmail,
+          userLogPass: userLogPass,
+          userLogRole: userLogRole
+        },
+        success: function(data) {
+          console.log(data);
+            if (data == 0) {
+              // console.log($('#successMsg'))
               $("#successMsg").html(
-                '<small class="alert alert-success px-3"> Success! Loading..... </small>'
+                '<small class="alert alert-danger px-5">Invalid Credentials  ! </small>'
               );
-              // Empty Fields
-              clearField("#loginForm");
-              
-            setTimeout(() => {
-                window.location.href = "./index.php";
-            }, 1000);
+            } else if (data == 1) {
+
+                $("#successMsg").html(
+                  '<small class="alert alert-success px-3"> Success! Loading..... </small>'
+                );
+                // Empty Fields
+                clearField("#loginForm");
+                
+              setTimeout(() => {
+                  window.location.href = "./index.php";
+              }, 1000);
+          }
         }
-      }
-    });
+      });
+    }
   }
 //clear field
   function clearField(id){

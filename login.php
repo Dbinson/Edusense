@@ -16,7 +16,7 @@
         <img src="./public/assets/MainLogo.png" alt="" />
         <h2>Welcome back, Login</h2>
         
-        <input type="email" placeholder="Email" required name="userLogEmail"  pattern="[^ @]*@[^ @]*" oninvalid="alert('Invalid Email')" id="userLogEmail" />
+        <input type="email" placeholder="Email" required name="userLogEmail" pattern="[^ @]*@[^ @]*" oninvalid="alert('Invalid Email')" id="userLogEmail" />
         <select required name="userLogRole" id="userLogRole">
           <option disabled >Select Role</option>
           <option value="103" default>Student</option>

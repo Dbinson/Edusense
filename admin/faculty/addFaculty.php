@@ -97,7 +97,7 @@
 
                     <div class="mb-3">
                         <label for="faculty_join_date" class="form-label">Faculty Join Date</label>
-                            <input class="form-control" type="date" required name="faculty_join_date" required id="faculty_join_date">
+                            <input class="form-control" type="date" required name="faculty_join_date" required max="<?php echo date("Y-m-d"); ?>" oninvalid="alert('join Date invalid')" id="faculty_join_date">
                     </div>
                 
                     <div class="mb-3">  

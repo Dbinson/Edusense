@@ -1,6 +1,8 @@
 <?php
 
     include('../../dbConnection.php');
+    header('Content-type: application/json');
+
     $quiz = file_get_contents('../../mcqs/' . $_GET['id'] . '.json');
     $questions = json_decode($quiz, true);
     $scoredMarks = 0;
