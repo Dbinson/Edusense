@@ -17,8 +17,7 @@
     </div>
 
     <?php
-        $sql = "SELECT subject_id FROM enroll
-             WHERE student_id = '".$_SESSION['faculty_id']."'";
+        $sql = "SELECT * FROM mst_notes";
         $query = mysqli_query($conn,$sql);
         echo '<section class="row books-section">';
         while($result = mysqli_fetch_assoc($query)){

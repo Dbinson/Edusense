@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="../feedback/rate.css">
+<link rel="stylesheet" href="../feedback/style.css">
+
+
 <?php
 if (!isset($_SESSION)) {
   session_start();
@@ -6,6 +10,7 @@ define('TITLE', 'MCQs');
 define('PAGE', 'mcq');
 include('../mainInclude/header.php');
 include('../../dbConnection.php');
+include('../modal/addFeedbackModal.php');
 
 if (!isset($_SESSION['is_login'])) {
   echo "<script> location.href='../../index.php'; </script>";
@@ -214,7 +219,10 @@ $questions = json_decode($quiz, true);
       success: function(data) {
         console.log(data)
         if(data[1] == 1){
-          $('#successmsg').html
+          $('#successmsg').html(
+            '<small class="alert alert-danger">Submitted ! </small>'
+            )
+          $('#myModal').modal('show')
         }elseif(data[1] == 0)
       }
     });
