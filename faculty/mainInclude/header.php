@@ -78,9 +78,20 @@
         
         <li class="slidebar-Item <?php if(PAGE == 'mcq'){echo 'active';} ?>">
           <i class="material-icons ic">local_library</i>
-          <a href="../mcq/">Mcq</a>
+          <!-- <a  href="#mcqsubmenu" data-bs-toggle="collapse" aria-expanded="true">Mcq</a> -->
+          <a  href="../mcq/index.php">Mcq</a>
         </li>
+        <!-- sublist mcq-->
+        <!-- <ul class="collapse list-unstyled list-group sublist" id="mcqsubmenu">
+          <li>
+              <a href="../mcq/index.php">Add Mcq</a>
+          </li>
+          <li>
+              <a href="../mcq/viewMcq.php">View</a>
+          </li>
+        </ul> -->
 <!-- 
+
         <li class="slidebar-Item <?php if(PAGE == 'lecture'){echo 'active';} ?>">
           <i class="material-icons ic">contacts</i>
           <a href="#lectureSubmenu">Lecture</a>

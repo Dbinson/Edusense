@@ -10,7 +10,7 @@
           <!--Start Form Registration-->
           <form action="" id="addDeatilsStudForm" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-                    
+                    <input type="hidden" name="id" id="idd" value="">
                     <div class="mb-3">
                         <label for="student_photo" class="form-label">Student Photo</label>
                             <input class="form-control" type="file" name="student_photo" id="student_photo">

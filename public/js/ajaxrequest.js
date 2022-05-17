@@ -27,7 +27,8 @@ function addUser(){
         setTimeout(() => {
           
           $('#studentRegModalCenter').modal('show')
-          addDetails(data[0])
+          $('#idd').val(data[0])
+          // addDetails(data[0])
           // console.log(upd)
         }, 1000);
       }
@@ -35,7 +36,7 @@ function addUser(){
   });
 }
 
-function addDetails(id){
+// function addDetails(id){
   $("#addDeatilsStudForm").on('submit',(function (e) {
       var formdata = new FormData(this)
       formdata.append('addstuddetails','addstuddetails')
@@ -48,8 +49,9 @@ function addDetails(id){
 			processData: false,
 			contentType: false,
 			success: function (data){
+        console.log(data)
         if( data == 1){
-            
+          $('#successMsg').html('')
           $('#successMsgss'.html(
             '<small class="alert alert-success p-4"> Success Loading..... </small>'
           ));
@@ -60,6 +62,7 @@ function addDetails(id){
             window.location.href = "./login.php";
           }, 1000);
         }else if(data == 0) {
+          $('#successMsg').html('')
           $('#successMsgss').html(
             '<small class="alert alert-danger p-4"> Failed Loading..... </small>'
           );
@@ -68,7 +71,7 @@ function addDetails(id){
 		});
 		e.preventDefault();
     }));
-}
+// }
 
 //Login user
 function checkUserLogin(){

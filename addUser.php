@@ -47,6 +47,29 @@ header('Content-type: application/json');
 
     $isUpdated = 0;
 
+    //update student photo
+    if(isset($_FILES['student_photo'])){
+
+      $student_photo = $_FILES['student_photo']['name']; 
+        $student_photo_temp = $_FILES['student_photo']['tmp_name'];
+        $img_folder = '../../images/stud/'. $student_photo; 
+
+        //image validate
+        $allowed =  array('jpeg','jpg', "png", "gif", "bmp", "JPEG","JPG", "PNG", "GIF", "BMP");
+        $ext = pathinfo($student_photo, PATHINFO_EXTENSION);
+        if(!in_array($ext,$allowed) ) {
+            $msg = '<span class="alert-danger p-3">INVALID Photo format</span> ';
+            exit();
+        }else{
+            move_uploaded_file($student_photo_temp, $img_folder);
+
+            $sql = "UPDATE student SET profile_pic = '".$img_folder."' WHERE student_id = '".$_POST['id']."'";
+            $query = mysqli_query($conn,$sql);
+            if($query){
+                $isUpdated = 1;
+            }
+          }
+  }
 
     //update student Mobile
     if(isset($_POST['student_mobile'])){
@@ -153,7 +176,3 @@ header('Content-type: application/json');
       echo $islogged;
     }
   }
-     
- 
-
-?>

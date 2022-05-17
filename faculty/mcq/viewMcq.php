@@ -44,10 +44,10 @@ if(!isset($_SESSION['is_login'])){
                         <tr>
                             <?php
 
-                            $sql = "SELECT * FROM faculty_notes
-                                        LEFT JOIN subject ON faculty_notes.subject_id = subject.subject_id
-                                        LEFT JOIN student ON faculty_notes.student_id = student.student_id
-                                        where faculty_notes.faculty_id = '".$_SESSION['faculty_id']."'
+                            $sql = "SELECT * FROM mcq
+                                        LEFT JOIN subject ON mcq.subject_id = subject.subject_id
+                                        LEFT JOIN student ON mcq.student_id = student.student_id
+                                        where mcq.faculty_id = '".$_SESSION['faculty_id']."'
                                        ";
                             $query = mysqli_query($conn, $sql);
 

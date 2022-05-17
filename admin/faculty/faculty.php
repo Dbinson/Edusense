@@ -103,7 +103,7 @@
     $("#updateFacultyForm").on('submit',(function (e) {
 		
 		$.ajax({
-			url:"updateStudent.php",
+			url:"updatefaculty.php",
 			type:"post",
 			data: new FormData(this),
 			processData: false,
