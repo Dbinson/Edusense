@@ -28,7 +28,7 @@ header('Content-type: application/json');
         $query3 = mysqli_query($conn, $sql3);
         $count = mysqli_num_rows($query3) + 1;
 
-        $student_id = 'stud'.date('Y').$count;
+        $student_id = 'stud'.date('Y').$count .rand(1,500);
 
     $sql2 = "INSERT INTO student(student_id,stud_name,stud_email,password) VALUES ('".$student_id."','".$stuname."','".$stuemail."', '".$stupass."');";
     $query2 = mysqli_query($conn, $sql2);
