@@ -60,15 +60,16 @@
                 $result2 = mysqli_query($conn, $sql2);
             
             }
+            if($result2){
+                $msg = '<span class="alert-success p-3">Added Successfully</span> ';
+        
+            }else{
+                $msg = '<span class="alert-danger p-3">Failed!!! </span> ';
+            }
         }
         
         // $arr = array();
-        if($result2){
-            $msg = '<span class="alert-success p-3">Added Successfully</span> ';
-    
-        }else{
-            $msg = '<span class="alert-danger p-3">Failed!!! </span> ';
-        }
+        
 
         // if($result2){
         //     $msg = '<span class="alert-success p-3">Student Added</span> ';
