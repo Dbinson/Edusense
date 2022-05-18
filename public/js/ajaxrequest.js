@@ -21,8 +21,8 @@ function addUser(){
         $("#successMsg").html(
           '<small class="alert alert-danger"> Please fill out the empty fields. </small>'
         ); 
-      } else if (data[0] == 'OK') {
-        // console.log("completed")
+      } else if (data[1] == 'OK') {
+        // console.log(data)
 
         $("#successMsg").html(
           '<small class="alert alert-success"> Registered Loading..... </small>'
