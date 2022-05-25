@@ -16,8 +16,8 @@ include_once('./dbConnection.php');
               <img class="w-100" src="public/assets/aa.png" alt="hero-header" />
             </div>
             <div class="col-md-7 col-lg-6 text-md-start text-center cc py-6">
-              <h1 class="fs-6 fs-xl-7 mb-5 ml3">Broaden your knowledge with Edusession</h1>
-              <a class="btn btn-c" href="#!" role="button"> Get Started</a>
+              <h1 class="fs-6 fs-xl-7 mb-5 ml3">Broaden your knowledge with Edusesnse</h1>
+              <a class="btn btn-c" href="./signup.php" role="button"> Get Started</a>
             </div>
           </div>
         </div>
@@ -190,7 +190,7 @@ include_once('./dbConnection.php');
                   <div class="testi-item">
                       <div class="testi-avatar">';
           if ($r['profile_pic'] == null) {
-            echo '<img src="./public/assets/defaultpic.png">';
+            echo '<img src="./public/assets/t6.jpg">';
           } else {
             echo '<img src="' . $r['profile_pic'] . '">';
           }

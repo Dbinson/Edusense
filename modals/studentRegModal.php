@@ -43,7 +43,7 @@
                     </div>
                     <div class="mb-3">
                             <label for="pincode" class="form-label">Pincode</label><br>
-                            <input type="text"  class="form-control" required name="pincode" id="pincode">
+                            <input type="number"  class="form-control" required name="pincode" max="6" id="pincode">
                     </div> 
 
                     <!-- Parent details -->

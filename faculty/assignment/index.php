@@ -18,19 +18,19 @@
 
        <div class="container">
     <header class="rows header">
-      <button id="add-asses-btn" class="btn-active">Add Assesment</button>
-      <button id="view-asses-btn">View Assesments</button>
+      <button id="add-asses-btn" class="btn-active">Add Assignment</button>
+      <button id="view-asses-btn">View Assignments</button>
       <button id="view-sub-asses-btn">View Submited</button>
     </header>
 
-    <form class="columns add-assesment-form"  id="addAssForm" method="POST" >
+    <form class="columns add-Assignment-form"  id="addAssForm" method="POST" >
 
       <div class="rows form-title">
-        <h1>Add Assesment</h1>
+        <h1>Add Assignment</h1>
       </div>
       <div class="columns input-box">
         <label for="subject">Subject</label>
-        <select class="form-select" aria-label="Default select example" name="sid">
+        <select class="form-select" aria-label="Default select example" name="sid" id="sidd">
           <option selected>Select a subject</option>
           <?php
                         $sql=mysqli_query($conn,"SELECT * from enroll 
@@ -45,33 +45,25 @@
 
       <div class="columns input-box">
         <label for="student">Student</label>
-        <select class="form-select" aria-label="Default select example" name="stud_Id">
+        <select class="form-select" aria-label="Default select example" name="stud_Id" id="studd">
           <option selected>Select a student</option>
-          <?php
-            $sql=mysqli_query($conn,"SELECT * from enroll 
-            LEFT JOIN student ON enroll.student_id=student.student_id 
-            WHERE faculty_id='".$_SESSION["faculty_id"]."';");
-            while($r=mysqli_fetch_assoc($sql)){
-                echo "<option value=".$r['student_id'].">".$r['stud_name']."</option>";
-            }
-          ?>
         </select>
       </div>
       <div class="columns input-box">
-        <label for="class">Assesment Question</label>
+        <label for="class">Assignment Question</label>
         <input
           type="text"
           class="form-control"
-          placeholder="Enter assesment Question"
+          placeholder="Enter Assignment Question"
           name="aquestion"
         />
       </div>
       <div class="columns input-box">
-        <label for="class">Assesment Deadline</label>
-        <input type="datetime-local" class="form-control" name="adeadline"/>
+        <label for="class">Assignment Deadline</label>
+        <input type="date" class="form-control" required min="<?php echo date("Y-m-d"); ?>" name="adeadline"/>
       </div>
       <div class="columns input-box">
-        <label for="class">Assesment Marks</label>
+        <label for="class">Assignment Marks</label>
         <input type="number" class="form-control" name="amarks"/>
       </div>
       <span id="successMsg"></span>
@@ -127,7 +119,7 @@
             <th scope="col">#</th>
             <th scope="col">Student ID</th>
             <th scope="col">Student Name</th>
-            <th scope="col">Assesment ID</th>
+            <th scope="col">Assignment ID</th>
             <th scope="col">Submition Date</th>
             <th scope="col">File</th>
             <th></th>
@@ -137,10 +129,10 @@
 
         <?php 
         
-        $s = mysqli_query($conn,"SELECT assignment.assignment_id,assignment.submition_date,subject.name,subject.class,student.stud_name FROM assignment
+        $s = mysqli_query($conn,"SELECT student.student_id,assignment.assignment_id,assignment.submition_date,subject.name,subject.class,student.stud_name,assignment.submitted_file FROM assignment
         LEFT JOIN subject ON assignment.subject_id = subject.subject_id
         LEFT JOIN student ON assignment.student_id = student.student_id
-       WHERE faculty_id='".$_SESSION['faculty_id']."' AND submitted_file != null;");
+       WHERE faculty_id='".$_SESSION['faculty_id']."' AND submitted_file IS NOT null;");
 
        $count=1;
        while($result = mysqli_fetch_assoc($s)){
@@ -152,7 +144,7 @@
               <td>'.$result['assignment_id'].'</td>
               <td>'.$result['submition_date'].'</td>
               <td>';
-                echo '<a href="./downloadFile.php?file='.$result['submitted_file'].'" class="btn btn-primary">
+                echo '<a href="../downloadFile.php?file='.$result['submitted_file'].'" class="btn btn-primary">
                   Download
                 </a>
               </td>
@@ -219,6 +211,29 @@
       }));
     });
 
+    $(document).ready(function () {
+      $('#sidd').on('change',()=>{
+        
+        id = $('#sidd').val()
+        console.log(id)
+        $.ajax({
+          type: "post",
+          url: "../fetch.php",
+          data: {
+            id:id,
+            request:"studSubDetails"
+          },
+          success: function (data) {
+            $.each(data, function (index, value) {
+                $('#studd').empty().append($('<option/>', { 
+                    value: value.student_id,
+                    text : value.stud_name
+                }));
+            });      
+          }
+        });
+      })
+    });
     </script>
     <script src="../js/assignment.js"></script>
     <script src="../js/index.js"></script>

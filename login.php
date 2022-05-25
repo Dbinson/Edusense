@@ -25,7 +25,7 @@
         <input type="password" placeholder="Password" required name="userLogPass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="alert('Invalid Password')" id="userLogPass"/>
         <input type="hidden" name="enrollsub" value="<?php if(isset($_GET['enroll'])){echo $_GET['enroll'];} ?>">
         <button type="button" onclick="checkUserLogin()">Login</button>
-        <span>Didn't Registered Yet? <a href="./signup.php">Click here</a> </span>
+        <span>Did not Register Yet? <a href="./signup.php">Click here</a> </span>
         <span id="successMsg"></span>
       </form>
     </div>
