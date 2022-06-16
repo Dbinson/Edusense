@@ -67,7 +67,7 @@ if (!isset($_SESSION['is_login'])) {
         <h3>Completed MCQs</h3>
         <div class="aa m-4">
             <?php
-            $sql = "SELECT mcq_id FROM mcq
+            $sql = "SELECT mcq_id,subject.name,subject.class,mcq.marks_scored FROM mcq
                 LEFT JOIN subject ON mcq.subject_id = subject.subject_id 
                 WHERE student_id = '" . $_SESSION['student_id'] . "'  AND mcq.marks_scored IS NOT NULL
             ";
@@ -82,8 +82,10 @@ if (!isset($_SESSION['is_login'])) {
                                     <div class="card-body t">
                                     <h5 class="card-title fs-2">' . $r['name'] . '</h5>
                                     <p class="card-text">class: ' . $r['class'] . '</p>
+                                    <p class="card-text fw-bold">Scored : ' . $r['marks_scored'] . '</p>
                                     </div>
                                 </a>
+                                
                             </div>
                         ';
                     }

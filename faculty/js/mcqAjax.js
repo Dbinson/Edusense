@@ -12,7 +12,7 @@
                     console.log(data)
                     if (data == 1) {
                         clearField("#addMcqForm");
-                        $("#successmsgg").html(
+                        $("#smg").html(
                           '<small class="alert alert-success px-5">MCQ Assigned !!! </small>'
                         );
     
@@ -21,7 +21,7 @@
                         }, 1000);
                       }else if(data == 0){
                         clearField("#addMcqForm");
-                        $("#successmsgg").html(
+                        $("#smg").html(
                           '<small class="alert alert-danger px-5">Assigned Failed!!! </small>'
                         );
                       }
@@ -120,4 +120,28 @@
             }
             });
         })
+    });
+
+    //select students
+    $(document).ready(function (){
+      $('#subjctId').on('change',()=>{ 
+        id = $('#subjctId').val()
+        console.log(id)
+        $.ajax({
+          type: "post",
+          url: "../fetch.php",
+          data: {
+            id:id,
+            request:"studSubDetails"
+          },
+          success: function (data) {
+            $.each(data, function (index, value) {
+                $('#student_Id').empty().append($('<option/>', { 
+                    value: value.student_id,
+                    text : value.stud_name
+                }));
+            });      
+          }
+        });
+      })
     });
