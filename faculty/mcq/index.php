@@ -27,12 +27,15 @@ if (!isset($_SESSION['is_login'])) {
 
           <div class="mb-3">  
                     <label for="subjectId" class="form-label">Subject</label>
-                            <select class="form-select" required name="subjectId"  required id="subjectId"
+                            <select class="form-select" required name="subjectId"  required id="subjctId"
                                 aria-label="Default select example">
                             <option selected>Select subject </option>
                     <?php
                         include_once('../../dbConnection.php');    
-                        $sql=mysqli_query($conn,"SELECT * from subject");
+                        $sql=mysqli_query($conn,"SELECT subject.subject_id,subject.name,subject.class from enroll 
+                              LEFT JOIN subject ON enroll.subject_id = subject.subject_id
+                              WHERE enroll.faculty_id = '".$_SESSION['faculty_id']."'
+                        ");
                         while($result=mysqli_fetch_assoc($sql)){
                             echo "<option value=".$result['subject_id'].">".$result['name']. "  ".$result['class']."</option>";
                         }
@@ -47,11 +50,11 @@ if (!isset($_SESSION['is_login'])) {
                                 aria-label="Default select example">
                             <option selected>Select Student </option>
                     <?php
-                        include_once('../../dbConnection.php');    
-                        $sql=mysqli_query($conn,"SELECT student_id,stud_name from student");
-                        while($result=mysqli_fetch_assoc($sql)){
-                            echo "<option value=".$result['student_id'].">".$result['stud_name']."</option>";
-                        }
+                        // include_once('../../dbConnection.php');    
+                        // $sql=mysqli_query($conn,"SELECT student_id,stud_name from student");
+                        // while($result=mysqli_fetch_assoc($sql)){
+                        //     echo "<option value=".$result['student_id'].">".$result['stud_name']."</option>";
+                        // }
                     ?>
                             </select>
                 </div>
@@ -68,16 +71,16 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question1Option"   required id="question1Option1" />
+              <input class="form-check-input" type="radio" value="1" required name="question1Option"   required id="question1Option1" />
               <input type="text" placeholder="Option 1" name="question10option1Text" id="question1Option1Text" />
             </div>
             
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question1Option"   required id="question1Option2" />
+              <input class="form-check-input" type="radio" value="2" required name="question1Option"   required id="question1Option2" />
               <input type="text" placeholder="OPtion 2" name="question10option2Text" id="question1Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question1Option"  required id="question1Option3" />
+              <input class="form-check-input" type="radio" value="3" required name="question1Option"  required id="question1Option3" />
               <input type="text" placeholder="Option 3" name="question10option3Text" id="question1Option3Text" />
             </div>
           </div>
@@ -94,15 +97,15 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question2Option"     required id="question2Option1" />
+              <input class="form-check-input" type="radio" value="1" required name="question2Option"     required id="question2Option1" />
               <input type="text" placeholder="option 1" name="question20option1Text" required id="question2Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question2Option"    required id="question2Option2" />
+              <input class="form-check-input" type="radio" value="2" required name="question2Option"    required id="question2Option2" />
               <input type="text" placeholder="option 2" name="question20option2Text" required id="question2Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question2Option"      required id="question2Option3" />
+              <input class="form-check-input" type="radio" value="3" required name="question2Option"      required id="question2Option3" />
               <input type="text" placeholder="option 3" name="question20option3Text" required id="question2Option3Text" />
             </div>
           </div>
@@ -119,15 +122,15 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question3Option" required id="question3Option3" />
+              <input class="form-check-input" type="radio" value="1" name="question3Option" required id="question3Option3" />
               <input type="text" placeholder="option 1" name="question30option1Text"   required id="question3Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="question3Option" required id="question3Option3" />
+              <input class="form-check-input" type="radio" value="2" name="question3Option" required id="question3Option3" />
               <input type="text" placeholder="option 2" name="question30option2Text"   required id="question3Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question3Option" required id="question3Option3" />
+              <input class="form-check-input" type="radio" value="3" required name="question3Option" required id="question3Option3" />
               <input type="text" placeholder="option 3" name="question30option3Text"   required id="question3Option3Text" />
             </div>
           </div>
@@ -144,15 +147,15 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question4Option" required id="question4Option4" />
+              <input class="form-check-input" type="radio" value="1" required name="question4Option" required id="question4Option4" />
               <input type="text" placeholder="option 1" name="question40option1Text" required id="question4Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question4Option" required id="question4Option4" />
+              <input class="form-check-input" type="radio" value="2" required name="question4Option" required id="question4Option4" />
               <input type="text" placeholder="option 2" name="question40option2Text" required id="question4Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question4Option" required id="question4Option4" />
+              <input class="form-check-input" type="radio" value="3" required name="question4Option" required id="question4Option4" />
               <input type="text" placeholder="option 3" name="question40option3Text" required id="question4Option3Text" />
             </div>
           </div>
@@ -168,15 +171,15 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question5Option" required id="question5Option5" />
+              <input class="form-check-input" type="radio" value="1" required name="question5Option" required id="question5Option5" />
               <input type="text" placeholder="option 1" name="question50option1Text" required id="question5Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question5Option" required id="question5Option5" />
+              <input class="form-check-input" type="radio" value="2" required name="question5Option" required id="question5Option5" />
               <input type="text" placeholder="option 2"  name="question50option2Text" required id="question5Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question5Option" required id="question5Option5" />
+              <input class="form-check-input" type="radio" value="3" required name="question5Option" required id="question5Option5" />
               <input type="text" placeholder="option 3"  name="question50option3Text" required id="question5Option1Text" />
             </div>
           </div>
@@ -194,15 +197,15 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question6Option" required id="question6Option6" />
+              <input class="form-check-input" type="radio" value="1" required name="question6Option" required id="question6Option6" />
               <input type="text" placeholder="option 1" name="question60option1Text" required id="question6Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question6Option" required id="question6Option6" />
+              <input class="form-check-input" type="radio" value="2" required name="question6Option" required id="question6Option6" />
               <input type="text" placeholder="option 2" name="question60option2Text" required id="question6Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question6Option" required id="question6Option6" />
+              <input class="form-check-input" type="radio" value="3" required name="question6Option" required id="question6Option6" />
               <input type="text" placeholder="option 3" name="question60option3Text" required id="question6Option3Text" />
             </div>
           </div>
@@ -218,15 +221,15 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question7Option" required id="question7Option7" />
+              <input class="form-check-input" type="radio" value="1" required name="question7Option" required id="question7Option7" />
               <input type="text" placeholder="option 1" name="question70option1Text"   required id="question7Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question7Option" required id="question7Option7" />
+              <input class="form-check-input" type="radio" value="2" required name="question7Option" required id="question7Option7" />
               <input type="text" placeholder="option 2" name="question70option2Text"   required id="question7Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio"required name="question7Option" required id="question7Option7" />
+              <input class="form-check-input" type="radio" value="3"required name="question7Option" required id="question7Option7" />
               <input type="text" placeholder="option 3" name="question70option3Text"   required id="question7Option3Text" />
             </div>
           </div>
@@ -244,15 +247,15 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question8Option" required id="question8Option8" />
+              <input class="form-check-input" type="radio" value="1" required name="question8Option" required id="question8Option8" />
               <input type="text" placeholder="option 1" name="question80option1Text"   required id="question8Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question8Option" required id="question8Option8" />
+              <input class="form-check-input" type="radio" value="2" required name="question8Option" required id="question8Option8" />
               <input type="text" placeholder="option 2" name="question80option2Text"   required id="question8Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question8Option" required id="question8Option8" />
+              <input class="form-check-input" type="radio" value="3" required name="question8Option" required id="question8Option8" />
               <input type="text" placeholder="option 3" name="question80option3Text"   required id="question8Option3Text" />
             </div>
           </div>
@@ -270,15 +273,15 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question9Option" required id="question9Option9" />
+              <input class="form-check-input" type="radio" value="1" required name="question9Option" required id="question9Option9" />
               <input type="text" placeholder="option 1" name="question90option1Text"   required id="question9Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question9Option" required id="question9Option9" />
+              <input class="form-check-input" type="radio" value="2" required name="question9Option" required id="question9Option9" />
               <input type="text" placeholder="option 2" name="question90option2Text"    required id="question9Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question9Option" required id="question9Option9" />
+              <input class="form-check-input" type="radio" value="3" required name="question9Option" required id="question9Option9" />
               <input type="text" placeholder="option 3" name="question90option3Text"   required id="question9Option3Text" />
             </div>
           </div>
@@ -294,22 +297,22 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question10Option" required id="question10Option10" />
+              <input class="form-check-input" type="radio" value="1" required name="question10Option" required id="question10Option10" />
               <input type="text" placeholder="option 1" name="question100option1Text"   required id="question10Option1Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question10Option" required id="question10Option10" />
+              <input class="form-check-input" type="radio" value="2" required name="question10Option" required id="question10Option10" />
               <input type="text" placeholder="option 2" name="question100option2Text"    required id="question10Option2Text" />
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" required name="question10Option" required id="question10Option10" />
+              <input class="form-check-input" type="radio" value="3" required name="question10Option" required id="question10Option10" />
               <input type="text" placeholder="option 3" name="question100option3Text"   required id="question10Option3Text" />
             </div>
           </div>
 
           <button type="submit" class="btn btn-primary ">Add</button>
         </form>
-        <span id="successmsgg"></span>
+        <span id="smg"></span>
       </div>
     </div>
   </div>
