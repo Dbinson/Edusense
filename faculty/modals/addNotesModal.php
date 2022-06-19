@@ -17,7 +17,9 @@
                             <option selected>Select subject </option>
                     <?php
                         include_once('../../dbConnection.php');    
-                        $sql=mysqli_query($conn,"SELECT * from subject");
+                        $sql=mysqli_query($conn,"SELECT * from enroll 
+                            LEFT JOIN subject ON enroll.subject_id=subject.subject_id 
+                            WHERE faculty_id='".$_SESSION["faculty_id"]."'");
                         while($result=mysqli_fetch_assoc($sql)){
                             echo "<option value=".$result['subject_id'].">".$result['subject_id']."</option>";
                         }
@@ -31,13 +33,7 @@
                             <select class="form-select" required name="studentId" required id="student_Id"
                                 aria-label="Default select example">
                             <option selected>Select Student </option>
-                    <?php
-                        include_once('../../dbConnection.php');    
-                        $sql=mysqli_query($conn,"SELECT student_id,stud_name from student");
-                        while($result=mysqli_fetch_assoc($sql)){
-                            echo "<option value=".$result['student_id'].">".$result['stud_name']."</option>";
-                        }
-                    ?>
+                   
                     </select>
                 </div>
                 
@@ -60,3 +56,30 @@
         </div>
     </div> 
 </div>
+<script>
+    
+
+$(document).ready(function () {
+	$('#subjectId').on('change',()=>{
+	  
+	  id = $('#subjectId').val()
+	  console.log(id)
+	  $.ajax({
+		type: "post",
+		url: "../fetch.php",
+		data: {
+		  id:id,
+		  request:"studSubDetails"
+		},
+		success: function (data) {
+		  $.each(data, function (index, value) {
+			  $('#student_Id').empty().append($('<option/>', { 
+				  value: value.student_id,
+				  text : value.stud_name
+			  }));
+		  });      
+		}
+	  });
+	})
+  });
+</script>

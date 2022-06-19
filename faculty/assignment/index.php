@@ -23,10 +23,10 @@
       <button id="view-sub-asses-btn">View Submited</button>
     </header>
 
-    <form class="columns add-Assignment-form"  id="addAssForm" method="POST" >
+    <form class="columns add-assignment-form"  id="addAssForm" method="POST" >
 
       <div class="rows form-title">
-        <h1>Add Assignment</h1>
+        <h1>Add Assignment</h1> 
       </div>
       <div class="columns input-box">
         <label for="subject">Subject</label>

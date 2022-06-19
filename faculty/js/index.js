@@ -2,7 +2,7 @@ const addAssesBtn = document.getElementById('add-asses-btn')
 const viewAssesBtn = document.getElementById('view-asses-btn')
 const viewSubAssesBtn = document.getElementById('view-sub-asses-btn')
 
-const formSec = document.querySelector('.add-assesment-form')
+const formSec = document.querySelector('.add-assignment-form')
 const cardsSec = document.querySelector('.cards')
 const submittedSec = document.querySelector('.submitted-sec')
 

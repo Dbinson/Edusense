@@ -123,7 +123,7 @@
           console.log(data)
           if(data == 1){
             $("#successAssMsg").html(
-            '<small class="alert alert-success"> Success! Loading..... </small>'
+            '<small class="alert alert-success"> Submitted</small>'
           );
           setTimeout(() => {
             $('#viewAssignmentModalCenter').modal('hide')
