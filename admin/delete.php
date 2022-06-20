@@ -42,7 +42,7 @@
     if($_POST['requestType'] == 'student' && isset($_POST['id'])){
         $sql4 = 'DELETE FROM student WHERE student_id ="'.$_POST['id'].'"';
         $query4 = mysqli_query($conn, $sql4);
-        if($query){
+        if($query4){
             $isDeleted = true;
         }
     }

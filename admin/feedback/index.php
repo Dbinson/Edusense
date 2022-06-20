@@ -22,18 +22,16 @@
                <tr>
                     <th>#</th>
                     <th>ID</th>
-                    <th>Subject Name</th>
-                    <th>Class</th>
+                    <th>Student Name</th>
                     <th>Description</th>
                     <th>Ratings</th>
-                    <th></th>
                </tr>
            </thead>
            <tbody>
                 <?php
                     $count=1;
                     $sql = "SELECT * FROM feedback
-                        LEFT JOIN subject ON feedback.subject_id = subject.subject_id
+                        LEFT JOIN student ON feedback.student_id = student.student_id
                         ";
                     $query = mysqli_query($conn,$sql);
                     while($row = mysqli_fetch_assoc($query)){
@@ -41,8 +39,7 @@
                         <tr>
                             <th>'.$count++.'</th>
                             <td>'.$row['feedback_id'].'</td>
-                            <td>'.$row['name'].'</td>
-                            <td>'.$row['name'].'</td>
+                            <td>'.$row['stud_name'].'</td>
                             <td>'.$row['feedback_desc'].'</td>
                             <td>'.$row['ratings'].'</td>
                         </tr>
