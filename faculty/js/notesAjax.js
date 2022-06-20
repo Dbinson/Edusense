@@ -119,3 +119,24 @@ $(document).ready(function (e) {
 		});
 	})
 });
+
+ //delete
+ $(document).ready(function () {
+	$('.deletebtn').on('click', function () {
+		var id = $(this).attr('id')
+		$.ajax({
+		type: "post",
+		url: "../delete.php",
+		data: {
+			requestType: 'notes',
+			id:id
+		},
+		success: function (data) {
+			// console.log(data)
+			if(data == '1'){
+				location.reload()
+			}
+		}
+		});
+	})
+});

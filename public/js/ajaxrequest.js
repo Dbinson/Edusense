@@ -45,6 +45,7 @@ function addUser(){
 
 // function addDetails(id){
   $("#addDeatilsStudForm").on('submit',(function (e) {
+      var id = $('#idd').val()
       var formdata = new FormData(this)
       formdata.append('addstuddetails','addstuddetails')
       formdata.append('id',id)
@@ -58,10 +59,10 @@ function addUser(){
 			success: function (data){
         console.log(data)
         if( data == 1){
-          $('#successMsg').html('')
-          $('#successMsgss'.html(
+          // $('#successMsg').html('')
+          $('#qsr').html(
             '<small class="alert alert-success p-4"> Success Loading..... </small>'
-          ));
+          );
           clearField('addDeatilsStudForm')
           
           setTimeout(() => {
@@ -69,9 +70,9 @@ function addUser(){
             window.location.href = "./login.php";
           }, 1000);
         }else if(data == 0) {
-          $('#successMsg').html('')
-          $('#successMsgss').html(
-            '<small class="alert alert-danger p-4"> Failed Loading..... </small>'
+          // $('#successMsg').html('')
+          $('#qsr').html(
+            '<small class="alert alert-danger p-4"> Failed ..... </small>'
           );
         }    
 			}

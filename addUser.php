@@ -57,7 +57,7 @@ $arr = array();
     $isUpdated = 0;
 
     //update student photo
-    if(isset($_FILES['student_photo'])){
+    if(isset($_FILES['student_photo']) && !$_FILES['student_photo']['name'] == ""){
 
       $student_photo = $_FILES['student_photo']['name']; 
         $student_photo_temp = $_FILES['student_photo']['tmp_name'];
@@ -78,7 +78,7 @@ $arr = array();
                 $isUpdated = 1;
             }
           }
-  }
+      }
 
     //update student Mobile
     if(isset($_POST['student_mobile'])){

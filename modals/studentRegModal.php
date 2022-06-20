@@ -43,7 +43,7 @@
                     </div>
                     <div class="mb-3">
                             <label for="pincode" class="form-label">Pincode</label><br>
-                            <input type="number"  class="form-control" required name="pincode" max="6" id="pincode">
+                            <input type="number"  class="form-control" required name="pincode" id="pincode">
                     </div> 
 
                     <!-- Parent details -->
@@ -56,7 +56,7 @@
                     </div>
                     <div class="mb-3">
                             <label for="parent_mobile" class="form-label">Parent Mobile Number</label><br>
-                            <input type="text"  class="form-control" required name="parent_mobile"v id="parent_mobile">
+                            <input type="number"  class="form-control" required name="parent_mobile"v id="parent_mobile">
                     </div>
                     <div class="mb-3">
                             <label for="parent_email" class="form-label">Parent Email</label><br>
@@ -65,7 +65,7 @@
                 
           </div>
           <div class="modal-footer">
-            <span id="successMsgss"></span>
+            <span id="qsr"></span>
             <button type="Submit" class="btn btn-primary" id="signup">Submit</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>

@@ -68,7 +68,7 @@ if(!isset($_SESSION['is_login'])){
                                         <button name="updateNotebtn"  class="btn btn-success btn-sm updateNotebtn" id="'.$result['fac_notes_id'].'" ><span class="material-icons">update</span></button>
                                     </td>
                                     <td>
-                                        <a href ="#" class="btn btn-danger btn-sm deletebtn" type="button" id="'.$result['fac_notes_id'].'"><span class="material-icons">delete</span></a>
+                                        <a href ="#" class="btn btn-danger btn-sm  deletebtn" type="button" id="'.$result['fac_notes_id'].'"><span class="material-icons">delete</span></a>
                                     </td>
                                 </tr>
                                 ';
