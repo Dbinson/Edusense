@@ -69,16 +69,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ms-auto mb-lg-0">
                 <li class="nav-item px-2">
-                  <a class="nav-link active" aria-current="page" href="./index.php/#section-1">Home</a>
+                  <a class="nav-link active" aria-current="page" href="#section-1">Home</a>
                 </li>
                 <li class="nav-item px-2">
-                  <a class="nav-link" href="./index.php/#section-5">Courses</a>
+                  <a class="nav-link" href="#section-5">Courses</a>
                 </li>
                 <li class="nav-item px-2">
-                  <a class="nav-link" href="./index.php/#section-4">Feedback</a>
+                  <a class="nav-link" href="#section-4">Feedback</a>
                 </li>
                 <li class="nav-item px-2">
-                  <a class="nav-link" href="./index.php/#footer">Contact</a>
+                  <a class="nav-link" href="#footer">Contact</a>
                 </li>
                 <?php
                 if (isset($_SESSION['is_login'])){
