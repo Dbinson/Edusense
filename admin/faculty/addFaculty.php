@@ -87,7 +87,7 @@
 
                     <div class="mb-3">
                         <label for="faculty_mobile" class="form-label">Faculty Mobile</label>
-                            <input class="form-control" type="tel" min="10" max="10" name="faculty_mobile"  pattern="[7-9]{1}[0-9]{9}" required id="faculty_mobile" oninvalid="alert('Incorrect Phone number')">
+                            <input class="form-control" type="number" name="faculty_mobile"  pattern="[7-9]{1}[0-9]{9}" required id="faculty_mobile" oninvalid="alert('Incorrect Phone number')">
                     </div>
 
                     <div class="mb-3">
